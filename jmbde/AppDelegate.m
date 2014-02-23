@@ -5,14 +5,34 @@
 //  Created by Jürgen Mülbert on 20.02.14.
 //  Copyright (c) 2014 Jürgen Mülbert. All rights reserved.
 //
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the European Union Public License (EUPL),
+// version 1.1.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// European Union Public License for more details.
+//
+// You should have received a copy of the European Union Public Licence
+// along with this program. If not, see
+// http://www.osor.eu/eupl/european-union-public-licence-eupl-v.1.1
+//
+
 
 #import "AppDelegate.h"
+
+@interface AppDelegate ()
+
+
+@end
 
 @implementation AppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
+
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -81,7 +101,7 @@
         }
     }
     
-    NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"jmbde.storedata"];
+    NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"jmbde.xml"];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
     if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
@@ -178,6 +198,21 @@
     }
 
     return NSTerminateNow;
+}
+
+
+- (IBAction)addComputerToEmployee:(id)sender {
+    id selectedComputer = [_computerController selection];
+    id selectedEmployee = [_employeeController selection];
+    
+    NSAssert(selectedComputer != nil && selectedEmployee != nil, @"Employee and Computer must be selected");
+    
+    NSManagedObject *newComputerToAdd = [self.managedObjectContext objectWithID:[selectedComputer valueForKey:@"objectID"]];
+    
+    NSLog(@"%@ ComputreToAdd", newComputerToAdd.debugDescription);
+    
+    [_employeeComputerController addObject:newComputerToAdd];
+    
 }
 
 @end

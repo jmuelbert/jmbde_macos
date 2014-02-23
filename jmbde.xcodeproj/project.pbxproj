@@ -81,6 +81,21 @@
 		B732B14F18B6A45700E513DF /* MySpotlightImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpotlightImporter.m; sourceTree = "<group>"; };
 		B732B15118B6A45700E513DF /* Importer Read Me.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Importer Read Me.txt"; sourceTree = "<group>"; };
 		B732B15218B6A45700E513DF /* jmbdeImporter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jmbdeImporter-Prefix.pch"; sourceTree = "<group>"; };
+		B7CF67B918BAA777002DF3BC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		B7CF67BA18BAA777002DF3BC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7CF67BB18BAA777002DF3BC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B7CF67BC18BAA777002DF3BC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7CF67BD18BAA777002DF3BC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7CF67BE18BAA781002DF3BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		B7CF67BF18BAA781002DF3BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7CF67C018BAA781002DF3BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B7CF67C118BAA781002DF3BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7CF67C218BAA781002DF3BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7CF67C318BAA78D002DF3BC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		B7CF67C418BAA78D002DF3BC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7CF67C518BAA78D002DF3BC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = it; path = it.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B7CF67C618BAA78D002DF3BC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7CF67C718BAA78D002DF3BC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +318,9 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				es,
+				it,
 			);
 			mainGroup = B732B0F918B6A45600E513DF;
 			productRefGroup = B732B10318B6A45700E513DF /* Products */;
@@ -396,6 +414,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				B732B10F18B6A45700E513DF /* en */,
+				B7CF67BA18BAA777002DF3BC /* de */,
+				B7CF67BF18BAA781002DF3BC /* es */,
+				B7CF67C418BAA78D002DF3BC /* it */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -404,6 +425,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				B732B11518B6A45700E513DF /* en */,
+				B7CF67BB18BAA777002DF3BC /* de */,
+				B7CF67C018BAA781002DF3BC /* es */,
+				B7CF67C518BAA78D002DF3BC /* it */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -412,6 +436,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				B732B11B18B6A45700E513DF /* Base */,
+				B7CF67B918BAA777002DF3BC /* de */,
+				B7CF67BE18BAA781002DF3BC /* es */,
+				B7CF67C318BAA78D002DF3BC /* it */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -420,6 +447,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				B732B13018B6A45700E513DF /* en */,
+				B7CF67BC18BAA777002DF3BC /* de */,
+				B7CF67C118BAA781002DF3BC /* es */,
+				B7CF67C618BAA78D002DF3BC /* it */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -428,6 +458,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				B732B14818B6A45700E513DF /* en */,
+				B7CF67BD18BAA777002DF3BC /* de */,
+				B7CF67C218BAA781002DF3BC /* es */,
+				B7CF67C718BAA78D002DF3BC /* it */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -624,6 +657,7 @@
 				B732B15718B6A45700E513DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B732B15818B6A45700E513DF /* Build configuration list for PBXNativeTarget "jmbde" */ = {
 			isa = XCConfigurationList;
@@ -632,6 +666,7 @@
 				B732B15A18B6A45700E513DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B732B15B18B6A45700E513DF /* Build configuration list for PBXNativeTarget "jmbdeTests" */ = {
 			isa = XCConfigurationList;
@@ -640,6 +675,7 @@
 				B732B15D18B6A45700E513DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
