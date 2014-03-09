@@ -33,7 +33,7 @@
  @see NSObject
  @see NSApplicationDelegate
  */
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSAlertDelegate> {
   
 }
 

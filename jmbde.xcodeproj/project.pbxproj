@@ -133,6 +133,7 @@
 		B732B0F918B6A45600E513DF = {
 			isa = PBXGroup;
 			children = (
+				B78F6E7018BFD48800A82D7A /* Resources */,
 				B732B10B18B6A45700E513DF /* jmbde */,
 				B732B12C18B6A45700E513DF /* jmbdeTests */,
 				B732B14418B6A45700E513DF /* jmbdeImporter */,
@@ -241,6 +242,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B78F6E7018BFD48800A82D7A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -321,6 +329,7 @@
 				de,
 				es,
 				it,
+				English,
 			);
 			mainGroup = B732B0F918B6A45600E513DF;
 			productRefGroup = B732B10318B6A45700E513DF /* Products */;
