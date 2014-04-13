@@ -7,27 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B72A426718DDFE60001AA0D2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B72A426618DDFE60001AA0D2 /* WebKit.framework */; };
 		B732B10618B6A45700E513DF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B732B10518B6A45700E513DF /* Cocoa.framework */; };
-		B732B11018B6A45700E513DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B732B10E18B6A45700E513DF /* InfoPlist.strings */; };
 		B732B11218B6A45700E513DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B732B11118B6A45700E513DF /* main.m */; };
-		B732B11618B6A45700E513DF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B732B11418B6A45700E513DF /* Credits.rtf */; };
 		B732B11918B6A45700E513DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B732B11818B6A45700E513DF /* AppDelegate.m */; };
-		B732B11C18B6A45700E513DF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B732B11A18B6A45700E513DF /* MainMenu.xib */; };
 		B732B11F18B6A45700E513DF /* jmbde.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B732B11D18B6A45700E513DF /* jmbde.xcdatamodeld */; };
 		B732B12118B6A45700E513DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B732B12018B6A45700E513DF /* Images.xcassets */; };
 		B732B12818B6A45700E513DF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B732B12718B6A45700E513DF /* XCTest.framework */; };
 		B732B12918B6A45700E513DF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B732B10518B6A45700E513DF /* Cocoa.framework */; };
-		B732B13118B6A45700E513DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B732B12F18B6A45700E513DF /* InfoPlist.strings */; };
 		B732B13318B6A45700E513DF /* jmbdeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B732B13218B6A45700E513DF /* jmbdeTests.m */; };
 		B732B13B18B6A45700E513DF /* jmbdeImporter.mdimporter in Resources */ = {isa = PBXBuildFile; fileRef = B732B13818B6A45700E513DF /* jmbdeImporter.mdimporter */; };
 		B732B13D18B6A45700E513DF /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B732B13C18B6A45700E513DF /* CoreServices.framework */; };
 		B732B13F18B6A45700E513DF /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B732B13E18B6A45700E513DF /* CoreFoundation.framework */; };
 		B732B14118B6A45700E513DF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B732B14018B6A45700E513DF /* CoreData.framework */; };
 		B732B14318B6A45700E513DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B732B14218B6A45700E513DF /* Foundation.framework */; };
-		B732B14918B6A45700E513DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B732B14718B6A45700E513DF /* InfoPlist.strings */; };
 		B732B14B18B6A45700E513DF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B732B14A18B6A45700E513DF /* main.c */; };
 		B732B14D18B6A45700E513DF /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B732B14C18B6A45700E513DF /* GetMetadataForFile.m */; };
 		B732B15018B6A45700E513DF /* MySpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = B732B14F18B6A45700E513DF /* MySpotlightImporter.m */; };
+		B738CD9918D6180200A604EC /* AppDelegate+Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = B738CD9818D6180200A604EC /* AppDelegate+Employee.m */; };
+		B761F4D718E38261002682BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B761F4D918E38261002682BE /* Localizable.strings */; };
+		B76A30F818D0DF4A004F1BB0 /* jmbdeMappingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = B76A30F718D0DF4A004F1BB0 /* jmbdeMappingModel.xcmappingmodel */; };
+		B7A7D03818E0D7690086C0A3 /* Computer.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A7D03718E0D7690086C0A3 /* Computer.m */; };
+		B7A7D03B18E0D76A0086C0A3 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A7D03A18E0D76A0086C0A3 /* Employee.m */; };
+		B7A7D03E18E0D76A0086C0A3 /* Printer.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A7D03D18E0D76A0086C0A3 /* Printer.m */; };
+		B7A7D04118E0D76A0086C0A3 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A7D04018E0D76A0086C0A3 /* Device.m */; };
+		B7A7D04418E0D76A0086C0A3 /* Phone.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A7D04318E0D76A0086C0A3 /* Phone.m */; };
+		B7CD35FD18E85FC500EB5EA6 /* jmbdehelp.help in Resources */ = {isa = PBXBuildFile; fileRef = B7CD35FC18E85FC500EB5EA6 /* jmbdehelp.help */; };
+		B7CD360018E87C6100EB5EA6 /* AppDelegate+Computer.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CD35FF18E87C6100EB5EA6 /* AppDelegate+Computer.m */; };
+		B7CD360318E87D1800EB5EA6 /* AppDelegate+Phone.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CD360218E87D1800EB5EA6 /* AppDelegate+Phone.m */; };
+		B7CD360618E87E1900EB5EA6 /* AppDelegate+Printer.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CD360518E87E1900EB5EA6 /* AppDelegate+Printer.m */; };
+		B7D1CB3C18E229E700BCB35B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7D1CB3A18E229E700BCB35B /* MainMenu.xib */; };
+		B7D1CB4318E22B2500BCB35B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B7D1CB4118E22B2500BCB35B /* Credits.rtf */; };
+		B7D1CB7318E2320E00BCB35B /* jmbde-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7D1CB7218E2320E00BCB35B /* jmbde-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,25 +59,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B72A426618DDFE60001AA0D2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		B732B10218B6A45700E513DF /* jmbde.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jmbde.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B732B10518B6A45700E513DF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B732B10818B6A45700E513DF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		B732B10918B6A45700E513DF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B732B10A18B6A45700E513DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B732B10D18B6A45700E513DF /* jmbde-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jmbde-Info.plist"; sourceTree = "<group>"; };
-		B732B10F18B6A45700E513DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B732B11118B6A45700E513DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B732B11318B6A45700E513DF /* jmbde-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jmbde-Prefix.pch"; sourceTree = "<group>"; };
-		B732B11518B6A45700E513DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		B732B11718B6A45700E513DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B732B11818B6A45700E513DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B732B11B18B6A45700E513DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		B732B11E18B6A45700E513DF /* jmbde.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = jmbde.xcdatamodel; sourceTree = "<group>"; };
 		B732B12018B6A45700E513DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B732B12618B6A45700E513DF /* jmbdeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jmbdeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B732B12718B6A45700E513DF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B732B12E18B6A45700E513DF /* jmbdeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jmbdeTests-Info.plist"; sourceTree = "<group>"; };
-		B732B13018B6A45700E513DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B732B13218B6A45700E513DF /* jmbdeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jmbdeTests.m; sourceTree = "<group>"; };
 		B732B13818B6A45700E513DF /* jmbdeImporter.mdimporter */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jmbdeImporter.mdimporter; sourceTree = BUILT_PRODUCTS_DIR; };
 		B732B13C18B6A45700E513DF /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -74,28 +81,49 @@
 		B732B14018B6A45700E513DF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B732B14218B6A45700E513DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B732B14618B6A45700E513DF /* jmbdeImporter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jmbdeImporter-Info.plist"; sourceTree = "<group>"; };
-		B732B14818B6A45700E513DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B732B14A18B6A45700E513DF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		B732B14C18B6A45700E513DF /* GetMetadataForFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetMetadataForFile.m; sourceTree = "<group>"; };
 		B732B14E18B6A45700E513DF /* MySpotlightImporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySpotlightImporter.h; sourceTree = "<group>"; };
 		B732B14F18B6A45700E513DF /* MySpotlightImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpotlightImporter.m; sourceTree = "<group>"; };
 		B732B15118B6A45700E513DF /* Importer Read Me.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Importer Read Me.txt"; sourceTree = "<group>"; };
 		B732B15218B6A45700E513DF /* jmbdeImporter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jmbdeImporter-Prefix.pch"; sourceTree = "<group>"; };
-		B7CF67B918BAA777002DF3BC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		B7CF67BA18BAA777002DF3BC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B7CF67BB18BAA777002DF3BC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Credits.rtf; sourceTree = "<group>"; };
-		B7CF67BC18BAA777002DF3BC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B7CF67BD18BAA777002DF3BC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B7CF67BE18BAA781002DF3BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		B7CF67BF18BAA781002DF3BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B7CF67C018BAA781002DF3BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
-		B7CF67C118BAA781002DF3BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B7CF67C218BAA781002DF3BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B7CF67C318BAA78D002DF3BC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		B7CF67C418BAA78D002DF3BC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B7CF67C518BAA78D002DF3BC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = it; path = it.lproj/Credits.rtf; sourceTree = "<group>"; };
-		B7CF67C618BAA78D002DF3BC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B7CF67C718BAA78D002DF3BC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B738CD9718D6180200A604EC /* AppDelegate+Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Employee.h"; sourceTree = "<group>"; };
+		B738CD9818D6180200A604EC /* AppDelegate+Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Employee.m"; sourceTree = "<group>"; };
+		B761F4D818E38261002682BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B761F4DA18E38267002682BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B761F4DB18E38269002682BE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B761F4DC18E3826B002682BE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B761F4DD18E3826C002682BE /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B76A30F618D0DF12004F1BB0 /* jmbde_V2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = jmbde_V2.xcdatamodel; sourceTree = "<group>"; };
+		B76A30F718D0DF4A004F1BB0 /* jmbdeMappingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = jmbdeMappingModel.xcmappingmodel; sourceTree = "<group>"; };
+		B7A7D03618E0D7690086C0A3 /* Computer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Computer.h; sourceTree = "<group>"; };
+		B7A7D03718E0D7690086C0A3 /* Computer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Computer.m; sourceTree = "<group>"; };
+		B7A7D03918E0D76A0086C0A3 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
+		B7A7D03A18E0D76A0086C0A3 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
+		B7A7D03C18E0D76A0086C0A3 /* Printer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Printer.h; sourceTree = "<group>"; };
+		B7A7D03D18E0D76A0086C0A3 /* Printer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Printer.m; sourceTree = "<group>"; };
+		B7A7D03F18E0D76A0086C0A3 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
+		B7A7D04018E0D76A0086C0A3 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
+		B7A7D04218E0D76A0086C0A3 /* Phone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Phone.h; sourceTree = "<group>"; };
+		B7A7D04318E0D76A0086C0A3 /* Phone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Phone.m; sourceTree = "<group>"; };
+		B7CD35FC18E85FC500EB5EA6 /* jmbdehelp.help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = jmbdehelp.help; sourceTree = "<group>"; };
+		B7CD35FE18E87C6100EB5EA6 /* AppDelegate+Computer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Computer.h"; sourceTree = "<group>"; };
+		B7CD35FF18E87C6100EB5EA6 /* AppDelegate+Computer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Computer.m"; sourceTree = "<group>"; };
+		B7CD360118E87D1800EB5EA6 /* AppDelegate+Phone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Phone.h"; sourceTree = "<group>"; };
+		B7CD360218E87D1800EB5EA6 /* AppDelegate+Phone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Phone.m"; sourceTree = "<group>"; };
+		B7CD360418E87E1900EB5EA6 /* AppDelegate+Printer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Printer.h"; sourceTree = "<group>"; };
+		B7CD360518E87E1900EB5EA6 /* AppDelegate+Printer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Printer.m"; sourceTree = "<group>"; };
+		B7D1CB3B18E229E700BCB35B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B7D1CB4218E22B2500BCB35B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B7D1CB4418E22B3000BCB35B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B7D1CB4618E22B5100BCB35B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		B7D1CB4718E22B6100BCB35B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		B7D1CB4818E22B6100BCB35B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B7D1CB4A18E22B6B00BCB35B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		B7D1CB4B18E22B6B00BCB35B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B7D1CB4D18E22B7200BCB35B /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		B7D1CB4E18E22B7200BCB35B /* it */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = it; path = it.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B7D1CB7218E2320E00BCB35B /* jmbde-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "jmbde-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B72A426718DDFE60001AA0D2 /* WebKit.framework in Frameworks */,
 				B732B10618B6A45700E513DF /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,7 +162,6 @@
 		B732B0F918B6A45600E513DF = {
 			isa = PBXGroup;
 			children = (
-				B78F6E7018BFD48800A82D7A /* Resources */,
 				B732B10B18B6A45700E513DF /* jmbde */,
 				B732B12C18B6A45700E513DF /* jmbdeTests */,
 				B732B14418B6A45700E513DF /* jmbdeImporter */,
@@ -141,6 +169,7 @@
 				B732B10318B6A45700E513DF /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		B732B10318B6A45700E513DF /* Products */ = {
 			isa = PBXGroup;
@@ -155,6 +184,7 @@
 		B732B10418B6A45700E513DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B72A426618DDFE60001AA0D2 /* WebKit.framework */,
 				B732B10518B6A45700E513DF /* Cocoa.framework */,
 				B732B12718B6A45700E513DF /* XCTest.framework */,
 				B732B13C18B6A45700E513DF /* CoreServices.framework */,
@@ -179,11 +209,31 @@
 		B732B10B18B6A45700E513DF /* jmbde */ = {
 			isa = PBXGroup;
 			children = (
+				B7CD35FB18E85F7600EB5EA6 /* Resources */,
+				B7D1CB3A18E229E700BCB35B /* MainMenu.xib */,
 				B732B11718B6A45700E513DF /* AppDelegate.h */,
 				B732B11818B6A45700E513DF /* AppDelegate.m */,
-				B732B11A18B6A45700E513DF /* MainMenu.xib */,
+				B738CD9718D6180200A604EC /* AppDelegate+Employee.h */,
+				B738CD9818D6180200A604EC /* AppDelegate+Employee.m */,
+				B7CD35FE18E87C6100EB5EA6 /* AppDelegate+Computer.h */,
+				B7CD35FF18E87C6100EB5EA6 /* AppDelegate+Computer.m */,
+				B7CD360118E87D1800EB5EA6 /* AppDelegate+Phone.h */,
+				B7CD360218E87D1800EB5EA6 /* AppDelegate+Phone.m */,
+				B7CD360418E87E1900EB5EA6 /* AppDelegate+Printer.h */,
+				B7CD360518E87E1900EB5EA6 /* AppDelegate+Printer.m */,
 				B732B12018B6A45700E513DF /* Images.xcassets */,
+				B7A7D03618E0D7690086C0A3 /* Computer.h */,
+				B7A7D04218E0D76A0086C0A3 /* Phone.h */,
+				B7A7D03F18E0D76A0086C0A3 /* Device.h */,
+				B7A7D04018E0D76A0086C0A3 /* Device.m */,
+				B7A7D03C18E0D76A0086C0A3 /* Printer.h */,
+				B7A7D03D18E0D76A0086C0A3 /* Printer.m */,
+				B7A7D03918E0D76A0086C0A3 /* Employee.h */,
+				B7A7D03A18E0D76A0086C0A3 /* Employee.m */,
+				B7A7D04318E0D76A0086C0A3 /* Phone.m */,
+				B7A7D03718E0D7690086C0A3 /* Computer.m */,
 				B732B11D18B6A45700E513DF /* jmbde.xcdatamodeld */,
+				B76A30F718D0DF4A004F1BB0 /* jmbdeMappingModel.xcmappingmodel */,
 				B732B10C18B6A45700E513DF /* Supporting Files */,
 			);
 			path = jmbde;
@@ -192,11 +242,11 @@
 		B732B10C18B6A45700E513DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B732B10D18B6A45700E513DF /* jmbde-Info.plist */,
-				B732B10E18B6A45700E513DF /* InfoPlist.strings */,
+				B761F4D918E38261002682BE /* Localizable.strings */,
+				B7D1CB7218E2320E00BCB35B /* jmbde-Info.plist */,
+				B7D1CB4118E22B2500BCB35B /* Credits.rtf */,
 				B732B11118B6A45700E513DF /* main.m */,
 				B732B11318B6A45700E513DF /* jmbde-Prefix.pch */,
-				B732B11418B6A45700E513DF /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -214,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				B732B12E18B6A45700E513DF /* jmbdeTests-Info.plist */,
-				B732B12F18B6A45700E513DF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,16 +284,16 @@
 			isa = PBXGroup;
 			children = (
 				B732B14618B6A45700E513DF /* jmbdeImporter-Info.plist */,
-				B732B14718B6A45700E513DF /* InfoPlist.strings */,
 				B732B14A18B6A45700E513DF /* main.c */,
 				B732B15218B6A45700E513DF /* jmbdeImporter-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B78F6E7018BFD48800A82D7A /* Resources */ = {
+		B7CD35FB18E85F7600EB5EA6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B7CD35FC18E85FC500EB5EA6 /* jmbdehelp.help */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -259,6 +308,7 @@
 				B732B0FE18B6A45700E513DF /* Sources */,
 				B732B0FF18B6A45700E513DF /* Frameworks */,
 				B732B10018B6A45700E513DF /* Resources */,
+				B7327CE718DA44FD007A1865 /* Generate Package */,
 			);
 			buildRules = (
 			);
@@ -311,7 +361,7 @@
 		B732B0FA18B6A45600E513DF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jürgen Mülbert";
 				TargetAttributes = {
 					B732B12518B6A45700E513DF = {
@@ -348,11 +398,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B732B11018B6A45700E513DF /* InfoPlist.strings in Resources */,
+				B7D1CB4318E22B2500BCB35B /* Credits.rtf in Resources */,
+				B761F4D718E38261002682BE /* Localizable.strings in Resources */,
 				B732B12118B6A45700E513DF /* Images.xcassets in Resources */,
-				B732B11618B6A45700E513DF /* Credits.rtf in Resources */,
-				B732B11C18B6A45700E513DF /* MainMenu.xib in Resources */,
 				B732B13B18B6A45700E513DF /* jmbdeImporter.mdimporter in Resources */,
+				B7D1CB7318E2320E00BCB35B /* jmbde-Info.plist in Resources */,
+				B7D1CB3C18E229E700BCB35B /* MainMenu.xib in Resources */,
+				B7CD35FD18E85FC500EB5EA6 /* jmbdehelp.help in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +412,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B732B13118B6A45700E513DF /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,11 +419,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B732B14918B6A45700E513DF /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B7327CE718DA44FD007A1865 /* Generate Package */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Package";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "VERSION=$(defaults read \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/Contents/Info\" CFBundleVersion)\n\nPACKAGE_NAME=`echo \"$PRODUCT_NAME\" | sed \"s/ /_/g\"`\n\necho \"TOUCH ${FULL_PRODUCT_NAME}\"\ntouch -c \"${INSTALL_ROOT}\"/Applications/\"${FULL_PRODUCT_NAME}\"\n\necho \"Strip ${FULL_PRODUCT_NAME}\"\nstrip \"${INSTALL_ROOT}\"/Applications/\"${FULL_PRODUCT_NAME}/Contents/MacOS/${PACKAGE_NAME}\"\n\n# echo \"SetOwnerAndGroup ${FULL_PRODUCT_NAME}\"\n# chmod -RH root:wheel \"${INSTALL_ROOT}\"/Applications/\"${FULL_PRODUCT_NAME}\"\n#\n# echo \"SetMode ${FULL_PRODUCT_NAME}\"\n# chmod -RH u+w,go-w,a+rX \"${INSTALL_ROOT}\"/Applications/\"${FULL_PRODUCT_NAME}\"\n\necho \"PACKAGE = ${PACKAGE_NAME} VERSION = ${VERSION}\"\nARCHIVE_FILENAME=\"${BUILT_PRODUCTS_DIR}/${PACKAGE_NAME}.pkg\"\n\npkgbuild --root \"${INSTALL_ROOT}\"/Applications/\"${PACKAGE_NAME}\".app \\\n--component-plist \"./Package/jmbdeAppComponents.plist\" \\\n--scripts \"./Package/Scripts\" \\\n--identifier \"com.juergenmuelbert.pkg.jmbde\" \\\n--version \"$VERSION\" \\\n--install-location \"/\" \\\n\"${BUILT_PRODUCTS_DIR}/main.pkg\"\n\nproductbuild --distribution \"./Package/Distribution.xml\"  \\\n--package-path \"${BUILT_PRODUCTS_DIR}\" \\\n--resources \"./Package/Resources\" \\\n\"${ARCHIVE_FILENAME}\"\n\necho \"Make DMG\"\nintermediateFolder=$(mktemp -d \"/tmp/packagedir.XXXXX\")\ncp \"${ARCHIVE_FILENAME}\" \"${intermediateFolder}\"\ncp ./Package/Licenses/* \"${intermediateFolder}\"\n                      \nhdiutil create -srcfolder \"${intermediateFolder}\" -volname \"${PRODUCT_NAME}\" -format UDBZ \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}\".dmg -ov -scrub -stretch 2g";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B732B0FE18B6A45700E513DF /* Sources */ = {
@@ -381,6 +449,16 @@
 			files = (
 				B732B11F18B6A45700E513DF /* jmbde.xcdatamodeld in Sources */,
 				B732B11918B6A45700E513DF /* AppDelegate.m in Sources */,
+				B7CD360018E87C6100EB5EA6 /* AppDelegate+Computer.m in Sources */,
+				B7A7D03E18E0D76A0086C0A3 /* Printer.m in Sources */,
+				B7A7D04118E0D76A0086C0A3 /* Device.m in Sources */,
+				B76A30F818D0DF4A004F1BB0 /* jmbdeMappingModel.xcmappingmodel in Sources */,
+				B7A7D03B18E0D76A0086C0A3 /* Employee.m in Sources */,
+				B7CD360318E87D1800EB5EA6 /* AppDelegate+Phone.m in Sources */,
+				B7A7D04418E0D76A0086C0A3 /* Phone.m in Sources */,
+				B738CD9918D6180200A604EC /* AppDelegate+Employee.m in Sources */,
+				B7A7D03818E0D7690086C0A3 /* Computer.m in Sources */,
+				B7CD360618E87E1900EB5EA6 /* AppDelegate+Printer.m in Sources */,
 				B732B11218B6A45700E513DF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,59 +497,40 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B732B10E18B6A45700E513DF /* InfoPlist.strings */ = {
+		B761F4D918E38261002682BE /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B732B10F18B6A45700E513DF /* en */,
-				B7CF67BA18BAA777002DF3BC /* de */,
-				B7CF67BF18BAA781002DF3BC /* es */,
-				B7CF67C418BAA78D002DF3BC /* it */,
+				B761F4D818E38261002682BE /* Base */,
+				B761F4DA18E38267002682BE /* en */,
+				B761F4DB18E38269002682BE /* de */,
+				B761F4DC18E3826B002682BE /* es */,
+				B761F4DD18E3826C002682BE /* it */,
 			);
-			name = InfoPlist.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		B732B11418B6A45700E513DF /* Credits.rtf */ = {
+		B7D1CB3A18E229E700BCB35B /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B732B11518B6A45700E513DF /* en */,
-				B7CF67BB18BAA777002DF3BC /* de */,
-				B7CF67C018BAA781002DF3BC /* es */,
-				B7CF67C518BAA78D002DF3BC /* it */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		B732B11A18B6A45700E513DF /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B732B11B18B6A45700E513DF /* Base */,
-				B7CF67B918BAA777002DF3BC /* de */,
-				B7CF67BE18BAA781002DF3BC /* es */,
-				B7CF67C318BAA78D002DF3BC /* it */,
+				B7D1CB3B18E229E700BCB35B /* Base */,
+				B7D1CB4618E22B5100BCB35B /* en */,
+				B7D1CB4718E22B6100BCB35B /* de */,
+				B7D1CB4A18E22B6B00BCB35B /* es */,
+				B7D1CB4D18E22B7200BCB35B /* it */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
-		B732B12F18B6A45700E513DF /* InfoPlist.strings */ = {
+		B7D1CB4118E22B2500BCB35B /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B732B13018B6A45700E513DF /* en */,
-				B7CF67BC18BAA777002DF3BC /* de */,
-				B7CF67C118BAA781002DF3BC /* es */,
-				B7CF67C618BAA78D002DF3BC /* it */,
+				B7D1CB4218E22B2500BCB35B /* en */,
+				B7D1CB4418E22B3000BCB35B /* Base */,
+				B7D1CB4818E22B6100BCB35B /* de */,
+				B7D1CB4B18E22B6B00BCB35B /* es */,
+				B7D1CB4E18E22B7200BCB35B /* it */,
 			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B732B14718B6A45700E513DF /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B732B14818B6A45700E513DF /* en */,
-				B7CF67BD18BAA777002DF3BC /* de */,
-				B7CF67C218BAA781002DF3BC /* es */,
-				B7CF67C718BAA78D002DF3BC /* it */,
-			);
-			name = InfoPlist.strings;
+			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -588,7 +647,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "jmbde/jmbde-Prefix.pch";
-				INFOPLIST_FILE = "jmbde/jmbde-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/jmbde/jmbde-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -601,7 +660,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "jmbde/jmbde-Prefix.pch";
-				INFOPLIST_FILE = "jmbde/jmbde-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/jmbde/jmbde-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -692,6 +751,7 @@
 		B732B11D18B6A45700E513DF /* jmbde.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B76A30F618D0DF12004F1BB0 /* jmbde_V2.xcdatamodel */,
 				B732B11E18B6A45700E513DF /* jmbde.xcdatamodel */,
 			);
 			currentVersion = B732B11E18B6A45700E513DF /* jmbde.xcdatamodel */;

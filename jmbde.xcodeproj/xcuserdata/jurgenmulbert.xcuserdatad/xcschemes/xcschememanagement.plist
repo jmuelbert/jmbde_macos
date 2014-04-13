@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>jmbdehelp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -28,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>B732B13718B6A45700E513DF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B738CD6E18D5B83900A604EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

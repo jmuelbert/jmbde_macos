@@ -87,7 +87,7 @@
         <attribute name="startdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="updateTime" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Account" inverseName="employees" inverseEntity="Account" syncable="YES"/>
-        <relationship name="computers" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Computer" inverseName="employees" inverseEntity="Computer" syncable="YES"/>
+        <relationship name="computers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Computer" inverseName="employees" inverseEntity="Computer" syncable="YES"/>
         <relationship name="departments" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="eployees" inverseEntity="Department" syncable="YES"/>
         <relationship name="documents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="employees" inverseEntity="Document" syncable="YES"/>
         <relationship name="functions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Function" inverseName="employees" inverseEntity="Function" syncable="YES"/>
@@ -140,7 +140,7 @@
         <attribute name="version" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="computers" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Computer" inverseName="os" inverseEntity="Computer" syncable="YES"/>
     </entity>
-    <entity name="Phone" representedClassName="Phone" parentEntity="Device" syncable="YES">
+    <entity name="Phone" parentEntity="Device" syncable="YES">
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pin" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="phone" inverseEntity="Department" syncable="YES"/>
@@ -160,7 +160,7 @@
         <relationship name="phone" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Phone" inverseName="place" inverseEntity="Phone" syncable="YES"/>
         <relationship name="printer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Printer" inverseName="place" inverseEntity="Printer" syncable="YES"/>
     </entity>
-    <entity name="Printer" representedClassName="Printer" parentEntity="Device" syncable="YES">
+    <entity name="Printer" parentEntity="Device" syncable="YES">
         <attribute name="color" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="network" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="network_ipaddress" optional="YES" attributeType="String" syncable="YES"/>
@@ -171,7 +171,7 @@
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="printer" inverseEntity="Department" syncable="YES"/>
         <relationship name="devicename" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeviceName" inverseName="printer" inverseEntity="DeviceName" syncable="YES"/>
         <relationship name="devicetype" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeviceType" inverseName="printer" inverseEntity="DeviceType" syncable="YES"/>
-        <relationship name="employee" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="printer" inverseEntity="Employee" syncable="YES"/>
+        <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="printer" inverseEntity="Employee" syncable="YES"/>
         <relationship name="fax" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fax" inverseName="printer" inverseEntity="Fax" syncable="YES"/>
         <relationship name="inventory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Inventory" inverseName="printer" inverseEntity="Inventory" syncable="YES"/>
         <relationship name="manufacturer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Manufacturer" inverseName="printer" inverseEntity="Manufacturer" syncable="YES"/>
@@ -222,12 +222,12 @@
         <element name="DeviceName" positionX="-101" positionY="-189" width="128" height="133"/>
         <element name="DeviceType" positionX="-101" positionY="-36" width="128" height="88"/>
         <element name="Document" positionX="-317" positionY="-225" width="128" height="118"/>
-        <element name="Employee" positionX="-1316" positionY="-511" width="128" height="420"/>
+        <element name="Employee" positionX="-1316" positionY="-511" width="128" height="418"/>
         <element name="Fax" positionX="-1145" positionY="428" width="128" height="58"/>
         <element name="Function" positionX="-1125" positionY="-432" width="128" height="118"/>
         <element name="Inventory" positionX="-720" positionY="-40" width="128" height="148"/>
         <element name="Manufacturer" positionX="45" positionY="-487" width="128" height="253"/>
-        <element name="Mobile" positionX="-909" positionY="423" width="128" height="45"/>
+        <element name="Mobile" positionX="-909" positionY="423" width="128" height="43"/>
         <element name="Os" positionX="-551" positionY="108" width="128" height="133"/>
         <element name="Phone" positionX="-1197" positionY="135" width="128" height="178"/>
         <element name="Place" positionX="-279" positionY="239" width="128" height="148"/>

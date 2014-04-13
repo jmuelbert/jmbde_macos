@@ -22,6 +22,10 @@
 
 #import "AppDelegate.h"
 
+/**
+ The Private Interface for the 
+ AppDelegate-Class
+*/
 @interface AppDelegate ()
 
 
@@ -101,9 +105,13 @@
         }
     }
     
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    
     NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"jmbde.xml"];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
-    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
+    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:options error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
         return nil;
     }
@@ -199,24 +207,4 @@
 
     return NSTerminateNow;
 }
-
-
-- (IBAction)addComputerToEmployee:(id)sender {
-    id selectedComputer = [_computerController selection];
-    id selectedEmployee = [_employeeController selection];
-    
-    NSAssert(selectedComputer != nil && selectedEmployee != nil, @"Employee and Computer must be selected");
-    
-    NSManagedObject *newComputerToAdd = [self.managedObjectContext objectWithID:[selectedComputer valueForKey:@"objectID"]];
-    
-    NSLog(@"%@ ComputreToAdd", newComputerToAdd.debugDescription);
-    
-    [_employeeComputerController addObject:newComputerToAdd];
-    
-}
-
-
-
-
-
 @end

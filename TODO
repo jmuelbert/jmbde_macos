@@ -1,0 +1,13 @@
+Class Computer
+Move the Properties
+network, network_ipaddress to Device
+
+Remove network_name
+
+Implement:
+addEmployeeObject
+removeEmployeeObject
+addEmployees
+removeEmployees
+addSoftwareObject
+removeSoftwareObject
