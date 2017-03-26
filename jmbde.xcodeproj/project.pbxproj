@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38C3150D1E7ECD9D0051782C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C3150C1E7ECD9D0051782C /* Main.storyboard */; };
 		B72A426718DDFE60001AA0D2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B72A426618DDFE60001AA0D2 /* WebKit.framework */; };
 		B732B10618B6A45700E513DF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B732B10518B6A45700E513DF /* Cocoa.framework */; };
 		B732B11218B6A45700E513DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B732B11118B6A45700E513DF /* main.m */; };
@@ -38,7 +39,6 @@
 		B7CD360618E87E1900EB5EA6 /* AppDelegate+Printer.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CD360518E87E1900EB5EA6 /* AppDelegate+Printer.m */; };
 		B7D1CB3C18E229E700BCB35B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7D1CB3A18E229E700BCB35B /* MainMenu.xib */; };
 		B7D1CB4318E22B2500BCB35B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B7D1CB4118E22B2500BCB35B /* Credits.rtf */; };
-		B7D1CB7318E2320E00BCB35B /* jmbde-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7D1CB7218E2320E00BCB35B /* jmbde-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38C3150C1E7ECD9D0051782C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B72A426618DDFE60001AA0D2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		B732B10218B6A45700E513DF /* jmbde.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jmbde.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B732B10518B6A45700E513DF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -235,6 +236,7 @@
 				B732B11D18B6A45700E513DF /* jmbde.xcdatamodeld */,
 				B76A30F718D0DF4A004F1BB0 /* jmbdeMappingModel.xcmappingmodel */,
 				B732B10C18B6A45700E513DF /* Supporting Files */,
+				38C3150C1E7ECD9D0051782C /* Main.storyboard */,
 			);
 			path = jmbde;
 			sourceTree = "<group>";
@@ -361,7 +363,7 @@
 		B732B0FA18B6A45600E513DF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Jürgen Mülbert";
 				TargetAttributes = {
 					B732B12518B6A45700E513DF = {
@@ -401,8 +403,8 @@
 				B7D1CB4318E22B2500BCB35B /* Credits.rtf in Resources */,
 				B761F4D718E38261002682BE /* Localizable.strings in Resources */,
 				B732B12118B6A45700E513DF /* Images.xcassets in Resources */,
+				38C3150D1E7ECD9D0051782C /* Main.storyboard in Resources */,
 				B732B13B18B6A45700E513DF /* jmbdeImporter.mdimporter in Resources */,
-				B7D1CB7318E2320E00BCB35B /* jmbde-Info.plist in Resources */,
 				B7D1CB3C18E229E700BCB35B /* MainMenu.xib in Resources */,
 				B7CD35FD18E85FC500EB5EA6 /* jmbdehelp.help in Resources */,
 			);
@@ -540,6 +542,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -548,13 +551,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -577,6 +586,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -585,14 +595,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -618,6 +633,7 @@
 				INFOPLIST_FILE = "jmbdeImporter/jmbdeImporter-Info.plist";
 				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
 				LIBRARY_STYLE = BUNDLE;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juergenmuelbert.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = mdimporter;
@@ -634,6 +650,7 @@
 				INFOPLIST_FILE = "jmbdeImporter/jmbdeImporter-Info.plist";
 				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
 				LIBRARY_STYLE = BUNDLE;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juergenmuelbert.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = mdimporter;
@@ -648,6 +665,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "jmbde/jmbde-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/jmbde/jmbde-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juergenmuelbert.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -661,6 +679,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "jmbde/jmbde-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/jmbde/jmbde-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juergenmuelbert.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -682,6 +701,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "jmbdeTests/jmbdeTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juergenmuelbert.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -700,6 +720,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "jmbde/jmbde-Prefix.pch";
 				INFOPLIST_FILE = "jmbdeTests/jmbdeTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juergenmuelbert.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
