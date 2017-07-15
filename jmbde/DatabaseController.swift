@@ -1,3 +1,6 @@
+//
+// DatabaseController
+// jmbde
 //  Created by Jürgen Mülbert on 01.07.17.
 //  Copyright (c) 2014-2017 Jürgen Mülbert. All rights reserved.
 //
