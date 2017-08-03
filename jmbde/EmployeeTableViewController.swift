@@ -1,8 +1,8 @@
 //
-//  Outine.swift
+//  EmployeeTableViewController.swift
 //  jmbde
 //
-//  Created by Jürgen Mülbert on 14.07.17.
+//  Created by Jürgen Mülbert on 15.07.17.
 //  Copyright (c) 2014-2017 Jürgen Mülbert. All rights reserved.
 //
 // This program is free software: you can redistribute it and/or modify
@@ -19,16 +19,13 @@
 // http://www.osor.eu/eupl/european-union-public-licence-eupl-v.1.1
 //
 
-import Foundation
+import Cocoa
 
-class Outline : NSObject {
-    var name = ""
-    var desc = ""
-    var viewControllerIdentifier = ""
-    
-    init(name: String, description: String, viewControllerIdentifier: String) {
-        self.name = name
-        self.desc = description
-        self.viewControllerIdentifier = viewControllerIdentifier
+class EmployeeTableViewController: NSViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do view setup here.
     }
+    
 }
