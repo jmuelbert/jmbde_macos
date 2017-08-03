@@ -158,7 +158,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let url = self.applicationDocumentDirectory.appendingPathComponent("jmbde.sqlite")
         do {
             // If your looking for any kind of migration then here is the time to pass it to the options
-            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+            try coordinator.addPersistentStore(ofType: NSXMLStoreType , configurationName: nil, at: url, options: nil)
         } catch let  error as NSError {
             print("Ops there was an error \(error.localizedDescription)")
             abort()

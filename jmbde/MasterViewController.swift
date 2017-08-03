@@ -20,15 +20,48 @@
 //
 import Cocoa
 
-class MasterViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+/**
+ The MasterViewController
+ 
+ :extends: NSViewController
+ */
+class MasterViewController: NSViewController {
     
     // MARK: - Properties
+    var outlineItem: OutlineItem!
+    var recentItensObserver: NSObjectProtocol!
     
-    // The array controller data source of outline?
-    @IBOutlet var outlineArrayController: NSArrayController!
     
-    // The data source for the array controller
-    @objc var outlineArrayBacking = [Outline]()
+    // The
+    @IBOutlet weak var outlineView: NSOutlineView!
+    
+    
+    static let OutlineNotification = "outlineNotification"
+    
+    ///
+    ///  The SourceListHeader is doubleCliked
+    ///
+    ///   @param sender contains NSOutlineView
+    ///
+    @IBAction func doubleClickedItem(_ sender: NSOutlineView) {
+        let item = sender.item(atRow: sender.clickedRow)
+        
+        if item is Outline {
+            if sender.isExpandable(item) {
+                sender.collapseItem(item)
+            } else {
+                sender.expandItem(item)
+            }
+        }
+    }
+    
+    override func keyDown(with event: NSEvent) {
+        interpretKeyEvents([event])
+    }
+    
+     
+    // The data source for the outline array
+    var outlines = [Outline]()
     
     // So we can inform the delegate ot table selection changes (from the user or from the array controller)
     weak var delegate: MasterViewControllerDelegate?
@@ -38,136 +71,111 @@ class MasterViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addButtons()
-        
-        // Changing the backed array alone won't update the array controller, so set the array controller content.
-        let indexes = IndexSet(integersIn: 0..<outlineArrayBacking.count)
-        outlineArrayController.willChange(.setting, valuesAt: indexes, forKey: "content")
-        outlineArrayController.content = outlineArrayBacking
-        outlineArrayController.didChange(.setting, valuesAt: indexes, forKey: "content")
-        
-        // Listen for when the array controller changes it's selection
-        outlineArrayController.addObserver(self,
-                                           forKeyPath: "selectionIndexes",
-                                           options: .new,
-                                           context: nil)
-    }
+        recentItensObserver = NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: "de.juergenmuelbert.openView"), object: nil, queue: nil, using: openView)
     
-    // MARK: - NSTableViewDatasSurce
-    
-    public func numberOfRows(in tableView: NSTableView) -> Int {
-        return (outlineArrayController.arrangedObjects as AnyObject).count
-    }
-    
-    public func tableView(_ tableView: NSTableView, isGroupRow row: Int) -> Bool {
-        var result = false
-        if let example = (outlineArrayController.arrangedObjects as AnyObject).object(at: row) as? Outline {
-            // A group row has now view controller
-            result = example.viewControllerIdentifier.characters.isEmpty
-        }
-        return result
-    }
-    
-    // MARK: - NSTableViewDelegate
-    public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        guard let example = (outlineArrayController.arrangedObjects as AnyObject).object(at: row) as? Outline else { return nil }
-        
-        // A group row has now view controller
-        if example.viewControllerIdentifier.characters.isEmpty {
-            guard let cell =  tableView.make(withIdentifier: "GroupCell", owner: self) as? NSTextField else {
-                return nil
-            }
-            cell.stringValue = example.name
-            return cell
-        } else {
-            guard let cell = tableView.make(withIdentifier: "MainCell", owner: self) as? NSTableCellView else {
-                return nil
-            }
-            cell.textField?.stringValue = example.name
-            return cell
+        if let filePath = Bundle.main.path(forResource: "OutlineList", ofType: "plist") {
+            outlines = Outline.outlineList(filePath)
         }
     }
     
+    func openView(_ notification: Notification) {
+        self.outlineView.reloadData();
+    }
+
+}
+
+// MARK: Datasource
+extension MasterViewController : NSOutlineViewDataSource {
     
-    // MARK: - KVO
+    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+        if let outline = item as? Outline {
+            return outline.children.count
+        }
+        return outlines.count
+    }
     
-    /**
-        Used for observing for NSArrayController selection changes:
-        (selection changes as a result of filtering (user search) will not send NSTableViewControllerDidCahngeNotification)
- 
-        so we handle it right here to help the target or detail view controller.
-    */
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
+        if let outline = item as? Outline {
+            return outline.children[index]
+        }
+        return outlines[index]
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
+        if let outline = item as? Outline {
+            return outline.children.count > 0
+        }
+        return false
+    }
+}
+
+// MARK: - Delegate
+extension MasterViewController: NSOutlineViewDelegate {
+    
+    func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
+        var view: NSTableCellView?
         
-        if keyPath! == "selectionIndexes" {
-            // Obtain the selection index from our array controller.
-            if let arrayController = object as? NSArrayController {
-                if arrayController.selectionIndex == NSNotFound {
-                    delegate!.didChangeOutlineSelection(masterViewController: self, selection: nil)
-                } else {
-                    if delegate != nil {
-                        let viewControllers = outlineArrayController.arrangedObjects as? AnyObject
-                        if let example =
-                            viewControllers?.object(at: arrayController.selectionIndex) as? Outline {
-                            delegate!.didChangeOutlineSelection(masterViewController: self, selection: example)
-                        }
-                    }
+        if let outline = item as? Outline {
+            if tableColumn?.identifier == "Data" {
+                view = outlineView.make(withIdentifier: "TitleCell", owner: self) as? NSTableCellView
+                if let textField = view?.textField {
+                    textField.stringValue = outline.name
+                    // textField.sizeToFit()
                 }
-            } else {
-                super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+            }
+        } else if let outlineItem = item as? OutlineItem {
+            if tableColumn?.identifier == "Data" {
+                view = outlineView.make(withIdentifier: "ItemCell", owner: self) as? NSTableCellView
+                if let textField = view?.textField {
+                    textField.stringValue = outlineItem.title
+                    textField.sizeToFit()
+                }
+            } else if tableColumn?.identifier == "ImageCell" {
+                view = outlineView.make(withIdentifier: "ImageCell", owner: self) as? NSTableCellView
+                if let image = view?.imageView {
+                    image.image = NSImage(named: outlineItem.image)
+                    image.sizeToFit()
+                }
             }
         }
+        
+        return view
     }
     
-    // MARK - Table Configuration
-    
-    fileprivate func addButtons() {
-        outlineArrayBacking.append(Outline(name: NSLocalizedString("MasterList", comment: "The Master List"),
-                                           description: "",
-                                           viewControllerIdentifier: ""))
-
-        outlineArrayBacking.append(Outline(name: NSLocalizedString("Employees", comment: "List Employees"),
-                                           description: "",
-                                           viewControllerIdentifier: "EmployeeTableViewController"))
-        
-        outlineArrayBacking.append(Outline(name: NSLocalizedString("Computers", comment: "List Computers"),
-                                           description: "",
-                                           viewControllerIdentifier: "ComputerTableController"))
-        
-        outlineArrayBacking.append(Outline(name: NSLocalizedString("Printers", comment: "List Printers"),
-                                           description: "",
-                                           viewControllerIdentifier: "PrinterTableController"))
-
-        outlineArrayBacking.append(Outline(name: NSLocalizedString("Phones", comment: "List Phones"),
-                                           description: "",
-                                           viewControllerIdentifier: "PhoneTableController"))
-
-        outlineArrayBacking.append(Outline(name: NSLocalizedString("Mobile", comment: "List Mobiles"),
-                                           description: "",
-                                           viewControllerIdentifier: "MobileTableController"))
-
-        outlineArrayBacking.append(Outline(name: NSLocalizedString("Departments", comment: "List Departments"),
-                                           description: "",
-                                           viewControllerIdentifier: "DepartmentTableController"))
-
-        outlineArrayBacking.append(Outline(name: NSLocalizedString("Place", comment: "List Places"),
-                                           description: "",
-                                           viewControllerIdentifier: "PlaceableController"))
-
-        outlineArrayBacking.append(Outline(name: NSLocalizedString("Function", comment: "List Functions"),
-                                           description: "",
-                                           viewControllerIdentifier: "FunctionTableController"))
-
-        
-        
+    func outlineView(_ outlineView: NSOutlineView, shouldEdit tableColumn: NSTableColumn?, item: Any) -> Bool {
+        return false
     }
     
     
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        guard let outlineView = notification.object as? NSOutlineView else {
+            return
+        }
+        
+        let selectedIndex = outlineView.selectedRow
+        
+        if let outlineItem = outlineView.item(atRow: selectedIndex) as? OutlineItem {
+            self.outlineItem = outlineItem
+            NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "de.juergenmuelbert.changeView"), object: self))
+        }
+   }
+    
+    
+    func outlineViewSelectionIsChanging(_ notification: Notification) {
+        NSLog("Selection changed")
+    }
+
+
+    
+    // MARK: KVO
+    // override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    //    super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+    // }
 }
 
+// MARK: - Protocol
+///
+/// The Protocol - Interface for the Message to the Controller
 protocol MasterViewControllerDelegate : class {
-    func didChangeOutlineSelection(masterViewController: MasterViewController, selection: Outline?) 
+    func didChangeOutlineSelection(masterViewController: MasterViewController, selection: OutlineItem?)
 }
-    
-    
-    

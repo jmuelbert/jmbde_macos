@@ -27,8 +27,8 @@ class DetailViewController: NSViewController {
     @IBOutlet weak var descriptionField: NSTextField!
     @IBOutlet weak var viewArea: NSView!
     
-    
-    var detailItemRecord: Outline! {
+
+    var detailItemRecord: OutlineItem! {
         didSet {
             // Remove the old child view controller
             if !childViewControllers.isEmpty {
@@ -42,20 +42,21 @@ class DetailViewController: NSViewController {
             guard detailItemRecord != nil else  { return }
             
             // Update tje description of the area
+     
             descriptionField.stringValue = detailItemRecord.desc
             
             // Check ist this area actually has an valid controller to display
             guard !detailItemRecord.viewControllerIdentifier.characters.isEmpty else {
                 return
             }
-            
+        
             // Load the area storyboard and embed.
             let storyboard: NSStoryboard = NSStoryboard(name: detailItemRecord.viewControllerIdentifier, bundle: nil)
             // let sceneIdentifier = NSStoryboard.SceneIdentifier(rawValue: detailItemRecord.viewControllerIdentifier)
             guard let buttonViewController = storyboard.instantiateController(withIdentifier: detailItemRecord.viewControllerIdentifier) as? NSViewController else { return  }
             
             insertChildViewController(buttonViewController, at: 0)
-            
+ 
             buttonViewController.view.translatesAutoresizingMaskIntoConstraints = false
             
             view.addSubview(buttonViewController.view)
@@ -92,7 +93,7 @@ class DetailViewController: NSViewController {
             view.addConstraints([top, left, height, width])
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.

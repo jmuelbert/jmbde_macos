@@ -21,23 +21,31 @@
 
 import Cocoa
 
-class SplitViewController: NSSplitViewController, MasterViewControllerDelegate {
+class SplitViewController: NSSplitViewController {
 
     var masterViewController: MasterViewController!
     var detailViewController: DetailViewController!
+    
+    var updateSeque: NSObjectProtocol!
 
     // MARK: - View Controller LIfecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Note: we keep the left split view item from growing as the window grows by setting its hugging priority to 200,
-        // and the right to 199. The view with the lowest priority will be the first to take on additional with the
+        
+ 
+        // Note: we keep the left split view item from growing as the window
+        // grows by setting its hugging priority to 200,
+        // and the right to 199. The view with the lowest priority will be the
+        // first to take on additional with the
         // split view grows ir shrinks-
         splitView.adjustSubviews()
         
+        updateSeque = NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: "de.juergenmuelbert.changeView"), object: nil, queue: nil, using: setSeque)
         masterViewController = splitViewItems[0].viewController as? MasterViewController
-        masterViewController.delegate = self // Listen for table viwe selection changes
+        masterViewController.delegate = self as? MasterViewControllerDelegate // Listen for table view selection changes
+  
         
         if let detailViewController = splitViewItems[1].viewController as? DetailViewController {
             self.detailViewController = detailViewController
@@ -50,8 +58,20 @@ class SplitViewController: NSSplitViewController, MasterViewControllerDelegate {
     }
     
     // MARK: - MasterViweControllerDelegate
-    func didChangeOutlineSelection(masterViewController: MasterViewController, selection: Outline?) {
-        detailViewController.detailItemRecord = selection
+ 
+    ///
+    /// Handle the selection in the Menu
+    /// - When click an entry change here the selection
+    /// @param masterViewController
+    /// @param selection
+    ///
+
+    func setSeque(_ notification: Notification) {
+        if let controller = notification.object as? MasterViewController {
+            let selection = controller.outlineItem
+            detailViewController.detailItemRecord = selection
+            print("Change to: %s and the Controller %s",selection?.title, selection?.viewControllerIdentifier)
+        }
     }
-    
+ 
 }

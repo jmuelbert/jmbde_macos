@@ -7,3 +7,21 @@
 //
 
 import Foundation
+import Cocoa
+
+class Employee: NSObject {
+    dynamic var firstName: String?
+    dynamic var lastName: String?
+    dynamic var image: NSImage?
+    dynamic var jobRole: String?
+    
+    func addLastName(ln: String?) {
+        self.lastName = ln
+    }
+    
+    func addName(fn: String?, ln: String?) {
+        self.firstName = fn
+        self.lastName = ln
+    }
+    
+}

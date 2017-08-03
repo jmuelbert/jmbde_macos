@@ -20,12 +20,88 @@
 //
 
 import Cocoa
+import CoreData
+
 
 class EmployeeTableViewController: NSViewController {
 
+    
+    @IBOutlet weak var tableView: NSTableView!
+ 
+    
+    dynamic var employees = [Employee]()
+    
+    let tableViewData =
+    [["firstName":"John","lastName": "Doe"],
+     ["firstName":"Jana", "lastName":"Doe"]]
+
+    @IBAction func addEmployeeAction(_ sender: Any) {
+   
+        performSegue(withIdentifier: "EmployeeAddSeque", sender: sender)
+        
+        self.tableView.reloadData()
+        
+    }
+    
+    @IBAction func removeEmployee(_ sender: Any) {
+    }
+    
+//    func RequestData() {
+//        let appdelegate = NSApplication.shared().delegate as! AppDelegate
+//        let context = appdelegate.persistentContainer.viewContext
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Employee")
+//        request.returnsObjectsAsFaults = false
+//        do {
+//            let results  = try context.fetch(request)
+//            if results.count > 0 {
+//                for result in results {
+//                    if let firstName = (result as AnyObject).value(forKey: "firstName") as? String {
+//                        content.append(firstName)
+//                    }
+//                    if let lastName = (result as AnyObject).value(forKey: "lastName") as? String {
+//                        content.append(lastName)
+//                    }
+//                }
+//            }
+//        } catch {}
+//        
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+
+       self.tableView?.dataSource = self
+       self.tableView?.delegate = self
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EmployeeAddSeque" {
+            let destinationAddEmployee = segue.destinationController as? EmployeeAddViewController
+            destinationAddEmployee?.employeesArray = employees
+        }
+    }
+    
+    }
+
+extension EmployeeTableViewController: NSTableViewDataSource {
+
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return tableViewData.count
+    }
+
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?{
+        var result:NSTableCellView
+        result  = tableView.make(withIdentifier: (tableColumn?.identifier)!, owner: self) as! NSTableCellView
+        result.textField?.stringValue = tableViewData[row][(tableColumn?.identifier)!]!
+        return result
     }
     
 }
+
+extension EmployeeTableViewController: NSTableViewDelegate {
+    
+}
+    
+
+

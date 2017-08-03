@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   OutlineList.plist
-   jmbde
-
-   Created by Jürgen Mülbert on 18.07.17.
-   Copyright (c) 2017 Jürgen Mülbert. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<array>
+	<dict>
+		<key>name</key>
+		<string>Persons</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>description</key>
+				<string>the person</string>
+				<key>image</key>
+				<string>NSUserGroup</string>
+				<key>title</key>
+				<string>Person</string>
+				<key>viewControllerIdentifier</key>
+				<string>seque1</string>
+			</dict>
+			<dict>
+				<key>viewControllerIdentifier</key>
+				<string>EmployeeTableViewController</string>
+				<key>title</key>
+				<string>Employee</string>
+				<key>description</key>
+				<string>The Employee</string>
+				<key>image</key>
+				<string>NSUser</string>
+				<key>seque</key>
+				<string>EmployeeTableViewController</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Device</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Computer</string>
+				<key>description</key>
+				<string>The Computer</string>
+				<key>viewControllerIdentifier</key>
+				<string>seque3</string>
+				<key>image</key>
+				<string>NSComputer</string>
+				<key>seque</key>
+				<string>seque3</string>
+			</dict>
+		</array>
+	</dict>
+</array>
 </plist>

@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Account" representedClassName="Account" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="passWord" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="rel_Company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" syncable="YES"/>
+        <relationship name="rel_Company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="rel_Account" inverseEntity="Company" syncable="YES"/>
+        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="rel_Account" inverseEntity="Employee" syncable="YES"/>
     </entity>
     <entity name="Chipcard" representedClassName="Chipcard" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="rel_ChipcardDoor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChipcardDoor" syncable="YES"/>
-        <relationship name="rel_ChipcardProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChipcardProfile" syncable="YES"/>
-        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" syncable="YES"/>
+        <relationship name="rel_ChipcardDoor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChipcardDoor" inverseName="rel_Chipcard" inverseEntity="ChipcardDoor" syncable="YES"/>
+        <relationship name="rel_ChipcardProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChipcardProfile" inverseName="rel_Chipcard" inverseEntity="ChipcardProfile" syncable="YES"/>
+        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="rel_ChipCard" inverseEntity="Employee" syncable="YES"/>
     </entity>
     <entity name="ChipcardDoor" representedClassName="ChipcardDoor" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="rel_Company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" syncable="YES"/>
+        <relationship name="rel_Chipcard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chipcard" inverseName="rel_ChipcardDoor" inverseEntity="Chipcard" syncable="YES"/>
+        <relationship name="rel_ChipCardProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChipcardProfile" inverseName="rel_ChipcardDoor" inverseEntity="ChipcardProfile" syncable="YES"/>
+        <relationship name="rel_Company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="rel_ChipCardDoor" inverseEntity="Company" syncable="YES"/>
     </entity>
     <entity name="ChipcardProfile" representedClassName="ChipcardProfile" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="rel_ChipcardDoor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChipcardDoor" syncable="YES"/>
-        <relationship name="rel_Company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" syncable="YES"/>
+        <relationship name="rel_Chipcard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chipcard" inverseName="rel_ChipcardProfile" inverseEntity="Chipcard" syncable="YES"/>
+        <relationship name="rel_ChipcardDoor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChipcardDoor" inverseName="rel_ChipCardProfile" inverseEntity="ChipcardDoor" syncable="YES"/>
+        <relationship name="rel_Company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="rel_ChipCardProfile" inverseEntity="Company" syncable="YES"/>
     </entity>
     <entity name="City" representedClassName="City" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="rel_City" inverseEntity="Person" syncable="YES"/>
     </entity>
     <entity name="Company" representedClassName="Company" parentEntity="Person" syncable="YES">
         <attribute name="businessMail" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,17 +50,22 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" syncable="YES"/>
+        <relationship name="rel_Account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="rel_Company" inverseEntity="Account" syncable="YES"/>
+        <relationship name="rel_ChipCardDoor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChipcardDoor" inverseName="rel_Company" inverseEntity="ChipcardDoor" syncable="YES"/>
+        <relationship name="rel_ChipCardProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChipcardProfile" inverseName="rel_Company" inverseEntity="ChipcardProfile" syncable="YES"/>
+        <relationship name="rel_Device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="rel_Company" inverseEntity="Device" syncable="YES"/>
+        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="rel_Company" inverseEntity="Employee" syncable="YES"/>
         <relationship name="rel_Fax" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fax" syncable="YES"/>
-        <relationship name="rel_Phone" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Phone" syncable="YES"/>
+        <relationship name="rel_Phone" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Phone" inverseName="rel_Comapny" inverseEntity="Phone" syncable="YES"/>
+        <relationship name="rel_Place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="rel_Company" inverseEntity="Place" syncable="YES"/>
         <relationship name="rel_Printer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Printer" syncable="YES"/>
     </entity>
     <entity name="Computer" representedClassName="Computer" parentEntity="Device" syncable="YES">
         <attribute name="memory" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="screen" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="rel_OS" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OS" syncable="YES"/>
-        <relationship name="rel_Printer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Printer" syncable="YES"/>
-        <relationship name="rel_Processor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Processor" syncable="YES"/>
+        <relationship name="rel_OS" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OS" inverseName="rel_Computer" inverseEntity="OS" syncable="YES"/>
+        <relationship name="rel_Printer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Printer" inverseName="rel_Computer" inverseEntity="Printer" syncable="YES"/>
+        <relationship name="rel_Processor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Processor" inverseName="rel_Computer" inverseEntity="Processor" syncable="YES"/>
         <relationship name="rel_Software" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Software" syncable="YES"/>
     </entity>
     <entity name="Departmant" representedClassName="Departmant" syncable="YES">
@@ -63,8 +73,8 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="prio" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="rel_Device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" syncable="YES"/>
-        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" syncable="YES"/>
+        <relationship name="rel_Device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="rel_Department" inverseEntity="Device" syncable="YES"/>
+        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="rel_Department" inverseEntity="Employee" syncable="YES"/>
         <relationship name="rel_Fax" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fax" syncable="YES"/>
         <relationship name="rel_Phone" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Phone" syncable="YES"/>
         <relationship name="rel_Printer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Printer" syncable="YES"/>
@@ -79,26 +89,30 @@
         <attribute name="serviceNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="serviceTag" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="rel_Company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" syncable="YES"/>
-        <relationship name="rel_DeviceName" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeviceName" syncable="YES"/>
-        <relationship name="rel_DeviceType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeviceType" syncable="YES"/>
-        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" syncable="YES"/>
-        <relationship name="rel_Inventory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Inventory" syncable="YES"/>
-        <relationship name="rel_Place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" syncable="YES"/>
+        <relationship name="rel_Company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="rel_Device" inverseEntity="Company" syncable="YES"/>
+        <relationship name="rel_Department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Departmant" inverseName="rel_Device" inverseEntity="Departmant" syncable="YES"/>
+        <relationship name="rel_DeviceName" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeviceName" inverseName="rel_Device" inverseEntity="DeviceName" syncable="YES"/>
+        <relationship name="rel_DeviceType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeviceType" inverseName="rel_Device" inverseEntity="DeviceType" syncable="YES"/>
+        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="rel_Device" inverseEntity="Employee" syncable="YES"/>
+        <relationship name="rel_Inventory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Inventory" inverseName="rel_Device" inverseEntity="Inventory" syncable="YES"/>
+        <relationship name="rel_Place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="rel_Device" inverseEntity="Place" syncable="YES"/>
     </entity>
     <entity name="DeviceName" representedClassName="DeviceName" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="rel_Device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="rel_DeviceName" inverseEntity="Device" syncable="YES"/>
     </entity>
     <entity name="DeviceType" representedClassName="DeviceType" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="rel_Device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="rel_DeviceType" inverseEntity="Device" syncable="YES"/>
     </entity>
     <entity name="Document" representedClassName="Document" syncable="YES">
         <attribute name="myDocument" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="rel_Document" inverseEntity="Employee" syncable="YES"/>
     </entity>
     <entity name="Employee" representedClassName="Employee" parentEntity="Person" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -111,17 +125,17 @@
         <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="rel_Account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" syncable="YES"/>
-        <relationship name="rel_Chipcard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chipcard" syncable="YES"/>
-        <relationship name="rel_Company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" syncable="YES"/>
-        <relationship name="rel_Department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Departmant" syncable="YES"/>
-        <relationship name="rel_Device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" syncable="YES"/>
-        <relationship name="rel_Document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Document" syncable="YES"/>
+        <relationship name="rel_Account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="rel_Employee" inverseEntity="Account" syncable="YES"/>
+        <relationship name="rel_ChipCard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chipcard" inverseName="rel_Employee" inverseEntity="Chipcard" syncable="YES"/>
+        <relationship name="rel_Company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="rel_Employee" inverseEntity="Company" syncable="YES"/>
+        <relationship name="rel_Department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Departmant" inverseName="rel_Employee" inverseEntity="Departmant" syncable="YES"/>
+        <relationship name="rel_Device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="rel_Employee" inverseEntity="Device" syncable="YES"/>
+        <relationship name="rel_Document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Document" inverseName="rel_Employee" inverseEntity="Document" syncable="YES"/>
         <relationship name="rel_Fax" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fax" syncable="YES"/>
-        <relationship name="rel_Function" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Function" syncable="YES"/>
+        <relationship name="rel_Function" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Function" inverseName="rel_Employee" inverseEntity="Function" syncable="YES"/>
         <relationship name="rel_Mobile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mobile" syncable="YES"/>
         <relationship name="rel_Phone" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Phone" syncable="YES"/>
-        <relationship name="rel_Place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" syncable="YES"/>
+        <relationship name="rel_Place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="rel_Employee" inverseEntity="Place" syncable="YES"/>
         <relationship name="rel_Printer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Printer" syncable="YES"/>
     </entity>
     <entity name="Fax" representedClassName="Fax" parentEntity="Device" syncable="YES">
@@ -134,6 +148,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="prio" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="rel_Function" inverseEntity="Employee" syncable="YES"/>
     </entity>
     <entity name="Inventory" representedClassName="Inventory" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -141,7 +156,8 @@
         <attribute name="inventoryID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="rel_Place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" syncable="YES"/>
+        <relationship name="rel_Device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="rel_Inventory" inverseEntity="Device" syncable="YES"/>
+        <relationship name="rel_Place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="rel_Inventory" inverseEntity="Place" syncable="YES"/>
     </entity>
     <entity name="Mobile" representedClassName="Mobile" parentEntity="Device" syncable="YES">
         <attribute name="activateDate" optional="YES" attributeType="String" syncable="YES"/>
@@ -153,6 +169,7 @@
     </entity>
     <entity name="OS" representedClassName="OS" parentEntity="Software" syncable="YES">
         <attribute name="osName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="rel_Computer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Computer" inverseName="rel_OS" inverseEntity="Computer" syncable="YES"/>
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -165,12 +182,13 @@
         <attribute name="middleName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mobile" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="rel_City" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" syncable="YES"/>
-        <relationship name="rel_Title" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Title" syncable="YES"/>
+        <relationship name="rel_City" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="rel_Employee" inverseEntity="City" syncable="YES"/>
+        <relationship name="rel_Title" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Title" inverseName="rel_Employee" inverseEntity="Title" syncable="YES"/>
     </entity>
     <entity name="Phone" representedClassName="Phone" parentEntity="Device" syncable="YES">
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pin" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="rel_Comapny" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="rel_Phone" inverseEntity="Company" syncable="YES"/>
     </entity>
     <entity name="Place" representedClassName="Place" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -178,7 +196,10 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="room" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="rel_Company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" syncable="YES"/>
+        <relationship name="rel_Company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="rel_Place" inverseEntity="Company" syncable="YES"/>
+        <relationship name="rel_Device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="rel_Place" inverseEntity="Device" syncable="YES"/>
+        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="rel_Place" inverseEntity="Employee" syncable="YES"/>
+        <relationship name="rel_Inventory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Inventory" inverseName="rel_Place" inverseEntity="Inventory" syncable="YES"/>
     </entity>
     <entity name="Printer" representedClassName="Printer" parentEntity="Device" syncable="YES">
         <attribute name="color" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -186,6 +207,8 @@
         <attribute name="fax" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="paperSizeMax" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="resources" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="rel_Computer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Computer" inverseName="rel_Printer" inverseEntity="Computer" syncable="YES"/>
+        <relationship name="rel_Fax" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Printer" inverseName="rel_Fax" inverseEntity="Printer" syncable="YES"/>
     </entity>
     <entity name="Processor" representedClassName="Processor" syncable="YES">
         <attribute name="cores" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -193,6 +216,7 @@
         <attribute name="ghz" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="rel_Computer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Computer" inverseName="rel_Processor" inverseEntity="Computer" syncable="YES"/>
     </entity>
     <entity name="Software" representedClassName="Software" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -206,32 +230,33 @@
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="rel_Employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="rel_Title" inverseEntity="Person" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Account" positionX="-846" positionY="-79" width="128" height="133"/>
-        <element name="Chipcard" positionX="-765" positionY="-513" width="128" height="148"/>
-        <element name="ChipcardDoor" positionX="-576" positionY="-514" width="128" height="118"/>
-        <element name="ChipcardProfile" positionX="-1089" positionY="-486" width="128" height="133"/>
-        <element name="City" positionX="-1442" positionY="-396" width="128" height="88"/>
-        <element name="Company" positionX="-1152" positionY="17" width="128" height="208"/>
-        <element name="Computer" positionX="-371" positionY="-135" width="128" height="103"/>
-        <element name="Departmant" positionX="-135" positionY="486" width="128" height="178"/>
-        <element name="Device" positionX="-344" positionY="-430" width="128" height="268"/>
-        <element name="DeviceName" positionX="-279" positionY="-558" width="128" height="88"/>
-        <element name="DeviceType" positionX="-414" positionY="-558" width="128" height="88"/>
-        <element name="Document" positionX="-1575" positionY="405" width="128" height="73"/>
-        <element name="Employee" positionX="-1413" positionY="198" width="128" height="373"/>
-        <element name="Fax" positionX="-90" positionY="-135" width="128" height="88"/>
-        <element name="Function" positionX="-1584" positionY="495" width="128" height="103"/>
-        <element name="Inventory" positionX="-657" positionY="-345" width="128" height="133"/>
-        <element name="Mobile" positionX="-639" positionY="-126" width="128" height="133"/>
-        <element name="OS" positionX="-308" positionY="176" width="128" height="58"/>
-        <element name="Person" positionX="-1253" positionY="-322" width="128" height="223"/>
-        <element name="Phone" positionX="-504" positionY="-126" width="128" height="73"/>
-        <element name="Place" positionX="-965" positionY="-243" width="128" height="58"/>
-        <element name="Printer" positionX="-227" positionY="-135" width="128" height="118"/>
-        <element name="Processor" positionX="-333" positionY="341" width="128" height="118"/>
+        <element name="Account" positionX="-846" positionY="-79" width="128" height="150"/>
+        <element name="Chipcard" positionX="-765" positionY="-513" width="128" height="30"/>
+        <element name="ChipcardDoor" positionX="-576" positionY="-514" width="128" height="150"/>
+        <element name="ChipcardProfile" positionX="-1089" positionY="-486" width="128" height="150"/>
+        <element name="City" positionX="-1442" positionY="-396" width="128" height="105"/>
+        <element name="Company" positionX="-1152" positionY="17" width="128" height="30"/>
+        <element name="Computer" positionX="-371" positionY="-135" width="128" height="135"/>
+        <element name="Departmant" positionX="-135" positionY="486" width="128" height="30"/>
+        <element name="Device" positionX="-344" positionY="-430" width="128" height="285"/>
+        <element name="DeviceName" positionX="-279" positionY="-558" width="128" height="105"/>
+        <element name="DeviceType" positionX="-414" positionY="-558" width="128" height="105"/>
+        <element name="Document" positionX="-1575" positionY="405" width="128" height="90"/>
+        <element name="Employee" positionX="-1413" positionY="198" width="128" height="30"/>
+        <element name="Fax" positionX="-90" positionY="-135" width="128" height="30"/>
+        <element name="Function" positionX="-1584" positionY="495" width="128" height="120"/>
+        <element name="Inventory" positionX="-657" positionY="-345" width="128" height="150"/>
+        <element name="Mobile" positionX="-639" positionY="-126" width="128" height="30"/>
+        <element name="OS" positionX="-308" positionY="176" width="128" height="75"/>
+        <element name="Person" positionX="-1253" positionY="-322" width="128" height="225"/>
+        <element name="Phone" positionX="-504" positionY="-126" width="128" height="30"/>
+        <element name="Place" positionX="-965" positionY="-243" width="128" height="180"/>
+        <element name="Printer" positionX="-227" positionY="-135" width="128" height="30"/>
+        <element name="Processor" positionX="-333" positionY="341" width="128" height="135"/>
         <element name="Software" positionX="-362" positionY="54" width="128" height="133"/>
-        <element name="Title" positionX="-1595" positionY="-394" width="128" height="88"/>
+        <element name="Title" positionX="-1739" positionY="-385" width="128" height="105"/>
     </elements>
 </model>
