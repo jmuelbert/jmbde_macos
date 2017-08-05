@@ -26,7 +26,7 @@ class EmployeeAddViewController: NSViewController {
             alert.alertStyle = NSAlertStyle.critical
             alert.addButton(withTitle: "Cancel")
             alert.runModal()
-            self.dismiss(self)
+            self.dismissViewController(self)
         } else {
             let emp = Employee()
             emp.firstName = saveFirstName
@@ -34,11 +34,12 @@ class EmployeeAddViewController: NSViewController {
             
             employeesArray.append(emp)
         }
-        self.dismiss(nil)    }
+        self.dismissViewController(self)
+    }
     
     
     @IBAction func cancelAction(_ sender: Any) {
-        self.dismiss(nil)
+        self.dismissViewController(self)
     }
     
     override func viewDidLoad() {

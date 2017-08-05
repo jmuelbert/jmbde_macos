@@ -32,6 +32,35 @@ protocol Storyboard {
 
 struct Storyboards {
 
+    struct EmployeeTableViewController: Storyboard {
+
+        static let identifier = "EmployeeTableViewController"
+
+        static var storyboard: NSStoryboard {
+            return NSStoryboard(name: self.identifier, bundle: nil)
+        }
+
+        static func instantiateController(withIdentifier: String) -> NSWindowController {
+            return self.storyboard.instantiateController(withIdentifier: identifier) as! NSWindowController
+        }
+
+        static func instantiateViewController<T: NSWindowController>(ofType type: T.Type) -> T? where T: IdentifiableProtocol {
+            return self.storyboard.instantiateViewController(ofType: type)
+        }
+
+        static func instantiateController(withIdentifier: String) -> NSViewController {
+            return self.storyboard.instantiateController(withIdentifier: identifier) as! NSViewController
+        }
+
+        static func instantiateViewController<T: NSViewController>(ofType type: T.Type) -> T? where T: IdentifiableProtocol {
+            return self.storyboard.instantiateViewController(ofType: type)
+        }
+
+        static func instantiateEmployeeTableViewController() -> EmployeeTableViewController {
+            return self.storyboard.instantiateController(withIdentifier: "EmployeeTableViewController") as! EmployeeTableViewController
+        }
+    }
+
     struct Main: Storyboard {
 
         static let identifier = "Main"
@@ -170,6 +199,48 @@ extension NSWindowController {
 }
 
 
+//MARK: - EmployeeTableViewController
+extension NSStoryboardSegue {
+    func selection() -> EmployeeTableViewController.Segue? {
+        if let identifier = self.identifier {
+            return EmployeeTableViewController.Segue(rawValue: identifier)
+        }
+        return nil
+    }
+}
+
+extension EmployeeTableViewController: IdentifiableProtocol { 
+    var storyboardIdentifier: String? { return "EmployeeTableViewController" }
+    static var storyboardIdentifier: String? { return "EmployeeTableViewController" }
+}
+
+extension EmployeeTableViewController { 
+
+    enum Segue: String, CustomStringConvertible, SegueProtocol {
+        case EmployeeAddSeque = "EmployeeAddSeque"
+
+        var kind: SegueKind? {
+            switch (self) {
+            case .EmployeeAddSeque:
+                return SegueKind(rawValue: "popover")
+            }
+        }
+
+        var destination: AnyObject.Type? {
+            switch (self) {
+            case .EmployeeAddSeque:
+                return EmployeeAddViewController.self
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
+
+//MARK: - EmployeeAddViewController
+
 //MARK: - SplitViewController
 
 //MARK: - MasterViewController
@@ -185,6 +256,4 @@ extension DetailViewController: IdentifiableProtocol {
     static var storyboardIdentifier: String? { return "DetailViewController" }
 }
 
-
-//MARK: - EmployeeTableViewController
 

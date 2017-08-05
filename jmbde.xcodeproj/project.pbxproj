@@ -239,6 +239,7 @@
 				0A86BB9DF13F125C936A5381 /* [CP] Embed Pods Frameworks */,
 				C18233CB3150AACCC3F2325C /* [CP] Copy Pods Resources */,
 				388817421F2345A8005E708B /* Run SwiftGen Script */,
+				3835B64B1F35A33100A49622 /* Run Natalie Script */,
 			);
 			buildRules = (
 			);
@@ -383,6 +384,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-jmbde/Pods-jmbde-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3835B64B1F35A33100A49622 /* Run Natalie Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Natalie Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Natalie Generator: Determining if generated Swift file is up-to-date.\"\n\n# Adjust path to \"natalie\" binary\n# NATALIE_PATH=\"$PROJECT_DIR/natalie\"\nNATALIE_PATH=\"/usr/local/bin/natalie\"\n\nif [ -f $NATALIE_PATH ]; then\nBASE_PATH=\"$PROJECT_DIR/$PROJECT_NAME\"\nOUTPUT_PATH=\"$BASE_PATH//Constants/N_Storyboards.swift\"\n\nif [ ! -e \"$OUTPUT_PATH\" ] || [ -n \"$(find \"$BASE_PATH\" -type f -name \"*.storyboard\" -newer \"$OUTPUT_PATH\" -print -quit)\" ]; then\necho \"Natalie Generator: Generated Swift is out-of-date; re-generating...\"\n\n/usr/bin/chflags nouchg \"$OUTPUT_PATH\"\n\"$NATALIE_PATH\" \"$BASE_PATH\" > \"$OUTPUT_PATH\"\n/usr/bin/chflags uchg \"$OUTPUT_PATH\"\n\necho \"Natalie Generator: Done.\"\nelse\necho \"Natalie Generator: Generated Swift is up-to-date; skipping re-generation.\"\nfi\nfi";
+		};
 		388817421F2345A8005E708B /* Run SwiftGen Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -395,7 +410,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftgen >/dev/null; then\nswiftgen storyboards -t osx-swift3 \"$PROJECT_DIR\" --output \"$PROJECT_DIR/jmbde/Constants/Storyboards.swift\"\nswiftgen images \"$PROJECT_DIR/jmbde/Assets.xcassets\" --output \"$PROJECT_DIR/jmbde/Constants/Images.swift\"\nelse\necho \"warning: SwiftGen not installed, download it from https://github.com/AliSoftware/SwiftGen\"\nfi\n";
+			shellScript = "if which swiftgen >/dev/null; then\nswiftgen storyboards -t osx-swift3 \"$PROJECT_DIR\" --output \"$PROJECT_DIR/jmbde/Constants/SWG_Storyboards.swift\"\nswiftgen images \"$PROJECT_DIR/jmbde/Assets.xcassets\" --output \"$PROJECT_DIR/jmbde/Constants/Images.swift\"\nelse\necho \"warning: SwiftGen not installed, download it from https://github.com/AliSoftware/SwiftGen\"\nfi\n";
 		};
 		5879D5196F0F6BBCBD191A4D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
