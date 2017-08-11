@@ -42,7 +42,7 @@ class SplitViewController: NSSplitViewController {
         // split view grows ir shrinks-
         splitView.adjustSubviews()
         
-        updateSeque = NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: "de.juergenmuelbert.changeView"), object: nil, queue: nil, using: setSeque)
+        updateSeque = NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: "de.juergen-muelbert.jmbde.changeView"), object: nil, queue: nil, using: setSeque)
         masterViewController = splitViewItems[0].viewController as? MasterViewController
         masterViewController.delegate = self as? MasterViewControllerDelegate // Listen for table view selection changes
   

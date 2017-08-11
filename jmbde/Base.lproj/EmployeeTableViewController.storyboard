@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="uVZ-YL-GuF">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
@@ -9,7 +9,7 @@
         <!--Employee Table View Controller-->
         <scene sceneID="D5b-5t-sku">
             <objects>
-                <viewController storyboardIdentifier="Employee" id="uVZ-YL-GuF" customClass="EmployeeTableViewController" customModule="jmbde" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmployeeTableViewController" id="uVZ-YL-GuF" customClass="EmployeeTableViewController" customModule="jmbde" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ZT6-pi-MTp">
                         <rect key="frame" x="0.0" y="0.0" width="482" height="319"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -28,7 +28,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="118" minWidth="40" maxWidth="1000" id="PRZ-qB-sbn">
+                                                <tableColumn identifier="firstName" width="118" minWidth="40" maxWidth="1000" id="PRZ-qB-sbn">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Firstname">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -61,7 +61,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="356" minWidth="40" maxWidth="1000" id="fQ9-bQ-XuQ">
+                                                <tableColumn identifier="lastName" width="356" minWidth="40" maxWidth="1000" id="fQ9-bQ-XuQ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Lastname">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

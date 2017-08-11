@@ -30,20 +30,25 @@ class MasterViewController: NSViewController {
     // MARK: - Properties
     var outlineItem: OutlineItem!
     var recentItensObserver: NSObjectProtocol!
-    
-    
-    // The
+
+    // The OutlineView
     @IBOutlet weak var outlineView: NSOutlineView!
-    
-    
+
+    /**
+      The Notification-Identifier-String
+     */
     static let OutlineNotification = "outlineNotification"
     
-    ///
-    ///  The SourceListHeader is doubleCliked
-    ///
-    ///   @param sender contains NSOutlineView
-    ///
-    @IBAction func doubleClickedItem(_ sender: NSOutlineView) {
+    /**
+      The SourceListHeader is doubleCliked
+    
+       - parameters:
+           - sender: contains NSOutlineView
+     
+      - returns:
+            - Nothing
+    */
+    @IBAction func doubleClickItem(_ sender: NSOutlineView) {
         let item = sender.item(atRow: sender.clickedRow)
         
         if item is Outline {
@@ -55,6 +60,7 @@ class MasterViewController: NSViewController {
         }
     }
     
+
     override func keyDown(with event: NSEvent) {
         interpretKeyEvents([event])
     }
@@ -71,11 +77,12 @@ class MasterViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        recentItensObserver = NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: "de.juergenmuelbert.openView"), object: nil, queue: nil, using: openView)
+        recentItensObserver = NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: "de.juergen-muelbert.jmbde.openView"), object: nil, queue: nil, using: openView)
     
         if let filePath = Bundle.main.path(forResource: "OutlineList", ofType: "plist") {
             outlines = Outline.outlineList(filePath)
         }
+
     }
     
     func openView(_ notification: Notification) {
@@ -117,7 +124,7 @@ extension MasterViewController: NSOutlineViewDelegate {
         
         if let outline = item as? Outline {
             if tableColumn?.identifier == "Data" {
-                view = outlineView.make(withIdentifier: "TitleCell", owner: self) as? NSTableCellView
+                view = outlineView.make(withIdentifier: "HeaderCell", owner: self) as? NSTableCellView
                 if let textField = view?.textField {
                     textField.stringValue = outline.name
                     // textField.sizeToFit()
@@ -125,7 +132,7 @@ extension MasterViewController: NSOutlineViewDelegate {
             }
         } else if let outlineItem = item as? OutlineItem {
             if tableColumn?.identifier == "Data" {
-                view = outlineView.make(withIdentifier: "ItemCell", owner: self) as? NSTableCellView
+                view = outlineView.make(withIdentifier: "DataColumn", owner: self) as? NSTableCellView
                 if let textField = view?.textField {
                     textField.stringValue = outlineItem.title
                     textField.sizeToFit()
@@ -156,7 +163,7 @@ extension MasterViewController: NSOutlineViewDelegate {
         
         if let outlineItem = outlineView.item(atRow: selectedIndex) as? OutlineItem {
             self.outlineItem = outlineItem
-            NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "de.juergenmuelbert.changeView"), object: self))
+            NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "de.juergen-muelbert.jmbde.changeView"), object: self))
         }
    }
     
