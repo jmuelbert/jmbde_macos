@@ -8,16 +8,6 @@
 		<key>items</key>
 		<array>
 			<dict>
-				<key>description</key>
-				<string>the person</string>
-				<key>image</key>
-				<string>NSUserGroup</string>
-				<key>title</key>
-				<string>Person</string>
-				<key>viewControllerIdentifier</key>
-				<string>seque1</string>
-			</dict>
-			<dict>
 				<key>viewControllerIdentifier</key>
 				<string>EmployeeTableViewController</string>
 				<key>title</key>
@@ -28,25 +18,6 @@
 				<string>NSUser</string>
 				<key>seque</key>
 				<string>EmployeeTableViewController</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>Device</string>
-		<key>items</key>
-		<array>
-			<dict>
-				<key>title</key>
-				<string>Computer</string>
-				<key>description</key>
-				<string>The Computer</string>
-				<key>viewControllerIdentifier</key>
-				<string>seque3</string>
-				<key>image</key>
-				<string>NSComputer</string>
-				<key>seque</key>
-				<string>seque3</string>
 			</dict>
 		</array>
 	</dict>

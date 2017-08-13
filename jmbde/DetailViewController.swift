@@ -22,12 +22,22 @@
 import Cocoa
 
 class DetailViewController: NSViewController {
-    
 
+    /**
+      The Description in Top of the actual view
+    */
     @IBOutlet weak var descriptionField: NSTextField!
+    /**
+      The view Area for the Data Views
+    */
     @IBOutlet weak var viewArea: NSView!
-    
 
+    /**
+      The detailItemRecord
+        - hold the data from the outline.plist
+        - is use for the description header
+        - change the seque
+    */
     var detailItemRecord: OutlineItem! {
         didSet {
             // Remove the old child view controller
@@ -36,31 +46,31 @@ class DetailViewController: NSViewController {
                 vc.view.isHidden = true
                 vc.removeFromParentViewController()
             }
-            
+
             descriptionField.stringValue = ""
-            
+
             guard detailItemRecord != nil else  { return }
-            
-            // Update tje description of the area
-     
+
+            // Update the description of the area
+
             descriptionField.stringValue = detailItemRecord.desc
-            
+
             // Check ist this area actually has an valid controller to display
             guard !detailItemRecord.viewControllerIdentifier.characters.isEmpty else {
                 return
             }
-        
+
             // Load the area storyboard and embed.
             let storyboard: NSStoryboard = NSStoryboard(name: detailItemRecord.viewControllerIdentifier, bundle: nil)
             // let sceneIdentifier = NSStoryboard.SceneIdentifier(rawValue: detailItemRecord.viewControllerIdentifier)
             guard let buttonViewController = storyboard.instantiateController(withIdentifier: detailItemRecord.viewControllerIdentifier) as? NSViewController else { return  }
-            
+
             insertChildViewController(buttonViewController, at: 0)
- 
+
             buttonViewController.view.translatesAutoresizingMaskIntoConstraints = false
-            
+
             view.addSubview(buttonViewController.view)
-            
+
             // Add the propper constraints to the detail view controller so it embeds properly with it's parent view controller.
             let top = NSLayoutConstraint(item: buttonViewController.view,
                                          attribute: .top,
@@ -98,5 +108,5 @@ class DetailViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
     }
-    
+
 }

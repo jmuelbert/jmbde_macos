@@ -32,7 +32,7 @@ class Outline : NSObject {
         //
     // Init the Outline Class
     //
-    // @param‚ name
+    // @param name
     //
     init(name: String) {
         self.name = name
