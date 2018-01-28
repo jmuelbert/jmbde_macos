@@ -74,7 +74,7 @@ class EmployeeTableViewController: NSViewController {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EmployeeAddSeque" {
+        if segue.identifier!.rawValue == "EmployeeAddSeque" {
             let destinationAddEmployee = segue.destinationController as? EmployeeAddViewController
           //  destinationAddEmployee?.employeesArray = employees
         }
@@ -90,12 +90,12 @@ extension EmployeeTableViewController: NSTableViewDataSource {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
-        if tableColumn?.identifier == "lastName" {
+        if (tableColumn?.identifier)!.rawValue == "lastName" {
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "lastName"), owner: nil) as? NSTableCellView {
                 cell.textField?.stringValue = employees[row].lastName!
                 return cell
             }
-        } else if tableColumn?.identifier == "firstName" {
+        } else if (tableColumn?.identifier)!.rawValue == "firstName" {
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "firstName"), owner: nil) as? NSTableCellView {
                 cell.textField?.stringValue = employees[row].firstName!
                 return cell
