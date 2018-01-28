@@ -6,13 +6,19 @@
 //  Copyright © 2017 Jürgen Mülbert. All rights reserved.
 //
 
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        MSAppCenter.start("6b683321-bbe2-43de-b14f-ce34f22897fe", withServices:[
+            MSAnalytics.self,
+            MSCrashes.self
+        ])
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -75,7 +81,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             } catch {
                 // Customize this code block to include application-specific recovery steps.
                 let nserror = error as NSError
-                NSApplication.shared().presentError(nserror)
+                NSApplication.shared.presentError(nserror)
             }
         }
     }
@@ -85,7 +91,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return persistentContainer.viewContext.undoManager
     }
 
-    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplicationTerminateReply {
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         // Save changes in the application's managed object context before the application terminates.
         let context = persistentContainer.viewContext
 
@@ -120,7 +126,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             alert.addButton(withTitle: cancelButton)
 
             let answer = alert.runModal()
-            if answer == NSAlertSecondButtonReturn {
+            if answer == NSApplication.ModalResponse.alertSecondButtonReturn {
                 return .terminateCancel
             }
         }

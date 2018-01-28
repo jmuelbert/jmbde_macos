@@ -124,7 +124,7 @@ extension MasterViewController: NSOutlineViewDelegate {
         
         if let outline = item as? Outline {
             if tableColumn?.identifier == "Data" {
-                view = outlineView.make(withIdentifier: "HeaderCell", owner: self) as? NSTableCellView
+                view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderCell"), owner: self) as? NSTableCellView
                 if let textField = view?.textField {
                     textField.stringValue = outline.name
                     // textField.sizeToFit()
@@ -132,15 +132,15 @@ extension MasterViewController: NSOutlineViewDelegate {
             }
         } else if let outlineItem = item as? OutlineItem {
             if tableColumn?.identifier == "Data" {
-                view = outlineView.make(withIdentifier: "DataColumn", owner: self) as? NSTableCellView
+                view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataColumn"), owner: self) as? NSTableCellView
                 if let textField = view?.textField {
                     textField.stringValue = outlineItem.title
                     textField.sizeToFit()
                 }
             } else if tableColumn?.identifier == "ImageCell" {
-                view = outlineView.make(withIdentifier: "ImageCell", owner: self) as? NSTableCellView
+                view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ImageCell"), owner: self) as? NSTableCellView
                 if let image = view?.imageView {
-                    image.image = NSImage(named: outlineItem.image)
+                    image.image = NSImage(named: NSImage.Name(rawValue: outlineItem.image))
                     image.sizeToFit()
                 }
             }

@@ -26,12 +26,12 @@ class EmployeeAddViewController: NSViewController {
         if lastName.isEmpty {
             let alert = NSAlert()
             alert.messageText = "The Lastname can not be empty"
-            alert.alertStyle = NSAlertStyle.critical
+            alert.alertStyle = NSAlert.Style.critical
             alert.addButton(withTitle: "Cancel")
             alert.runModal()
             self.dismissViewController(self)
         } else {
-            let appdelegate = NSApplication.shared().delegate as! AppDelegate
+            let appdelegate = NSApplication.shared.delegate as! AppDelegate
             let context = appdelegate.persistentContainer.viewContext
             let newEmployee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: context)
             newEmployee.setValue(lastName, forKey: "lastName")

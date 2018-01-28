@@ -61,9 +61,9 @@ class DetailViewController: NSViewController {
             }
 
             // Load the area storyboard and embed.
-            let storyboard: NSStoryboard = NSStoryboard(name: detailItemRecord.viewControllerIdentifier, bundle: nil)
+            let storyboard: NSStoryboard = NSStoryboard(name: NSStoryboard.Name(rawValue: detailItemRecord.viewControllerIdentifier), bundle: nil)
             // let sceneIdentifier = NSStoryboard.SceneIdentifier(rawValue: detailItemRecord.viewControllerIdentifier)
-            guard let buttonViewController = storyboard.instantiateController(withIdentifier: detailItemRecord.viewControllerIdentifier) as? NSViewController else { return  }
+            guard let buttonViewController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: detailItemRecord.viewControllerIdentifier)) as? NSViewController else { return  }
 
             insertChildViewController(buttonViewController, at: 0)
 

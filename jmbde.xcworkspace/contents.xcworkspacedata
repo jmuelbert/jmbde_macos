@@ -2,30 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:jmbde/Model/DepartmentMO+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:jmbde/Model/DepartmentMO+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:jmbde/Model/Person+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:jmbde/Model/Person+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:jmbde/Model/EmployeeMO+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:jmbde/Model/EmployeeMO+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:jmbde/Model/BuildingMO+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:jmbde/Model/BuildingMO+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:jmbde.xcodeproj">
    </FileRef>
    <FileRef

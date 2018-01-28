@@ -32,7 +32,7 @@ class EmployeeTableViewController: NSViewController {
 
     @IBAction func addEmployeeAction(_ sender: Any) {
    
-        performSegue(withIdentifier: "EmployeeAddSeque", sender: sender)
+        performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "EmployeeAddSeque"), sender: sender)
         
         self.tableView.reloadData()
         
@@ -42,7 +42,7 @@ class EmployeeTableViewController: NSViewController {
     }
     
     func RequestData() {
-        let appdelegate = NSApplication.shared().delegate as! AppDelegate
+        let appdelegate = NSApplication.shared.delegate as! AppDelegate
         let context = appdelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Employee")
         request.returnsObjectsAsFaults = false
@@ -91,12 +91,12 @@ extension EmployeeTableViewController: NSTableViewDataSource {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         if tableColumn?.identifier == "lastName" {
-            if let cell = tableView.make(withIdentifier: "lastName", owner: nil) as? NSTableCellView {
+            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "lastName"), owner: nil) as? NSTableCellView {
                 cell.textField?.stringValue = employees[row].lastName!
                 return cell
             }
         } else if tableColumn?.identifier == "firstName" {
-            if let cell = tableView.make(withIdentifier: "firstName", owner: nil) as? NSTableCellView {
+            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "firstName"), owner: nil) as? NSTableCellView {
                 cell.textField?.stringValue = employees[row].firstName!
                 return cell
             }

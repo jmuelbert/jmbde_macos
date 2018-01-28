@@ -53,7 +53,7 @@ class SplitViewController: NSSplitViewController {
             fatalError("SplitViewController is not configured correctly.")
         }
         
-        splitView.autosaveName = "SplitViewAutoSave" // Remember the split view position
+        splitView.autosaveName = NSSplitView.AutosaveName(rawValue: "SplitViewAutoSave") // Remember the split view position
         
     }
     

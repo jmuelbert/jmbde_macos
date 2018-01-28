@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -689,6 +689,9 @@
                                 <toolbarItem reference="01u-Qg-TId"/>
                             </defaultToolbarItems>
                         </toolbar>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="Dfd-qg-Iaa"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="HnA-Hs-hJt" kind="relationship" relationship="window.shadowedContentViewController" id="RKE-BA-UYL"/>
@@ -709,8 +712,12 @@
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="0HS-eQ-BdV">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="HnA-Hs-hJt" id="0Ki-Ju-blA"/>
+                        </connections>
                     </splitView>
                     <connections>
+                        <outlet property="splitView" destination="0HS-eQ-BdV" id="kmJ-xx-0aW"/>
                         <segue destination="msh-GW-GVA" kind="relationship" relationship="splitItems" id="BuD-iP-b6O"/>
                         <segue destination="XC5-3E-5RM" kind="relationship" relationship="splitItems" id="OQp-so-pzR"/>
                     </connections>
@@ -760,7 +767,7 @@
                                                                     <rect key="frame" x="1" y="1" width="204" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEE-Cm-6fg">
+                                                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lEE-Cm-6fg">
                                                                             <rect key="frame" x="0.0" y="1" width="204" height="14"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="HEADER CELL" id="ldA-Va-ONX">
@@ -786,8 +793,8 @@
                                                                             </constraints>
                                                                             <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyDown" image="NSActionTemplate" id="iEz-E5-eVZ"/>
                                                                         </imageView>
-                                                                        <textField identifier="DataCell" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9g-Oz-nRO">
-                                                                            <rect key="frame" x="25" y="0.0" width="97" height="17"/>
+                                                                        <textField identifier="DataCell" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r9g-Oz-nRO">
+                                                                            <rect key="frame" x="25" y="0.0" width="96" height="17"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="GIv-Fk-EQD">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -868,7 +875,7 @@
                                     <rect key="frame" x="2" y="2" width="437" height="389"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIi-30-ZaN">
+                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PIi-30-ZaN">
                                             <rect key="frame" x="20" y="281" width="4" height="98"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="4" id="6zD-hb-kYC"/>
