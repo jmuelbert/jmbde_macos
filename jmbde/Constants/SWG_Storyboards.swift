@@ -1,75 +1,77 @@
 // Generated using SwiftGen, by O.Halligon — https://github.com/SwiftGen/SwiftGen
 
+// swiftlint:disable sorted_imports
 import Foundation
 import Cocoa
 
+// swiftlint:disable superfluous_disable_command
 // swiftlint:disable file_length
-// swiftlint:disable line_length
-// swiftlint:disable type_body_length
 
-protocol StoryboardSceneType {
+internal protocol StoryboardType {
   static var storyboardName: String { get }
 }
 
-extension StoryboardSceneType {
-  static func storyboard() -> NSStoryboard {
-    return NSStoryboard(name: self.storyboardName, bundle: Bundle(for: BundleToken.self))
+internal extension StoryboardType {
+  static var storyboard: NSStoryboard {
+    let name = NSStoryboard.Name(self.storyboardName)
+    return NSStoryboard(name: name, bundle: Bundle(for: BundleToken.self))
   }
+}
 
-  static func initialController() -> Any {
-    guard let controller = storyboard().instantiateInitialController()
-    else {
-      fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+internal struct SceneType<T: Any> {
+  internal let storyboard: StoryboardType.Type
+  internal let identifier: String
+
+  internal func instantiate() -> T {
+    let identifier = NSStoryboard.SceneIdentifier(self.identifier)
+    guard let controller = storyboard.storyboard.instantiateController(withIdentifier: identifier) as? T else {
+      fatalError("Controller '\(identifier)' is not of the expected class \(T.self).")
     }
     return controller
   }
 }
 
-extension StoryboardSceneType where Self: RawRepresentable, Self.RawValue == String {
-  func controller() -> Any {
-    return Self.storyboard().instantiateController(withIdentifier: self.rawValue)
-  }
-  static func controller(identifier: Self) -> Any {
-    return identifier.controller()
-  }
-}
+internal struct InitialSceneType<T: Any> {
+  internal let storyboard: StoryboardType.Type
 
-protocol StoryboardSegueType: RawRepresentable { }
-
-extension NSWindowController {
-  func performSegue<S: StoryboardSegueType>(segue: S, sender: Any? = nil) where S.RawValue == String {
-    performSegue(withIdentifier: segue.rawValue, sender: sender)
-  }
-}
-
-extension NSViewController {
-  func performSegue<S: StoryboardSegueType>(segue: S, sender: Any? = nil) where S.RawValue == String {
-    performSegue(withIdentifier: segue.rawValue, sender: sender)
-  }
-}
-
-enum StoryboardScene {
-  enum EmployeeTableViewController: String, StoryboardSceneType {
-    static let storyboardName = "EmployeeTableViewController"
-
-    case employeeTableViewControllerScene = "EmployeeTableViewController"
-    static func instantiateEmployeeTableViewController() -> jmbde.EmployeeTableViewController {
-      guard let vc = StoryboardScene.EmployeeTableViewController.employeeTableViewControllerScene.controller() as? jmbde.EmployeeTableViewController
-      else {
-        fatalError("ViewController 'EmployeeTableViewController' is not of the expected class jmbde.EmployeeTableViewController.")
-      }
-      return vc
+  internal func instantiate() -> T {
+    guard let controller = storyboard.storyboard.instantiateInitialController() as? T else {
+      fatalError("Controller is not of the expected class \(T.self).")
     }
-  }
-  enum Main: StoryboardSceneType {
-    static let storyboardName = "Main"
+    return controller
   }
 }
 
-enum StoryboardSegue {
-  enum Main: String, StoryboardSegueType {
+internal protocol SegueType: RawRepresentable { }
+
+internal extension NSSeguePerforming {
+  func perform<S: SegueType>(segue: S, sender: Any? = nil) where S.RawValue == String {
+    let identifier = NSStoryboardSegue.Identifier(segue.rawValue)
+    performSegue?(withIdentifier: identifier, sender: sender)
+  }
+}
+
+// swiftlint:disable explicit_type_interface identifier_name line_length type_body_length type_name
+internal enum StoryboardScene {
+  internal enum EmployeeTableViewController: StoryboardType {
+    internal static let storyboardName = "EmployeeTableViewController"
+
+    internal static let initialScene = InitialSceneType<jmbde.EmployeeTableViewController>(storyboard: EmployeeTableViewController.self)
+
+    internal static let employeeTableViewController = SceneType<jmbde.EmployeeTableViewController>(storyboard: EmployeeTableViewController.self, identifier: "EmployeeTableViewController")
+  }
+  internal enum Main: StoryboardType {
+    internal static let storyboardName = "Main"
+
+    internal static let initialScene = InitialSceneType<NSWindowController>(storyboard: Main.self)
+  }
+}
+
+internal enum StoryboardSegue {
+  internal enum Main: String, SegueType {
     case employee = "Employee"
   }
 }
+// swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
 
 private final class BundleToken {}

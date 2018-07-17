@@ -70,7 +70,7 @@ class SplitViewController: NSSplitViewController {
         if let controller = notification.object as? MasterViewController {
             let selection = controller.outlineItem
             detailViewController.detailItemRecord = selection
-            print("Change to: %s and the Controller %s",selection?.title, selection?.viewControllerIdentifier)
+            print("Change to: %s and the Controller %s",selection?.title ?? "jmbde", selection?.viewControllerIdentifier ?? "jmbde")
         }
     }
  

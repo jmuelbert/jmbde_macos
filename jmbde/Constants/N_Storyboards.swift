@@ -4,7 +4,7 @@
 //
 import Cocoa
 
-//MARK: - Storyboards
+// MARK: - Storyboards
 
 extension NSStoryboard {
     func instantiateViewController<T: NSWindowController>(ofType type: T.Type) -> T? where T: IdentifiableProtocol {
@@ -27,14 +27,14 @@ extension NSStoryboard {
 
 protocol Storyboard {
     static var storyboard: NSStoryboard { get }
-    static var identifier: String { get }
+    static var identifier: NSStoryboard.Name { get }
 }
 
 struct Storyboards {
 
     struct EmployeeTableViewController: Storyboard {
 
-        static let identifier = "EmployeeTableViewController"
+        static let identifier = NSStoryboard.Name("EmployeeTableViewController")
 
         static var storyboard: NSStoryboard {
             return NSStoryboard(name: self.identifier, bundle: nil)
@@ -44,7 +44,7 @@ struct Storyboards {
             return self.storyboard.instantiateInitialController() as! EmployeeTableViewController
         }
 
-        static func instantiateController(withIdentifier: String) -> NSWindowController {
+        static func instantiateController(withIdentifier identifier: NSStoryboard.SceneIdentifier) -> NSWindowController {
             return self.storyboard.instantiateController(withIdentifier: identifier) as! NSWindowController
         }
 
@@ -52,7 +52,7 @@ struct Storyboards {
             return self.storyboard.instantiateViewController(ofType: type)
         }
 
-        static func instantiateController(withIdentifier: String) -> NSViewController {
+        static func instantiateController(withIdentifier identifier: NSStoryboard.SceneIdentifier) -> NSViewController {
             return self.storyboard.instantiateController(withIdentifier: identifier) as! NSViewController
         }
 
@@ -61,13 +61,13 @@ struct Storyboards {
         }
 
         static func instantiateEmployeeTableViewController() -> EmployeeTableViewController {
-            return self.storyboard.instantiateController(withIdentifier: "EmployeeTableViewController") as! EmployeeTableViewController
+            return self.storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("EmployeeTableViewController")) as! EmployeeTableViewController
         }
     }
 
     struct Main: Storyboard {
 
-        static let identifier = "Main"
+        static let identifier = NSStoryboard.Name("Main")
 
         static var storyboard: NSStoryboard {
             return NSStoryboard(name: self.identifier, bundle: nil)
@@ -77,7 +77,7 @@ struct Storyboards {
             return self.storyboard.instantiateInitialController() as! NSWindowController
         }
 
-        static func instantiateController(withIdentifier: String) -> NSWindowController {
+        static func instantiateController(withIdentifier identifier: NSStoryboard.SceneIdentifier) -> NSWindowController {
             return self.storyboard.instantiateController(withIdentifier: identifier) as! NSWindowController
         }
 
@@ -85,7 +85,7 @@ struct Storyboards {
             return self.storyboard.instantiateViewController(ofType: type)
         }
 
-        static func instantiateController(withIdentifier: String) -> NSViewController {
+        static func instantiateController(withIdentifier identifier: NSStoryboard.SceneIdentifier) -> NSViewController {
             return self.storyboard.instantiateController(withIdentifier: identifier) as! NSViewController
         }
 
@@ -95,40 +95,40 @@ struct Storyboards {
     }
 }
 
-//MARK: - ReusableKind
+// MARK: - ReusableKind
 enum ReusableKind: String, CustomStringConvertible {
-    case TableViewCell = "tableViewCell"
-    case CollectionViewCell = "collectionViewCell"
+    case tableViewCell = "tableViewCell"
+    case collectionViewCell = "collectionViewCell"
 
     var description: String { return self.rawValue }
 }
 
-//MARK: - SegueKind
-enum SegueKind: String, CustomStringConvertible {    
-    case Relationship = "relationship" 
-    case Show = "show"                 
-    case Presentation = "presentation" 
-    case Embed = "embed"               
-    case Unwind = "unwind"             
-    case Push = "push"                 
-    case Modal = "modal"               
-    case Popover = "popover"           
-    case Replace = "replace"           
-    case Custom = "custom"             
+// MARK: - SegueKind
+enum SegueKind: String, CustomStringConvertible {
+    case relationship = "relationship"
+    case show = "show"
+    case presentation = "presentation"
+    case embed = "embed"
+    case unwind = "unwind"
+    case push = "push"
+    case modal = "modal"
+    case popover = "popover"
+    case replace = "replace"
+    case custom = "custom"
 
-    var description: String { return self.rawValue } 
+    var description: String { return self.rawValue }
 }
 
-//MARK: - IdentifiableProtocol
+// MARK: - IdentifiableProtocol
 
 public protocol IdentifiableProtocol: Equatable {
-    var storyboardIdentifier: String? { get }
+    var storyboardIdentifier: NSStoryboard.SceneIdentifier? { get }
 }
 
-//MARK: - SegueProtocol
+// MARK: - SegueProtocol
 
 public protocol SegueProtocol {
-    var identifier: String? { get }
+    var identifier: NSStoryboardSegue.Identifier? { get }
 }
 
 public func ==<T: SegueProtocol, U: SegueProtocol>(lhs: T, rhs: U) -> Bool {
@@ -139,23 +139,46 @@ public func ~=<T: SegueProtocol, U: SegueProtocol>(lhs: T, rhs: U) -> Bool {
     return lhs.identifier == rhs.identifier
 }
 
-public func ==<T: SegueProtocol>(lhs: T, rhs: String) -> Bool {
+public func ==<T: SegueProtocol>(lhs: T, rhs: NSStoryboardSegue.Identifier) -> Bool {
     return lhs.identifier == rhs
+}
+
+public func ~=<T: SegueProtocol>(lhs: T, rhs: NSStoryboardSegue.Identifier) -> Bool {
+    return lhs.identifier == rhs
+}
+
+public func ==<T: SegueProtocol>(lhs: NSStoryboardSegue.Identifier, rhs: T) -> Bool {
+    return lhs == rhs.identifier
+}
+
+public func ~=<T: SegueProtocol>(lhs: NSStoryboardSegue.Identifier, rhs: T) -> Bool {
+    return lhs == rhs.identifier
+}
+
+extension NSStoryboardSegue.Identifier: ExpressibleByStringLiteral {
+    public typealias StringLiteralType = String
+    public init(stringLiteral value: StringLiteralType) {
+        self.init(rawValue: value)
+    }
+}
+
+public func ==<T: SegueProtocol>(lhs: T, rhs: String) -> Bool {
+    return lhs.identifier?.rawValue == rhs
 }
 
 public func ~=<T: SegueProtocol>(lhs: T, rhs: String) -> Bool {
-    return lhs.identifier == rhs
+    return lhs.identifier?.rawValue == rhs
 }
 
 public func ==<T: SegueProtocol>(lhs: String, rhs: T) -> Bool {
-    return lhs == rhs.identifier
+    return lhs == rhs.identifier?.rawValue
 }
 
 public func ~=<T: SegueProtocol>(lhs: String, rhs: T) -> Bool {
-    return lhs == rhs.identifier
+    return lhs == rhs.identifier?.rawValue
 }
 
-//MARK: - ReusableViewProtocol
+// MARK: - ReusableViewProtocol
 public protocol ReusableViewProtocol: IdentifiableProtocol {
     var viewType: NSView.Type? { get }
 }
@@ -164,13 +187,13 @@ public func ==<T: ReusableViewProtocol, U: ReusableViewProtocol>(lhs: T, rhs: U)
     return lhs.storyboardIdentifier == rhs.storyboardIdentifier
 }
 
-//MARK: - Protocol Implementation
+// MARK: - Protocol Implementation
 extension NSStoryboardSegue: SegueProtocol {
 }
 
-//MARK: - NSViewController extension
+// MARK: - NSViewController extension
 extension NSViewController {
-    func perform<T: SegueProtocol>(segue: T, sender: AnyObject?) {
+    func perform<T: SegueProtocol>(segue: T, sender: Any?) {
         if let identifier = segue.identifier {
             performSegue(withIdentifier: identifier, sender: sender)
         }
@@ -180,10 +203,9 @@ extension NSViewController {
         perform(segue: segue, sender: nil)
     }
 }
-
-//MARK: - NSWindowController extension
+// MARK: - NSWindowController extension
 extension NSWindowController {
-    func perform<T: SegueProtocol>(segue: T, sender: AnyObject?) {
+    func perform<T: SegueProtocol>(segue: T, sender: Any?) {
         if let identifier = segue.identifier {
             performSegue(withIdentifier: identifier, sender: sender)
         }
@@ -194,21 +216,23 @@ extension NSWindowController {
     }
 }
 
+// MARK: - EmployeeTableViewController
+protocol EmployeeTableViewControllerIdentifiableProtocol: IdentifiableProtocol { }
 
-//MARK: - EmployeeTableViewController
-extension EmployeeTableViewController: IdentifiableProtocol { 
-    var storyboardIdentifier: String? { return "EmployeeTableViewController" }
-    static var storyboardIdentifier: String? { return "EmployeeTableViewController" }
+extension EmployeeTableViewController: EmployeeTableViewControllerIdentifiableProtocol { }
+
+extension IdentifiableProtocol where Self: EmployeeTableViewController {
+    var storyboardIdentifier: NSStoryboard.SceneIdentifier? { return NSStoryboard.SceneIdentifier("EmployeeTableViewController") }
+    static var storyboardIdentifier: NSStoryboard.SceneIdentifier? { return NSStoryboard.SceneIdentifier("EmployeeTableViewController") }
 }
 
+// MARK: - EmployeeAddViewController
 
-//MARK: - EmployeeAddViewController
+// MARK: - SplitViewController
 
-//MARK: - SplitViewController
+// MARK: - MasterViewController
 
-//MARK: - MasterViewController
-
-//MARK: - DetailViewController
+// MARK: - DetailViewController
 extension NSStoryboardSegue {
     func selection() -> DetailViewController.Segue? {
         if let identifier = self.identifier {
@@ -217,29 +241,28 @@ extension NSStoryboardSegue {
         return nil
     }
 }
+extension DetailViewController {
 
-extension DetailViewController { 
-
-    enum Segue: String, CustomStringConvertible, SegueProtocol {
-        case Employee = "Employee"
+    enum Segue: NSStoryboardSegue.Identifier, CustomStringConvertible, SegueProtocol {
+        case employee = "Employee"
 
         var kind: SegueKind? {
-            switch (self) {
-            case .Employee:
+            switch self {
+            case .employee:
                 return SegueKind(rawValue: "custom")
             }
         }
 
         var destination: AnyObject.Type? {
-            switch (self) {
+            switch self {
             default:
                 assertionFailure("Unknown destination")
                 return nil
             }
         }
 
-        var identifier: String? { return self.description } 
-        var description: String { return self.rawValue }
+        var identifier: NSStoryboardSegue.Identifier? { return self.rawValue }
+        var description: String { return "\(self.rawValue)" }
     }
 
 }

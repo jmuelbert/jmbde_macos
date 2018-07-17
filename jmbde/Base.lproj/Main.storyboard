@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -806,6 +806,7 @@
                                                                     <constraints>
                                                                         <constraint firstItem="D12-Ch-5WM" firstAttribute="centerY" secondItem="fIH-Pq-Wgl" secondAttribute="centerY" id="Z10-B4-BAA"/>
                                                                         <constraint firstItem="D12-Ch-5WM" firstAttribute="leading" secondItem="fIH-Pq-Wgl" secondAttribute="leading" constant="3" id="dY3-ym-mwq"/>
+                                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="r9g-Oz-nRO" secondAttribute="trailing" constant="20" symbolic="YES" id="hxL-0u-hhS"/>
                                                                         <constraint firstItem="r9g-Oz-nRO" firstAttribute="leading" secondItem="D12-Ch-5WM" secondAttribute="trailing" constant="7" id="pYv-y3-E3q"/>
                                                                         <constraint firstItem="D12-Ch-5WM" firstAttribute="top" secondItem="r9g-Oz-nRO" secondAttribute="top" id="uH8-Yv-Ldc"/>
                                                                         <constraint firstItem="D12-Ch-5WM" firstAttribute="bottom" secondItem="r9g-Oz-nRO" secondAttribute="bottom" id="ylK-BT-FRU"/>
@@ -888,8 +889,8 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CZw-2w-wH3">
-                                            <rect key="frame" x="20" y="15" width="399" height="265"/>
+                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="CZw-2w-wH3">
+                                            <rect key="frame" x="20" y="15" width="397" height="263"/>
                                         </customView>
                                     </subviews>
                                     <constraints>

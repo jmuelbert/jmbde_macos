@@ -11,9 +11,13 @@ PODS:
 DEPENDENCIES:
   - AppCenter
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AppCenter
+
 SPEC CHECKSUMS:
   AppCenter: d0b68b2a7a87ac0aed78e66f36d87fd321d0a29c
 
 PODFILE CHECKSUM: 8e724dd26bc59cd47eec3f76135c691d08192b8f
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

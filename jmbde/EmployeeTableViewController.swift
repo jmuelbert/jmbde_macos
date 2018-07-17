@@ -75,7 +75,7 @@ class EmployeeTableViewController: NSViewController {
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier!.rawValue == "EmployeeAddSeque" {
-            let destinationAddEmployee = segue.destinationController as? EmployeeAddViewController
+            _ = segue.destinationController as? EmployeeAddViewController
           //  destinationAddEmployee?.employeesArray = employees
         }
     }
