@@ -23,6 +23,14 @@
 		38061E2A1F367AF5003A92A0 /* EmployeeTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38061E281F367AF5003A92A0 /* EmployeeTableViewController.storyboard */; };
 		38061E351F3685BA003A92A0 /* EmployeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38061E331F3685BA003A92A0 /* EmployeeTableViewController.swift */; };
 		38061E381F3685E7003A92A0 /* EmployeeAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38061E371F3685E7003A92A0 /* EmployeeAddViewController.swift */; };
+		385EDDAB20FE7A3000462AE1 /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = 385EDDA320FE7A2F00462AE1 /* CONTRIBUTING.md */; };
+		385EDDAC20FE7A3000462AE1 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 385EDDA420FE7A2F00462AE1 /* TODO */; };
+		385EDDAD20FE7A3000462AE1 /* CONTRIBUTORS in Resources */ = {isa = PBXBuildFile; fileRef = 385EDDA520FE7A2F00462AE1 /* CONTRIBUTORS */; };
+		385EDDAE20FE7A3000462AE1 /* NEWS.md in Resources */ = {isa = PBXBuildFile; fileRef = 385EDDA620FE7A2F00462AE1 /* NEWS.md */; };
+		385EDDAF20FE7A3000462AE1 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 385EDDA720FE7A2F00462AE1 /* CHANGELOG.md */; };
+		385EDDB020FE7A3000462AE1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 385EDDA820FE7A3000462AE1 /* README.md */; };
+		385EDDB120FE7A3000462AE1 /* CODE_OF_CONDUCT.md in Resources */ = {isa = PBXBuildFile; fileRef = 385EDDA920FE7A3000462AE1 /* CODE_OF_CONDUCT.md */; };
+		385EDDB220FE7A3000462AE1 /* AUTHORS in Resources */ = {isa = PBXBuildFile; fileRef = 385EDDAA20FE7A3000462AE1 /* AUTHORS */; };
 		7E6AED7E333286FEB769E3B9 /* Pods_jmbdeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F540D040B235F6E8F513682 /* Pods_jmbdeTests.framework */; };
 		A167D6F53C97A43D780A5D75 /* Pods_jmbde.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4F5115FE4C2270BF53B994 /* Pods_jmbde.framework */; };
 		EE58667A6B02D72A9ACCAB58 /* Pods_jmbdeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B8AFF31956BC2C7ED962DD /* Pods_jmbdeUITests.framework */; };
@@ -69,6 +77,14 @@
 		38061E291F367AF5003A92A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EmployeeTableViewController.storyboard; sourceTree = "<group>"; };
 		38061E331F3685BA003A92A0 /* EmployeeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewController.swift; sourceTree = "<group>"; };
 		38061E371F3685E7003A92A0 /* EmployeeAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeAddViewController.swift; sourceTree = "<group>"; };
+		385EDDA320FE7A2F00462AE1 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		385EDDA420FE7A2F00462AE1 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		385EDDA520FE7A2F00462AE1 /* CONTRIBUTORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CONTRIBUTORS; sourceTree = "<group>"; };
+		385EDDA620FE7A2F00462AE1 /* NEWS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = NEWS.md; sourceTree = "<group>"; };
+		385EDDA720FE7A2F00462AE1 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		385EDDA820FE7A3000462AE1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		385EDDA920FE7A3000462AE1 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
+		385EDDAA20FE7A3000462AE1 /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
 		431D78711C7A8AE2376CB2AD /* Pods-jmbdeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jmbdeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-jmbdeUITests/Pods-jmbdeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5F540D040B235F6E8F513682 /* Pods_jmbdeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jmbdeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7939CE4925F13632F71221F8 /* Pods-jmbdeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jmbdeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jmbdeTests/Pods-jmbdeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +126,14 @@
 		38061DD91F3660C5003A92A0 = {
 			isa = PBXGroup;
 			children = (
+				385EDDAA20FE7A3000462AE1 /* AUTHORS */,
+				385EDDA720FE7A2F00462AE1 /* CHANGELOG.md */,
+				385EDDA920FE7A3000462AE1 /* CODE_OF_CONDUCT.md */,
+				385EDDA320FE7A2F00462AE1 /* CONTRIBUTING.md */,
+				385EDDA520FE7A2F00462AE1 /* CONTRIBUTORS */,
+				385EDDA620FE7A2F00462AE1 /* NEWS.md */,
+				385EDDA820FE7A3000462AE1 /* README.md */,
+				385EDDA420FE7A2F00462AE1 /* TODO */,
 				38F865E71F3A50FE00949E49 /* Model */,
 				38061DE41F3660C6003A92A0 /* jmbde */,
 				38061DF91F3660C8003A92A0 /* jmbdeTests */,
@@ -317,10 +341,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				38061DED1F3660C7003A92A0 /* Assets.xcassets in Resources */,
+				385EDDAF20FE7A3000462AE1 /* CHANGELOG.md in Resources */,
 				38061E141F366403003A92A0 /* Constants in Resources */,
+				385EDDAD20FE7A3000462AE1 /* CONTRIBUTORS in Resources */,
+				385EDDAB20FE7A3000462AE1 /* CONTRIBUTING.md in Resources */,
 				38061DF01F3660C7003A92A0 /* Main.storyboard in Resources */,
+				385EDDAC20FE7A3000462AE1 /* TODO in Resources */,
+				385EDDAE20FE7A3000462AE1 /* NEWS.md in Resources */,
+				385EDDB220FE7A3000462AE1 /* AUTHORS in Resources */,
 				38061E231F36653C003A92A0 /* OutlineList.plist in Resources */,
+				385EDDB020FE7A3000462AE1 /* README.md in Resources */,
 				38061E2A1F367AF5003A92A0 /* EmployeeTableViewController.storyboard in Resources */,
+				385EDDB120FE7A3000462AE1 /* CODE_OF_CONDUCT.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
