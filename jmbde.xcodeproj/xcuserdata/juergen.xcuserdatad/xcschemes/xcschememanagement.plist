@@ -4,33 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>jmbde.xcscheme_^#shared#^_</key>
+		<key>JMBde.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>jmbdeImporter.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>38061DE11F3660C6003A92A0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>38061DF51F3660C8003A92A0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>38061E001F3660C8003A92A0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<integer>4</integer>
 		</dict>
 	</dict>
 </dict>

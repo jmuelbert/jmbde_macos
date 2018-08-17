@@ -8,16 +8,16 @@
 		<key>items</key>
 		<array>
 			<dict>
-				<key>viewControllerIdentifier</key>
-				<string>EmployeeTableViewController</string>
 				<key>title</key>
 				<string>Employee</string>
 				<key>description</key>
 				<string>The Employee</string>
 				<key>image</key>
 				<string>NSUser</string>
-				<key>seque</key>
+				<key>viewControllerIdentifier</key>
 				<string>EmployeeTableViewController</string>
+				<key>seque</key>
+				<string>EmployeeTableViewSeque</string>
 			</dict>
 		</array>
 	</dict>

@@ -1,21 +1,26 @@
 # Uncomment the next line to define a global platform for your project
+platform :osx, '10.12'
 # platform :ios, '9.0'
 
-target 'jmbde' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
+use_frameworks!
 
-  # Pods for jmbde
+def common_pods
+  pod 'SwiftLint', '~> 0.25'
+  pod 'SwiftGen'
+end
+
+target 'JMBde' do
+  common_pods
+  pod 'Commander', '~> 0.8'
   pod 'AppCenter'
-  
-  target 'jmbdeTests' do
+
+  target 'JMBdeTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'jmbdeUITests' do
+  target 'JMBdeUITests' do
     inherit! :search_paths
     # Pods for testing
   end
-
 end
