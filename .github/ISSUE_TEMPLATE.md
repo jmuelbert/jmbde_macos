@@ -1,7 +1,7 @@
 **Please note we will close your issue without comment if you delete, do not read or do not fill out the issue checklist below and provide ALL the requested information. If you repeatedly fail to use the issue template, we will block you from ever submitting issues to jmbde again.**
 
 # Please always follow these steps:
-- [ ] Confirmed this is a problem with running a `jmbde` ? If it's a program problem please fill this issue for jmuelbert/jmbde-aspnet https://github.com/jmuelbert/jmbde-aspnet/issues/new
+- [ ] Confirmed this is a problem with running a `jmbde` ? If it's a program problem please fill this issue for jmuelbert/jmbde-macos https://github.com/jmuelbert/jmbde-macos/issues/new
 
 To help us debug your issue please explain:
 - What you were trying to do (and why)

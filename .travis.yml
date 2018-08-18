@@ -20,8 +20,6 @@ before_install:
 - brew outdated carthage || brew upgrade carthage
 - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/jmuelbert/jmbde-macos.git"
 
-
-
 script:
 - swift --version
 - swiftlint lint
