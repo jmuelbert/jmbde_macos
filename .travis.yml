@@ -1,9 +1,12 @@
-language: objective-c
+language: swift
 osx_image: xcode9.4
+xcode_project: JMBde.workspace
+xcode_scheme: JMBde
+xcode_destination: platform=macOS
 
 branches:
   only: master
-script: placeholder # workaround for https://github.com/travis-ci/travis-ci/issues/4681  
+  script: placeholder # workaround for https://github.com/travis-ci/travis-ci/issues/4681  
 
 notifications:
   email: false
@@ -16,11 +19,12 @@ before_install:
 - brew outdated xctool || brew upgrade xctool
 - brew outdated carthage || brew upgrade carthage
 - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/jmuelbert/jmbde-macos.git"
+
+
+
 script:
-- set -o pipefail
 - swift --version
-- xcodebuild clean build
 - swiftlint lint
 - bundle exec danger --verbose
 - bundle exec fastlane travis
-  - bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
