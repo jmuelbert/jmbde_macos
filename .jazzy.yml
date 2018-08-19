@@ -5,4 +5,4 @@ root_url: http://jmuelbert.github.io/jmbde-macos/
 module: JMBde
 output: docs
 theme: fullwidth
-xcodebuild_arguments: [-workspace, 'JMBDe.xcworkspace', -scheme, 'JMBde']
+xcodebuild_arguments: [-workspace, 'JMBde.xcworkspace', -scheme, 'JMBde']
