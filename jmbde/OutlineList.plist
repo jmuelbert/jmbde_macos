@@ -19,6 +19,18 @@
 				<key>seque</key>
 				<string>EmployeeTableViewSeque</string>
 			</dict>
+			<dict>
+				<key>title</key>
+				<string>JobTilte</string>
+				<key>description</key>
+				<string>The JobTilte</string>
+				<key>image</key>
+				<string>NSUser</string>
+				<key>viewControllerIdentifier</key>
+				<string>JobTilteTableViewController</string>
+				<key>seque</key>
+				<string>JobTilteTableViewSeque</string>
+			</dict>
 		</array>
 	</dict>
 </array>

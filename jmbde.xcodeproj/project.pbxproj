@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0FB3E96E8E89672F5E62952D /* Pods_JMBdeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8449428AB5F52A1D830DB68 /* Pods_JMBdeUITests.framework */; };
-		383387A02126AE3700A2FF98 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 383387942126AE3600A2FF98 /* TODO */; };
 		383387A12126AE3700A2FF98 /* AUTHORS in Resources */ = {isa = PBXBuildFile; fileRef = 383387952126AE3600A2FF98 /* AUTHORS */; };
 		383387A22126AE3700A2FF98 /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = 383387962126AE3600A2FF98 /* CONTRIBUTING.md */; };
 		383387A32126AE3700A2FF98 /* LICENSE.EUPL_1_2 in Resources */ = {isa = PBXBuildFile; fileRef = 383387972126AE3600A2FF98 /* LICENSE.EUPL_1_2 */; };
-		383387A42126AE3700A2FF98 /* NEWS.md in Resources */ = {isa = PBXBuildFile; fileRef = 383387982126AE3600A2FF98 /* NEWS.md */; };
 		383387A52126AE3700A2FF98 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 383387992126AE3700A2FF98 /* README.md */; };
 		383387A62126AE3700A2FF98 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 3833879A2126AE3700A2FF98 /* Cartfile */; };
 		383387A72126AE3700A2FF98 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 3833879B2126AE3700A2FF98 /* CHANGELOG.md */; };
@@ -58,11 +56,9 @@
 /* Begin PBXFileReference section */
 		14A7BC10F2E9BF108FA19C23 /* Pods_JMBde.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMBde.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C9662D495A689BBC4BFEB9 /* Pods-JMBdeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMBdeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JMBdeUITests/Pods-JMBdeUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		383387942126AE3600A2FF98 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		383387952126AE3600A2FF98 /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
 		383387962126AE3600A2FF98 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		383387972126AE3600A2FF98 /* LICENSE.EUPL_1_2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.EUPL_1_2; sourceTree = "<group>"; };
-		383387982126AE3600A2FF98 /* NEWS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = NEWS.md; sourceTree = "<group>"; };
 		383387992126AE3700A2FF98 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3833879A2126AE3700A2FF98 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		3833879B2126AE3700A2FF98 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
@@ -139,9 +135,7 @@
 				3833879E2126AE3700A2FF98 /* CONTRIBUTORS */,
 				3833879C2126AE3700A2FF98 /* LICENSE */,
 				383387972126AE3600A2FF98 /* LICENSE.EUPL_1_2 */,
-				383387982126AE3600A2FF98 /* NEWS.md */,
 				383387992126AE3700A2FF98 /* README.md */,
-				383387942126AE3600A2FF98 /* TODO */,
 				38700D8821257CC20002FD60 /* JMBde */,
 				38700D9E21257CC30002FD60 /* JMBdeTests */,
 				38700DA921257CC30002FD60 /* JMBdeUITests */,
@@ -333,14 +327,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				383387A12126AE3700A2FF98 /* AUTHORS in Resources */,
-				383387A02126AE3700A2FF98 /* TODO in Resources */,
 				383387A32126AE3700A2FF98 /* LICENSE.EUPL_1_2 in Resources */,
 				38700D9121257CC30002FD60 /* Assets.xcassets in Resources */,
 				38700D9421257CC30002FD60 /* Main.storyboard in Resources */,
 				383387A62126AE3700A2FF98 /* Cartfile in Resources */,
 				38700DC5212599AE0002FD60 /* OutlineList.plist in Resources */,
 				383387A92126AE3700A2FF98 /* CODE_OF_CONDUCT.md in Resources */,
-				383387A42126AE3700A2FF98 /* NEWS.md in Resources */,
 				383387AA2126AE3700A2FF98 /* CONTRIBUTORS in Resources */,
 				383387A72126AE3700A2FF98 /* CHANGELOG.md in Resources */,
 				383387A82126AE3700A2FF98 /* LICENSE in Resources */,
