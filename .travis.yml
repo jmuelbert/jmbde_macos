@@ -25,4 +25,4 @@ script:
 - swiftlint lint
 - bundle exec danger --verbose
 - bundle exec fastlane travis
-- bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash) -J '^jmbde$' -D ./build
