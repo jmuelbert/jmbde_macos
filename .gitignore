@@ -23,6 +23,8 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+*.lock
+Gemfile.*
 
 ## Obj-C/Swift specific
 *.hmap

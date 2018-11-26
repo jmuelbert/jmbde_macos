@@ -1,5 +1,5 @@
 language: swift
-osx_image: xcode9.4
+osx_image: xcode10
 xcode_project: JMBde.workspace
 xcode_scheme: JMBde
 xcode_destination: platform=macOS
@@ -25,4 +25,4 @@ script:
 - swiftlint lint
 - bundle exec danger --verbose
 - bundle exec fastlane travis
-- bash <(curl -s https://codecov.io/bash) -J '^jmbde$' -D ./build
+- bash <(curl -s https://codecov.io/bash) -J '^JMBde$' -D ./build
