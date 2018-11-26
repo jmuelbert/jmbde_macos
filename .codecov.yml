@@ -3,8 +3,8 @@ coverage:
     patch:
       framework:  # declare a new status context "framework"
         threshold: null
-        paths: "jmbde/"  # only include coverage in "TaylorFramework/" folder
+        paths: "JMBde/"  # only include coverage in "TaylorFramework/" folder
     project:
       framework: 
         target: 90%  # we always want 90% coverage here
-        paths: "jmbde/"
+        paths: "JMBde/"
