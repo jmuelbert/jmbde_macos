@@ -113,12 +113,12 @@
 		3838F5B321B04DB6001474B1 = {
 			isa = PBXGroup;
 			children = (
+				518B9595263F2EC6775B43FC /* Frameworks */,
+				E1BF40BDE743F8CA4F228B3F /* Pods */,
+				3838F5BD21B04DB6001474B1 /* Products */,
 				3838F5BE21B04DB6001474B1 /* jmbde */,
 				3838F5D421B04DB8001474B1 /* jmbdeTests */,
 				3838F5DF21B04DB8001474B1 /* jmbdeUITests */,
-				3838F5BD21B04DB6001474B1 /* Products */,
-				E1BF40BDE743F8CA4F228B3F /* Pods */,
-				518B9595263F2EC6775B43FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,20 +137,20 @@
 			children = (
 				3838F5BF21B04DB6001474B1 /* AppDelegate.swift */,
 				3838F5C621B04DB8001474B1 /* Assets.xcassets */,
-				3838F5C821B04DB8001474B1 /* Main.storyboard */,
 				3829665221B07FC600D81623 /* Dangerfile */,
-				3829664F21B07FBA00D81623 /* jmbde.xcdatamodeld */,
+				3829664021B07F9700D81623 /* DetailViewController.swift */,
+				3829663F21B07F9700D81623 /* EmployeeAddViewController.swift */,
+				3829663C21B07F8700D81623 /* EmployeeTableViewController.storyboard */,
+				3829664121B07F9700D81623 /* EmployeeTableViewController.swift */,
+				3838F5CB21B04DB8001474B1 /* Info.plist */,
+				3838F5C821B04DB8001474B1 /* Main.storyboard */,
 				3829664521B07FAE00D81623 /* MasterViewController.swift */,
 				3829664721B07FAF00D81623 /* Outline.swift */,
 				3829664821B07FAF00D81623 /* OutlineItem.swift */,
 				3829664621B07FAF00D81623 /* OutlineList.plist */,
 				3829664921B07FAF00D81623 /* SplitViewController.swift */,
-				3829664021B07F9700D81623 /* DetailViewController.swift */,
-				3829663F21B07F9700D81623 /* EmployeeAddViewController.swift */,
-				3829664121B07F9700D81623 /* EmployeeTableViewController.swift */,
-				3829663C21B07F8700D81623 /* EmployeeTableViewController.storyboard */,
-				3838F5CB21B04DB8001474B1 /* Info.plist */,
 				3838F5CC21B04DB8001474B1 /* jmbde.entitlements */,
+				3829664F21B07FBA00D81623 /* jmbde.xcdatamodeld */,
 				3838F5C321B04DB6001474B1 /* jmbde.xcdatamodeld */,
 			);
 			path = jmbde;
@@ -159,8 +159,8 @@
 		3838F5D421B04DB8001474B1 /* jmbdeTests */ = {
 			isa = PBXGroup;
 			children = (
-				3838F5D521B04DB8001474B1 /* jmbdeTests.swift */,
 				3838F5D721B04DB8001474B1 /* Info.plist */,
+				3838F5D521B04DB8001474B1 /* jmbdeTests.swift */,
 			);
 			path = jmbdeTests;
 			sourceTree = "<group>";
@@ -168,8 +168,8 @@
 		3838F5DF21B04DB8001474B1 /* jmbdeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3838F5E021B04DB8001474B1 /* jmbdeUITests.swift */,
 				3838F5E221B04DB8001474B1 /* Info.plist */,
+				3838F5E021B04DB8001474B1 /* jmbdeUITests.swift */,
 			);
 			path = jmbdeUITests;
 			sourceTree = "<group>";
@@ -476,6 +476,7 @@
 				3829663D21B07F8700D81623 /* Base */,
 			);
 			name = EmployeeTableViewController.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		3838F5C821B04DB8001474B1 /* Main.storyboard */ = {
@@ -484,6 +485,7 @@
 				3838F5C921B04DB8001474B1 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -1,0 +1,7 @@
+coverage_service: coveralls
+xcodeproj: jmbde.xcodeproj
+scheme: jmbde
+source_directory: jmbde
+ignore:
+  - Tests/*
+  - Supporting Files/**

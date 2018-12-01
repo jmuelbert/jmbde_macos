@@ -6,3 +6,8 @@ gem "cocoapods", "1.5.3"
 gem "danger"
 gem "danger-the_coding_love"
 gem "danger-junit"
+
+# misc
+gem 'xcpretty'
+gem 'synx'
+gem 'slather'
