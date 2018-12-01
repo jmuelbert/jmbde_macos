@@ -7,6 +7,8 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 
+[![codecov](https://codecov.io/gh/jmuelbert/jmbde-macos/branch/master/graph/badge.svg)](https://codecov.io/gh/jmuelbert/jmbde-macos)
+
 jmbde is a program to collect data for the IT. The database contains employees, departments, functions, phones, mobiles, computers, printers, faxes and accounts.
 
 jmbde is free software; you can redistribute ot and/or modify ir under the terms

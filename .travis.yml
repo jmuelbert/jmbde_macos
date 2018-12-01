@@ -27,7 +27,6 @@ before_install:
 install:
   - gem install bundler
   - bundle install
-  - bundle exec pod repo update --silent
   - brew update
   - brew outdated xctool || brew upgrade xctool
   - brew outdated carthage || brew upgrade carthage
@@ -39,6 +38,10 @@ matrix:
 notifications:
   email: false
 
+before_script:
+  - pod install
+  - bundle exec pod repo update --silent
+  
 script:
   - set -o pipefail
   - xcodebuild -version
@@ -60,6 +63,7 @@ script:
 after_success:
   - danger
   - slather
+  - jazzy
   - swiftlint lint
   - bash <(curl -s https://codecov.io/bash) -J JMBde
   - test $TRAVIS_PULL_REQUEST == "false" &&

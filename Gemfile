@@ -7,7 +7,9 @@ gem "danger"
 gem "danger-the_coding_love"
 gem "danger-junit"
 
-# misc
+# misx
+gem 'cocoapods'
 gem 'xcpretty'
 gem 'synx'
 gem 'slather'
+gem 'jazzy'
