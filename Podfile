@@ -2,7 +2,7 @@
 # platform :ios, '9.0'
 
 def common_pods
-  pod 'SwiftLint', '~> 0.29'
+  pod 'SwiftLint'
   pod 'SwiftGen',  '~> 6.0.2'
 end
 

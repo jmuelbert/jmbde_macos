@@ -9,7 +9,7 @@ PODS:
     - AppCenter/Core
   - Commander (0.8.0)
   - SwiftGen (6.0.2)
-  - SwiftLint (0.29.0)
+  - SwiftLint (0.29.1)
 
 DEPENDENCIES:
   - AppCenter
@@ -17,7 +17,7 @@ DEPENDENCIES:
   - AppCenter/Crashes
   - Commander (~> 0.8)
   - SwiftGen (~> 6.0.2)
-  - SwiftLint (~> 0.29)
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -30,8 +30,8 @@ SPEC CHECKSUMS:
   AppCenter: 3bccf8d733e337d0db574dd4cb0e33ab9637b7f2
   Commander: 6eda7635b133e239faa85bf75dcab88d6fd63aaa
   SwiftGen: e5b047067aa84082826a0c4f1c4c2ddc95bcf74c
-  SwiftLint: d4e7443d93e2bbe868dc302e6c7ac30b469d6a14
+  SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
 
-PODFILE CHECKSUM: be5ec03e42c08759a24b6b8df209827f555ed8f6
+PODFILE CHECKSUM: 224f05252f7931df2bede45e643cb0b1f0cac354
 
 COCOAPODS: 1.5.3
