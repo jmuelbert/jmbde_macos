@@ -53,7 +53,7 @@ script:
     GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES
     GCC_GENERATE_TEST_COVERAGE_FILES=YES
     SWIFT_VERSION=$SWIFT_VERSION
-    test
+    
 
 after_success:
 - swift --version
@@ -62,4 +62,4 @@ after_success:
   - test $TRAVIS_PULL_REQUEST == "false" &&
     test $TRAVIS_BRANCH == "master" &&
     test $UPDATE_DOCS == "true" &&
-    .scripts/update-gh-pagespretty
+    .scripts/update-gh-pages
