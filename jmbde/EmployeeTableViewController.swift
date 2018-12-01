@@ -52,7 +52,8 @@ class EmployeeTableViewController: NSViewController {
     var employees: [EmployeeMO] = []
 
     @IBAction private func addEmployeeAction(_ sender: Any) {
-        performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "EmployeeAddSeque"), sender: sender)
+        let empS = NSStoryboardSegue.Identifier("EmployeeAddSeque")
+        performSegue(withIdentifier: empS, sender: sender)
         self.tableView.reloadData()
     }
 
@@ -89,9 +90,13 @@ class EmployeeTableViewController: NSViewController {
     }
 
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier?.rawValue == "EmployeeAddSeque" {
-            let destinationAddEmployee = segue.destinationController as? EmployeeAddViewController
-            destinationAddEmployee?.employeesArray = employees
+        _ = NSStoryboardSegue.Identifier("EmployeeAddSeque")
+        switch segue.identifier {
+            case _:
+                let destinationAddEmployee = segue.destinationController as? EmployeeAddViewController
+                destinationAddEmployee?.employeesArray = employees
+            default:
+                break
         }
     }
 

@@ -1,7 +1,7 @@
 language: swift
 osx_image: xcode10
-xcode_project: JMBde.workspace
-xcode_scheme: JMBde
+xcode_project: jmbde.workspace
+xcode_scheme: jmbde
 xcode_destination: platform=macOS
 
 branches:
@@ -24,13 +24,15 @@ env:
   global:
     - LC_CTYPE=en_US.UTF-8
     - LANG=en_US.UTF-8
-    - FRAMEWORK_NAME="JMBde"
+    - FRAMEWORK_NAME="jmbde"
     - UPDATE_DOCS="true"
+    - EXPANDED_CODE_SIGN_IDENTITY="-"
+    - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
 
 matrix:
   include:
     - osx_image: xcode10.1
-      env: SCHEME="macOS"  SDK="macosx10.14"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="4.2.1"
+      env: SCHEME="jmbde"  SDK="macosx10.14"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="4.2.1"
 
 notifications:
   email: false
@@ -42,8 +44,8 @@ script:
   - xcodebuild -version
   - xcodebuild -showsdks
   - xcodebuild
-    -project "$FRAMEWORK_NAME.xcodeproj"
-    -scheme "$FRAMEWORK_NAME-$SCHEME"
+    -workspace "$FRAMEWORK_NAME.xcworkspace"
+    -scheme "$SCHEME"
     -sdk "$SDK"
     -destination "$DESTINATION"
     -configuration Debug
@@ -60,4 +62,4 @@ after_success:
   - test $TRAVIS_PULL_REQUEST == "false" &&
     test $TRAVIS_BRANCH == "master" &&
     test $UPDATE_DOCS == "true" &&
-    .scripts/update-gh-pages
+    .scripts/update-gh-pagespretty

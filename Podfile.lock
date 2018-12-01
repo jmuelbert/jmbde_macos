@@ -1,21 +1,23 @@
 PODS:
-  - AppCenter (1.8.0):
-    - AppCenter/Analytics (= 1.8.0)
-    - AppCenter/Crashes (= 1.8.0)
-  - AppCenter/Analytics (1.8.0):
+  - AppCenter (1.11.0):
+    - AppCenter/Analytics (= 1.11.0)
+    - AppCenter/Crashes (= 1.11.0)
+  - AppCenter/Analytics (1.11.0):
     - AppCenter/Core
-  - AppCenter/Core (1.8.0)
-  - AppCenter/Crashes (1.8.0):
+  - AppCenter/Core (1.11.0)
+  - AppCenter/Crashes (1.11.0):
     - AppCenter/Core
   - Commander (0.8.0)
-  - SwiftGen (5.3.0)
-  - SwiftLint (0.27.0)
+  - SwiftGen (6.0.2)
+  - SwiftLint (0.29.0)
 
 DEPENDENCIES:
   - AppCenter
+  - AppCenter/Analytics
+  - AppCenter/Crashes
   - Commander (~> 0.8)
-  - SwiftGen
-  - SwiftLint (~> 0.25)
+  - SwiftGen (~> 6.0.2)
+  - SwiftLint (~> 0.29)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -25,11 +27,11 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
-  AppCenter: 7e7b42e94b70294d1de3d747f164f0c1668a28e1
+  AppCenter: 3bccf8d733e337d0db574dd4cb0e33ab9637b7f2
   Commander: 6eda7635b133e239faa85bf75dcab88d6fd63aaa
-  SwiftGen: 4379bd3640b0a212a0f6ea3c494adba385513d10
-  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+  SwiftGen: e5b047067aa84082826a0c4f1c4c2ddc95bcf74c
+  SwiftLint: d4e7443d93e2bbe868dc302e6c7ac30b469d6a14
 
-PODFILE CHECKSUM: 0836c66278a60c248f1144f850411b999f907885
+PODFILE CHECKSUM: be5ec03e42c08759a24b6b8df209827f555ed8f6
 
 COCOAPODS: 1.5.3

@@ -180,7 +180,7 @@ extension MasterViewController: NSOutlineViewDelegate {
                 view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(
                         rawValue: "ImageCell"), owner: self) as? NSTableCellView
                 if let image = view?.imageView {
-                    image.image = NSImage(named: NSImage.Name(rawValue: outlineItem.image))
+                    image.image = NSImage(named: NSImage.Name(outlineItem.image))
                     image.sizeToFit()
                 }
             }
@@ -228,3 +228,4 @@ extension MasterViewController: NSOutlineViewDelegate {
 protocol MasterViewControllerDelegate: class {
     func didChangeOutlineSelection(masterViewController: MasterViewController, selection: OutlineItem?)
 }
+

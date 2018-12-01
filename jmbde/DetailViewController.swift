@@ -85,13 +85,13 @@ class DetailViewController: NSViewController {
 
             // Load the area storyboard and embed.
             let storyboard: NSStoryboard =
-                NSStoryboard(name: NSStoryboard.Name(rawValue: detailItemRecord.viewControllerIdentifier), bundle: nil)
-            _ = NSStoryboard.SceneIdentifier(rawValue: detailItemRecord.viewControllerIdentifier)
+            NSStoryboard(name: NSStoryboard.Name(detailItemRecord.viewControllerIdentifier), bundle: nil)
+            _ = NSStoryboard.SceneIdentifier(detailItemRecord.viewControllerIdentifier)
             guard let buttonViewController =
                 storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(
-                    rawValue: detailItemRecord.viewControllerIdentifier)) as? NSViewController else { return }
+                    detailItemRecord.viewControllerIdentifier)) as? NSViewController else { return }
 
-            insertChildViewController(buttonViewController, at: 0)
+           insertChildViewController(buttonViewController, at: 0)
 
             buttonViewController.view.translatesAutoresizingMaskIntoConstraints = false
 

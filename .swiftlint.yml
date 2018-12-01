@@ -1,7 +1,7 @@
 included:
-  - JMBDe
-  - JMBdeTests
-  - JMBdeUITests
+  - jmbde
+  - jmbdeTests
+  - jmbdeUITests
 opt_in_rules:
   - array_init
   - attributes

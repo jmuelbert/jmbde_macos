@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>JMBde.xcscheme</key>
+		<key>jmbde.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
@@ -12,17 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>38700D8521257CC20002FD60</key>
+		<key>3838F5BB21B04DB6001474B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>38700D9A21257CC30002FD60</key>
+		<key>3838F5D021B04DB8001474B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>38700DA521257CC30002FD60</key>
+		<key>3838F5DB21B04DB8001474B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

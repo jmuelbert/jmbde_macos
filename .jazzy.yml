@@ -1,8 +1,8 @@
 author: Jürgen Mülbert
-author_url: http://www.juergen-muelbert.de
+author_url: http://jmuelbert.github.io/jmbde-macos/
 github_url: https://github.com/jmuelbert/jmbde-macos
 root_url: http://jmuelbert.github.io/jmbde-macos/
-module: JMBde
+module: jmbde
 output: docs
 theme: fullwidth
-xcodebuild_arguments: [-workspace, 'JMBde.xcworkspace', -scheme, 'JMBde']
+xcodebuild_arguments: [-workspace, 'jmbde.xcworkspace', -scheme, 'jmbde']

@@ -1,11 +1,11 @@
 /**************************************************************************
 **
-**  JMBdeUITests.swift
-**  JMBdeUITests
+**  jmbdeUITests.swift
+**  jmbdeUITests
 **
 ** Copyright (c) 2016-2018 Jürgen Mülbert. All rights reserved.
 **
-** This file is part of JMBde
+** This file is part of jmbde
 **
 ** Licensed under the EUPL, Version 1.2 or – as soon they
 ** will be approved by the European Commission - subsequent
@@ -45,7 +45,7 @@
 
 import XCTest
 
-class JMBdeUITests: XCTestCase {
+class jmbdeUITests: XCTestCase {
 
     override func setUp() {
         super.setUp()

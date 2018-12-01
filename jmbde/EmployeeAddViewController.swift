@@ -63,7 +63,7 @@ class EmployeeAddViewController: NSViewController {
             alert.alertStyle = NSAlert.Style.critical
             alert.addButton(withTitle: "Cancel")
             alert.runModal()
-            self.dismissViewController(self)
+            self.dismiss(self)
         } else {
             let appdelegate = NSApplication.shared.delegate as? AppDelegate
             let context = appdelegate?.persistentContainer.viewContext
@@ -74,11 +74,11 @@ class EmployeeAddViewController: NSViewController {
                 try context?.save()
             } catch {}
         }
-        self.dismissViewController(self)
+        self.dismiss(self)
     }
 
     @IBAction private func cancelAction(_ sender: Any) {
-        self.dismissViewController(self)
+        self.dismiss(self)
     }
 
     override func viewDidLoad() {

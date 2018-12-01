@@ -78,7 +78,7 @@ class SplitViewController: NSSplitViewController {
         }
 
         // Remember the split view position
-        splitView.autosaveName = NSSplitView.AutosaveName(rawValue: "SplitViewAutoSave")
+        splitView.autosaveName = NSSplitView.AutosaveName("SplitViewAutoSave")
 
     }
 
