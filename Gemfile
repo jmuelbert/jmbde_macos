@@ -8,7 +8,6 @@ gem "danger-the_coding_love"
 gem "danger-junit"
 
 # misx
-gem 'cocoapods'
 gem 'xcpretty'
 gem 'synx'
 gem 'slather'
