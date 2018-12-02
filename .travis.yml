@@ -31,12 +31,12 @@ install:
 
 
 matrix:
-  - DESTINATION="arch=x86_64"                    SCHEME="$OSX_FRAMEWORK_SCHEME"     SDK="$OSX_SDK"     RUN_TESTS="YES" POD_LINT="NO"
+  - DESTINATION="arch=x86_64" SCHEME="$OSX_FRAMEWORK_SCHEME" SDK="$OSX_SDK" RUN_TESTS="YES" POD_LINT="NO"
 notifications:
   email: false
 
 before_script:
-  - pod install
+  - pod install --repo-update
 
 script:
   - set -o pipefail
