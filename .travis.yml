@@ -1,5 +1,8 @@
 language: swift
+xcode_workspace: jmbde.xcworkspace
+xcode_scheme: jmbde-macos
 osx_image: xcode10.1
+xcode_destination: platform=macOS
 
 env:
   global:
