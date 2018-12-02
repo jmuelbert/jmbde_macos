@@ -7,10 +7,10 @@ env:
     - LANG=en_US.UTF-8
     - WORKSPACE=jmbde.xcworkspace
     - PROJECT=jmbde.xcodeproj
-    - OSX_FRAME_WORK_SCHEME="jmbde-macos"
-    - OSX_SDK="macosx10.14"          
-    - SWIFT_VERSION="4.2.1"
-    - UPDATE_DOCS="true"
+    - OSX_FRAME_WORK_SCHEME=jmbde-macos
+    - OSX_SDK=macosx10.14          
+    - SWIFT_VERSION=4.2.1
+    - UPDATE_DOCS=true
     - EXPANDED_CODE_SIGN_IDENTITY="-"
     - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
 
