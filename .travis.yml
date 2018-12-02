@@ -36,8 +36,7 @@ notifications:
   email: false
 
 before_script:
-  - pod install
-  - bundle exec pod repo update --silent
+  - pod install --repo-update
 
 script:
   - set -o pipefail
