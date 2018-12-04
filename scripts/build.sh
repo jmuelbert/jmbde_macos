@@ -1,4 +1,4 @@
-set -oe pipefail
+set -o pipefail
 export FRAMEWORK_NAME="jmbde"
 export SCHEME="jmbde"
 export SDK="macosx10.14"
@@ -10,6 +10,12 @@ export UPDATE_DOCS="true"
 export EXPANDED_CODE_SIGN_IDENTITY="-"
 export EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
 mkdir -p build
+gem install bundler
+bundle install
+brew update
+brew outdated xctool || brew upgrade xctool
+brew outdated carthage || brew upgrade carthage
+pod install --repo-update
 xcodebuild -version
 xcodebuild -showsdks
-xcodebuild -workspace "$FRAMEWORK_NAME.xcworkspace" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug clean ONLY_ACTIVE_ARCH=YES GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES SWIFT_VERSION=$SWIFT_VERSION  | xcpretty
+xcodebuild -workspace "$FRAMEWORK_NAME.xcworkspace" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug clean build test ONLY_ACTIVE_ARCH=YES SWIFT_VERSION=$SWIFT_VERSION -verbose
