@@ -1,7 +1,8 @@
 language: swift
+osx_image: xcode10.1
 xcode_workspace: jmbde.xcworkspace
 xcode_scheme: jmbde-macos
-osx_image: xcode10.1
+xcode_sdk=macosx10.14
 xcode_destination: platform=macOS
 
 env:
@@ -49,8 +50,10 @@ script:
 
   # Build Framework in Debug and Run Tests if specified
   - if [ $RUN_TESTS == "YES" ]; then
+      echo "Build with tests"
       xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES clean build | xcpretty -c;
     else
+      echo "Build without tests"
       xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -c;
     fi
 
