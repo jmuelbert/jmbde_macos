@@ -2,7 +2,7 @@ language: swift
 osx_image: xcode10.1
 xcode_workspace: jmbde.xcworkspace
 xcode_scheme: jmbde-macos
-xcode_sdk=macosx10.14
+xcode_sdk: macosx10.14
 xcode_destination: platform=macOS
 
 env:
@@ -18,7 +18,7 @@ env:
     - EXPANDED_CODE_SIGN_IDENTITY="-"
     - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
 
-    
+
 branches:
   execpt:
     - gh-pages
