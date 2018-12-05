@@ -8,7 +8,7 @@ Metrics/LineLength:
   Max: 130
 
 # The trailing comma prevents brain cells from dying on copy-paste errors
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
   Enabled: false
 
 # Top-level class documentation is nice, but it's too early in the project to activate this

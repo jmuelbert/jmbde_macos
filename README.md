@@ -1,7 +1,7 @@
 # JMBde Application
 
-[![Swift](https://img.shields.io/badge/swift-4.0-red.svg?style=flat)](https://developer.apple.com/swift)
-[![Platforms OSX](https://img.shields.io/badge/Platforms-iOS%20%7C%20watchOS%20%7C%20tvOS%20%7C%20OS%20X-lightgray.svg?style=flat)](http://www.apple.com)
+[![Swift](https://img.shields.io/badge/swift-4.0-yellow.svg?style=flat)](https://developer.apple.com/swift)
+[![Platforms OSX](https://img.shields.io/badge/Platforms-OS%20X-lightgray.svg?style=flat)](http://www.apple.com)
 [![Build Status](https://travis-ci.org/jmuelbert/jmbde-macos.svg?branch=master)](https://travis-ci.org/jmuelbert/jmbde-macos)
 [![GitHub license](https://img.shields.io/badge/license-EUPL-blue.svg)](https://joinup.ec.europa.eu/page/eupl-text-11-12)
 

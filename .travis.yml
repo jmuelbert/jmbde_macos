@@ -4,7 +4,7 @@ language: objective-c
 cache: cocoapods
 
 xcode_workspace: jmbde.xcworkspace
-xcode_scheme: jmbde
+xcode_scheme: jmbde-macos
 
 env:
   global:
@@ -61,10 +61,10 @@ script:
 
 after_success:
   - danger
-  - slather
   - jazzy
   - rubocop
   - swiftlint lint
+  - slather
   - bash <(curl -s https://codecov.io/bash) -J JMBde
   - test $TRAVIS_PULL_REQUEST == "false" &&
     test $TRAVIS_BRANCH == "master" &&
