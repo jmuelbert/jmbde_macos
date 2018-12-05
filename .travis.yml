@@ -39,7 +39,8 @@ notifications:
   email: false
 
 before_script:
-  - pod install --repo-update
+  - pod install
+  # --repo-update
   - xcodebuild -version
   - xcodebuild -showsdks
   - swift --version
