@@ -21,36 +21,21 @@ env:
     - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
     - CODE_SIGN_IDENTITY=""
     - CODE_SIGNING_REQUIRED=NO
-    
+
 script:
   - set -o pipefail
   # Build Framework in Debug and Run Tests if specified
-  - if [ $RUN_TESTS == "YES" ]; then
-      echo "Build with tests"
-      xcodebuild test 
-      -workspace "$WORKSPACE" 
-      -scheme "$SCHEME" 
-      -sdk "$SDK" 
-      -destination "$DESTINATION" 
-      -configuration Debug 
-      ONLY_ACTIVE_ARCH=NO 
-      ENABLE_TESTABILITY=YES 
-      CODE_SIGN_IDENTITY=""
-      CODE_SIGNING_REQUIRED=NO 
-      | xcpretty -c;
-    else
-      echo "Build without tests"
-      xcodebuild build
-      -workspace "$WORKSPACE" 
-      -scheme "$SCHEME" 
-      -sdk "$SDK" 
-      -destination "$DESTINATION" 
-      -configuration Debug 
-      ONLY_ACTIVE_ARCH=NO 
-      CODE_SIGN_IDENTITY=""
-      CODE_SIGNING_REQUIRED=NO  
-      | xcpretty -c;
-    fi
+  - echo "Build with tests"
+  - xcodebuild test 
+    -workspace "$WORKSPACE" 
+    -scheme "$SCHEME" 
+    -sdk "$SDK" 
+    -destination "$DESTINATION" 
+    -configuration Debug 
+    ONLY_ACTIVE_ARCH=NO 
+    ENABLE_TESTABILITY=YES 
+    CODE_SIGN_IDENTITY=""
+    CODE_SIGNING_REQUIRED=NO | xcpretty -c;
 
 
 deploy:
