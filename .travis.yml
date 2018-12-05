@@ -28,8 +28,8 @@ env:
 script:
   - set -o pipefail
   # Build Framework in Debug and Run Tests if specified
-  - echo "Build with tests"
-  - xcodebuild test 
+  - echo "Build without tests"
+  - xcodebuild build 
     -workspace "$WORKSPACE" 
     -scheme "$SCHEME" 
     -sdk "$SDK" 
