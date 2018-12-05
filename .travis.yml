@@ -40,11 +40,22 @@ script:
     CODE_SIGN_IDENTITY=""
     CODE_SIGNING_REQUIRED=NO | xcpretty -c;
 
-
-deploy:
-  - provider: script
-    # script: bash .scripts/update-gh-pages.sh
-    skip_cleanup: true
-    on:
-        all_branches: true
-        condition: '"$TRAVIS_BRANCH" == "master" || "$TRAVIS_TAG" != ""'
+after_success:
+  - danger
+  - slather
+  - jazzy
+  - rubocop
+  - swiftlint lint
+  - bash <(curl -s https://codecov.io/bash) -J JMBde
+  - test $TRAVIS_PULL_REQUEST == "false" &&
+    test $TRAVIS_BRANCH == "master" &&
+    test $UPDATE_DOCS == "true" &&
+    .scripts/update-gh-pages
+    
+#deploy:
+#  - provider: script
+#    # script: bash .scripts/update-gh-pages.sh
+#    skip_cleanup: true
+#    on:
+#        all_branches: true
+#        condition: '"$TRAVIS_BRANCH" == "master" || "$TRAVIS_TAG" != ""'
