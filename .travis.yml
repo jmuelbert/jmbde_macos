@@ -7,8 +7,51 @@ install: pod install || pod install --repo-update
 xcode_workspace: jmbde.xcworkspace
 xcode_scheme: jmbde
 
+env:
+  global:
+    - LC_CTYPE=en_US.UTF-8
+    - LANG=en_US.UTF-8
+    - WORKSPACE=jmbde.xcworkspace
+    - PROJECT=jmbde.xcodeproj
+    - OSX_FRAME_WORK_SCHEME=jmbde-macos
+    - OSX_SDK=macosx10.14          
+    - SWIFT_VERSION=4.2.1
+    - UPDATE_DOCS=true
+    - EXPANDED_CODE_SIGN_IDENTITY="-"
+    - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
+    - CODE_SIGN_IDENTITY=""
+    - CODE_SIGNING_REQUIRED=NO
+    
 script:
-  - xcodebuild -workspace jmbde.xcworkspace -scheme jmbde build test
+  - set -o pipefail
+  # Build Framework in Debug and Run Tests if specified
+  - if [ $RUN_TESTS == "YES" ]; then
+      echo "Build with tests"
+      xcodebuild test 
+      -workspace "$WORKSPACE" 
+      -scheme "$SCHEME" 
+      -sdk "$SDK" 
+      -destination "$DESTINATION" 
+      -configuration Debug 
+      ONLY_ACTIVE_ARCH=NO 
+      ENABLE_TESTABILITY=YES 
+      CODE_SIGN_IDENTITY=""
+      CODE_SIGNING_REQUIRED=NO 
+      | xcpretty -c;
+    else
+      echo "Build without tests"
+      xcodebuild build
+      -workspace "$WORKSPACE" 
+      -scheme "$SCHEME" 
+      -sdk "$SDK" 
+      -destination "$DESTINATION" 
+      -configuration Debug 
+      ONLY_ACTIVE_ARCH=NO 
+      CODE_SIGN_IDENTITY=""
+      CODE_SIGNING_REQUIRED=NO  
+      | xcpretty -c;
+    fi
+
 
 deploy:
   - provider: script
