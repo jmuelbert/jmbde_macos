@@ -22,6 +22,9 @@ env:
     - CODE_SIGN_IDENTITY=""
     - CODE_SIGNING_REQUIRED=NO
 
+  matrix:
+    - DESTINATION="arch=x86_64" SCHEME="$OSX_FRAMEWORK_SCHEME" SDK="$OSX_SDK" RUN_TESTS="NO" POD_LINT="NO"
+
 script:
   - set -o pipefail
   # Build Framework in Debug and Run Tests if specified
