@@ -1,4 +1,4 @@
-language: swift
+os: osx
 osx_image: xcode10.1
 
 env:
@@ -13,6 +13,8 @@ env:
     - UPDATE_DOCS=true
     - EXPANDED_CODE_SIGN_IDENTITY="-"
     - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
+    - CODE_SIGN_IDENTITY=""
+    - CODE_SIGNING_REQUIRED=NO
 
 
 branches:
@@ -21,15 +23,14 @@ branches:
 
 before_install:
   - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
+  - brew outdated carthage || brew upgrade carthage
 
 install:
   - gem install bundler
   - bundle install
-  - brew update
-  - brew outdated xctool || brew upgrade xctool
-  - brew outdated carthage || brew upgrade carthage
   - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/jmuelbert/jmbde-macos.git"
-
 
 matrix:
   - DESTINATION="arch=x86_64" SCHEME="$OSX_FRAMEWORK_SCHEME" SDK="$OSX_SDK" RUN_TESTS="NO" POD_LINT="NO"
@@ -38,20 +39,32 @@ notifications:
 
 before_script:
   - pod install --repo-update
+  - xcodebuild -version
+  - xcodebuild -showsdks
+  - swift --version
+  - carthage version
+  - swiftlint version
 
 script:
   - set -o pipefail
-  - xcodebuild -version
-  - swift --version
-  - xcodebuild -showsdks
-
   # Build Framework in Debug and Run Tests if specified
   - if [ $RUN_TESTS == "YES" ]; then
       echo "Build with tests"
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES clean build | xcpretty -c;
+      xcodebuild test 
+      -workspace "$WORKSPACE" 
+      -scheme "$SCHEME" 
+      -sdk "$SDK" 
+      -destination "$DESTINATION" 
+      -configuration Debug 
+      ONLY_ACTIVE_ARCH=NO 
+      ENABLE_TESTABILITY=YES 
+      CODE_SIGN_IDENTITY=""
+      CODE_SIGNING_REQUIRED=NO 
+      | xcpretty -c
     else
       echo "Build without tests"
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -c;
+      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY=""
+  CODE_SIGNING_REQUIRED=NO build | xcpretty -c;
     fi
 
   # Run `pod lib lint` if specified
