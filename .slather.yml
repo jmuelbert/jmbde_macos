@@ -1,6 +1,6 @@
 coverage_service: coveralls
-xcodeproj: jmbde.xcodeproj
-scheme: jmbde
+workspace: jmbde.xcworkspace
+scheme: jmbde-macos
 source_directory: jmbde
 ignore:
   - Tests/*

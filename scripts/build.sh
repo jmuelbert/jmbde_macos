@@ -1,6 +1,6 @@
 set -o pipefail
 export FRAMEWORK_NAME="jmbde"
-export SCHEME="jmbde"
+export SCHEME="jmbde-macos"
 export SDK="macosx10.14"
 export DESTINATION="arch=x86_64"
 export SWIFT_VERSION="4.2.1"
