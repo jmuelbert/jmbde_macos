@@ -2,7 +2,6 @@ os: osx
 osx_image: xcode10.1
 language: objective-c
 cache: cocoapods
-install: pod install || pod install --repo-update
 
 xcode_workspace: jmbde.xcworkspace
 xcode_scheme: jmbde
@@ -24,6 +23,26 @@ env:
     - DESTINATION="arch=x86_64"
     - SCHEME="$OSX_FRAMEWORK_SCHEME"
     - SDK="$OSX_SDK"
+
+before_install:
+  - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
+  - brew outdated carthage || brew upgrade carthage
+
+install:
+  - gem install bundler --no-document
+  - bundle install
+  - pod install || pod install --repo-update
+  - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/jmuelbert/jmbde-macos.git"
+
+before_script:
+  - pod install --repo-update
+  - xcodebuild -version
+  - xcodebuild -showsdks
+  - swift --version
+  - carthage version
+  - swiftlint version
 
 script:
   - set -o pipefail
@@ -51,7 +70,7 @@ after_success:
     test $TRAVIS_BRANCH == "master" &&
     test $UPDATE_DOCS == "true" &&
     .scripts/update-gh-pages
-    
+
 #deploy:
 #  - provider: script
 #    # script: bash .scripts/update-gh-pages.sh
