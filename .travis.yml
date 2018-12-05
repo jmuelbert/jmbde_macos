@@ -30,7 +30,7 @@ before_install:
   - brew outdated carthage || brew upgrade carthage
 
 install:
-  - gem install bundler
+  - gem install bundler --no-document
   - bundle install
   - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/jmuelbert/jmbde-macos.git"
 
@@ -40,8 +40,7 @@ notifications:
   email: false
 
 before_script:
-  - pod install
-  # --repo-update
+  # - pod install --repo-update
   - xcodebuild -version
   - xcodebuild -showsdks
   - swift --version
@@ -87,6 +86,7 @@ after_success:
   - danger
   - slather
   - jazzy
+  - rubocop
   - swiftlint lint
   - bash <(curl -s https://codecov.io/bash) -J JMBde
   - test $TRAVIS_PULL_REQUEST == "false" &&
