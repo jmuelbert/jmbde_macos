@@ -94,7 +94,7 @@ env:
 before_install:
   - gem install bundler --no-document
   - bundle install
-  - gem install cacoapods -v 1.6.0
+  - gem install cocoapods -v 1.6.0
   - gem install xcpretty
   - git clone https://github.com/yonaskolb/XcodeGen.git && cd XcodeGen && git checkout $XCODEGEN_VERSION && make && cd ../
 
