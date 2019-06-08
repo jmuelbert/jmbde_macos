@@ -56,6 +56,7 @@ Run the App with Xcode
 Build the Release Version...
 
 ## Resources
+
 - [Jazzy](https://github.com/realm/jazzy)
 
 ## License
