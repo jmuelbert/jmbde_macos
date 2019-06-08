@@ -1,4 +1,4 @@
-# JMBde Application
+# jmbde Application
 
 [![Swift](https://img.shields.io/badge/swift-4.0-yellow.svg?style=flat)](https://developer.apple.com/swift)
 [![Platforms OSX](https://img.shields.io/badge/Platforms-OS%20X-lightgray.svg?style=flat)](http://www.apple.com)
