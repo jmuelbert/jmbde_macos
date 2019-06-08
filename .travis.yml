@@ -1,10 +1,86 @@
-os: osx
-osx_image: xcode10.2
-language: objective-c
-cache: cocoapods
+language: generic
+matrix:
+  include: 
+    - os: osx
+      osx_image: xcode10.2
+      name: Danger
+      env:
+        - CACHE_NAME=SWIFT5_0
+        - SWIFT_VERSION=5.0
+        - XCODEGEN_VERSION=2.5.0
 
-xcode_workspace: jmbde.xcworkspace
-xcode_scheme: jmbde-macos
+        - OSX_SDK=macosx10.14          
+        - UPDATE_DOCS=true
+        - EXPANDED_CODE_SIGN_IDENTITY="-"
+        - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
+        - CODE_SIGN_IDENTITY=""
+        - CODE_SIGNING_REQUIRED=NO
+        - DESTINATION="arch=x86_64"
+        - SCHEME="$OSX_FRAMEWORK_SCHEME"
+        - SDK="$OSX_SDK"
+
+      xcode_workspace: jmbde.xcworkspace
+      xcode_scheme: jmbde-macos
+
+      before_install:
+        - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+        - brew update
+        - brew outdated xctool || brew upgrade xctool
+        - brew outdated carthage || brew upgrade carthage
+        - brew install danger/tap/danger-swift
+      
+      script: DEBUG="*" danger-swift ci
+
+    - os: osx
+      osx_image: xcode10.2
+      name: Swift 5.0 compatibility
+      env:
+        - CACHE_NAME=SWIFT5_0
+        - SWIFT_VERSION=5.0
+        - XCODEGEN_VERSION=2.5.0
+        - OSX_SDK=macosx10.14          
+        - UPDATE_DOCS=true
+        - EXPANDED_CODE_SIGN_IDENTITY="-"
+        - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
+        - CODE_SIGN_IDENTITY=""
+        - CODE_SIGNING_REQUIRED=NO
+        - DESTINATION="arch=x86_64"
+        - SCHEME="$OSX_FRAMEWORK_SCHEME"
+        - SDK="$OSX_SDK"
+
+    - os: osx
+      osx_image: xcode10.1
+      name: Swift 4.2 compatibility
+      env:
+        - CACHE_NAME=SWIFT4_2
+        - SWIFT_VERSION=4.2
+        - XCODEGEN_VERSION=2.3.0
+        - OSX_SDK=macosx10.14          
+        - UPDATE_DOCS=true
+        - EXPANDED_CODE_SIGN_IDENTITY="-"
+        - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
+        - CODE_SIGN_IDENTITY=""
+        - CODE_SIGNING_REQUIRED=NO
+        - DESTINATION="arch=x86_64"
+        - SCHEME="$OSX_FRAMEWORK_SCHEME"
+        - SDK="$OSX_SDK"
+    # - os: linux
+    #   sudo: required
+    #   dist: trusty    
+    #   name: Swift 5.0 compatibility
+    #   env:
+    #     - CACHE_NAME=LINUX_SWIFT5_0
+    #     - SWIFT_VERSION=5.0-dev
+    #   before_install:
+    #     - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+    #   script:
+    #     - swift test
+
+cache:
+    edge: true
+    directories:
+      - Carthage
+      - .build
 
 env:
   global:
@@ -13,26 +89,16 @@ env:
     - WORKSPACE=jmbde.xcworkspace
     - PROJECT=jmbde.xcodeproj
     - OSX_FRAMEWORK_SCHEME=jmbde-macos
-    - OSX_SDK=macosx10.14          
-    - SWIFT_VERSION=4.2.1
-    - UPDATE_DOCS=true
-    - EXPANDED_CODE_SIGN_IDENTITY="-"
-    - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
-    - CODE_SIGN_IDENTITY=""
-    - CODE_SIGNING_REQUIRED=NO
-    - DESTINATION="arch=x86_64"
-    - SCHEME="$OSX_FRAMEWORK_SCHEME"
-    - SDK="$OSX_SDK"
+
 
 before_install:
-  - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
-  - brew update
-  - brew outdated xctool || brew upgrade xctool
-  - brew outdated carthage || brew upgrade carthage
-
-install:
   - gem install bundler --no-document
   - bundle install
+  - gem install cacoapods -v 1.6.0
+  - gem install xcpretty
+  - git clone https://github.com/yonaskolb/XcodeGen.git && cd XcodeGen && git checkout $XCODEGEN_VERSION && make && cd ../
+
+install:
   - pod install || pod install --repo-update
   - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/jmuelbert/jmbde-macos.git"
 
@@ -47,6 +113,7 @@ before_script:
 script:
   - set -o pipefail
   # Build Framework in Debug and Run Tests if specified
+  - carthage update --no-use-binaries --cache-builds --verbose
   - echo "Build without tests"
   - xcodebuild build 
     -workspace "$WORKSPACE" 
@@ -65,11 +132,16 @@ after_success:
   - rubocop
   - swiftlint lint
   - slather
+  - pod lib lint
   - bash <(curl -s https://codecov.io/bash) -J JMBde
   - test $TRAVIS_PULL_REQUEST == "false" &&
     test $TRAVIS_BRANCH == "master" &&
     test $UPDATE_DOCS == "true" &&
     .scripts/update-gh-pages
+  
+  - scripts/cocoapods_integration_step.sh
+  - scripts/carthage_integration_step.sh
+  - scripts/spm_integration_step.sh
 
 #deploy:
 #  - provider: script
