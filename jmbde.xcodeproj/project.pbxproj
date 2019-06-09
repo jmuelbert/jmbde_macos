@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -272,10 +272,12 @@
 					};
 					3838F5D021B04DB8001474B1 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 3838F5BB21B04DB6001474B1;
 					};
 					3838F5DB21B04DB8001474B1 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 3838F5BB21B04DB6001474B1;
 					};
 				};
@@ -663,7 +665,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jmuelbert.github.io.jmbdeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jmbde.app/Contents/MacOS/jmbde";
 			};
 			name = Debug;
@@ -684,7 +686,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jmuelbert.github.io.jmbdeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jmbde.app/Contents/MacOS/jmbde";
 			};
 			name = Release;
@@ -704,7 +706,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jmuelbert.github.io.jmbdeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = jmbde;
 			};
 			name = Debug;
@@ -724,7 +726,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jmuelbert.github.io.jmbdeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = jmbde;
 			};
 			name = Release;

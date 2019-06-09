@@ -64,10 +64,10 @@ class DetailViewController: NSViewController {
     var detailItemRecord: OutlineItem! {
         didSet {
             // Remove the old child view controller
-            if !childViewControllers.isEmpty {
-                let viewcChild = childViewControllers[0]
+            if !children.isEmpty {
+                let viewcChild = children[0]
                 viewcChild.view.isHidden = true
-                viewcChild.removeFromParentViewController()
+                viewcChild.removeFromParent()
             }
 
             descriptionField.stringValue = ""
@@ -91,7 +91,7 @@ class DetailViewController: NSViewController {
                 storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(
                     detailItemRecord.viewControllerIdentifier)) as? NSViewController else { return }
 
-           insertChildViewController(buttonViewController, at: 0)
+           insertChild(buttonViewController, at: 0)
 
             buttonViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
