@@ -114,11 +114,11 @@
 			isa = PBXGroup;
 			children = (
 				518B9595263F2EC6775B43FC /* Frameworks */,
-				E1BF40BDE743F8CA4F228B3F /* Pods */,
-				3838F5BD21B04DB6001474B1 /* Products */,
 				3838F5BE21B04DB6001474B1 /* jmbde */,
 				3838F5D421B04DB8001474B1 /* jmbdeTests */,
 				3838F5DF21B04DB8001474B1 /* jmbdeUITests */,
+				E1BF40BDE743F8CA4F228B3F /* Pods */,
+				3838F5BD21B04DB6001474B1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,15 +143,15 @@
 				3829663C21B07F8700D81623 /* EmployeeTableViewController.storyboard */,
 				3829664121B07F9700D81623 /* EmployeeTableViewController.swift */,
 				3838F5CB21B04DB8001474B1 /* Info.plist */,
+				3838F5CC21B04DB8001474B1 /* jmbde.entitlements */,
+				3838F5C321B04DB6001474B1 /* jmbde.xcdatamodeld */,
+				3829664F21B07FBA00D81623 /* jmbde.xcdatamodeld */,
 				3838F5C821B04DB8001474B1 /* Main.storyboard */,
 				3829664521B07FAE00D81623 /* MasterViewController.swift */,
 				3829664721B07FAF00D81623 /* Outline.swift */,
 				3829664821B07FAF00D81623 /* OutlineItem.swift */,
 				3829664621B07FAF00D81623 /* OutlineList.plist */,
 				3829664921B07FAF00D81623 /* SplitViewController.swift */,
-				3838F5CC21B04DB8001474B1 /* jmbde.entitlements */,
-				3829664F21B07FBA00D81623 /* jmbde.xcdatamodeld */,
-				3838F5C321B04DB6001474B1 /* jmbde.xcdatamodeld */,
 			);
 			path = jmbde;
 			sourceTree = "<group>";
@@ -208,7 +208,7 @@
 				3838F5B821B04DB6001474B1 /* Sources */,
 				3838F5B921B04DB6001474B1 /* Frameworks */,
 				3838F5BA21B04DB6001474B1 /* Resources */,
-				142C0919D3854D0173B430C9 /* [CP] Embed Pods Frameworks */,
+				E076EA109618449A22E8468C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,9 +306,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3838F5C721B04DB8001474B1 /* Assets.xcassets in Resources */,
-				3838F5CA21B04DB8001474B1 /* Main.storyboard in Resources */,
 				3829665321B07FC600D81623 /* Dangerfile in Resources */,
 				3829663E21B07F8700D81623 /* EmployeeTableViewController.storyboard in Resources */,
+				3838F5CA21B04DB8001474B1 /* Main.storyboard in Resources */,
 				3829664B21B07FAF00D81623 /* OutlineList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,28 +330,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		142C0919D3854D0173B430C9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-jmbde/Pods-jmbde-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Commander/Commander.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Commander.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-jmbde/Pods-jmbde-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		799E933F28DD1E7CB158EE3B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -418,6 +396,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E076EA109618449A22E8468C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jmbde/Pods-jmbde-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jmbde/Pods-jmbde-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-jmbde/Pods-jmbde-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -425,16 +420,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3829664C21B07FAF00D81623 /* Outline.swift in Sources */,
-				3838F5C521B04DB6001474B1 /* jmbde.xcdatamodeld in Sources */,
+				3838F5C021B04DB6001474B1 /* AppDelegate.swift in Sources */,
+				3829664321B07F9700D81623 /* DetailViewController.swift in Sources */,
+				3829664221B07F9700D81623 /* EmployeeAddViewController.swift in Sources */,
 				3829664421B07F9700D81623 /* EmployeeTableViewController.swift in Sources */,
+				3838F5C521B04DB6001474B1 /* jmbde.xcdatamodeld in Sources */,
+				3829665121B07FBA00D81623 /* jmbde.xcdatamodeld in Sources */,
+				3829664A21B07FAF00D81623 /* MasterViewController.swift in Sources */,
+				3829664C21B07FAF00D81623 /* Outline.swift in Sources */,
 				3829664D21B07FAF00D81623 /* OutlineItem.swift in Sources */,
 				3829664E21B07FAF00D81623 /* SplitViewController.swift in Sources */,
-				3829664321B07F9700D81623 /* DetailViewController.swift in Sources */,
-				3829665121B07FBA00D81623 /* jmbde.xcdatamodeld in Sources */,
-				3829664221B07F9700D81623 /* EmployeeAddViewController.swift in Sources */,
-				3829664A21B07FAF00D81623 /* MasterViewController.swift in Sources */,
-				3838F5C021B04DB6001474B1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,7 +544,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -604,7 +599,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -626,7 +621,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jmuelbert.github.io.jmbde;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -648,7 +643,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jmuelbert.github.io.jmbde;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

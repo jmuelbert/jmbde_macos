@@ -1,2 +1,4 @@
-brewfile "carthage"
-brewfile "tailor"
+# frozen_string_literal: true.
+brewfile 'carthage'
+# frozen_string_literal: true.
+brewfile 'tailor'

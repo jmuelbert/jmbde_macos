@@ -1,5 +1,4 @@
 ROOT=`pwd`
-pushd `npm root -g`
-remark -u remark-slug -u remark-validate-links "${ROOT}/*.md"
-remark -u remark-slug -u remark-validate-links "${ROOT}/**/*.md"
-popds
+awesome_bot --allow-dupe --allow-redirect README.md
+awesome_bot --allow-dupe --allow-redirect *.md
+awesome_bot --allow-dupe --allow-redirect docs/*.md

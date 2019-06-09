@@ -1,0 +1,4 @@
+github "realm/SwiftLint'
+github 'SwiftGen/SwiftGen'
+github 'microsoft/appcenter-sdk-apple'
+github 'kylef/Commander'

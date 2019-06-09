@@ -7,6 +7,7 @@
 build/
 DerivedData/
 docs/
+ab-results-*
 
 ## Various settings
 *.pbxuser
@@ -23,9 +24,9 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+*.xcuserstate
 *.lock
 Gemfile.*
-
 
 ## Obj-C/Swift specific
 *.hmap

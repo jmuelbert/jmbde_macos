@@ -94,7 +94,7 @@ env:
 before_install:
   - gem install bundler --no-document
   - bundle install
-  - gem install cocoapods -v 1.6.0
+  - gem install cocoapods -v 1.7.1
   - gem install xcpretty
   - git clone https://github.com/yonaskolb/XcodeGen.git && cd XcodeGen && git checkout $XCODEGEN_VERSION && make && cd ../
 
@@ -137,13 +137,8 @@ after_success:
   - test $TRAVIS_PULL_REQUEST == "false" &&
     test $TRAVIS_BRANCH == "master" &&
     test $UPDATE_DOCS == "true" &&
-    .scripts/update-gh-pages
-  
-  - scripts/cocoapods_integration_step.sh
-  - scripts/carthage_integration_step.sh
-  - scripts/spm_integration_step.sh
-
-#deploy:
+    .scripts/update-gh-pages.sh
+    #deploy:
 #  - provider: script
 #    # script: bash .scripts/update-gh-pages.sh
 #    skip_cleanup: true

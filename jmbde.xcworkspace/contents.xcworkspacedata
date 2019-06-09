@@ -2,51 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:scripts/build.sh">
-   </FileRef>
-   <FileRef
-      location = "group:AUTHORS">
-   </FileRef>
-   <FileRef
-      location = "group:Brewfile">
-   </FileRef>
-   <FileRef
-      location = "group:Cartfile">
-   </FileRef>
-   <FileRef
-      location = "group:CHANGELOG.md">
-   </FileRef>
-   <FileRef
-      location = "group:CODE_OF_CONDUCT.md">
-   </FileRef>
-   <FileRef
-      location = "group:CONTRIBUTING.md">
-   </FileRef>
-   <FileRef
-      location = "group:CONTRIBUTORS">
-   </FileRef>
-   <FileRef
-      location = "group:Dangerfile">
-   </FileRef>
-   <FileRef
-      location = "group:Gemfile">
-   </FileRef>
-   <FileRef
-      location = "group:LICENSE">
-   </FileRef>
-   <FileRef
-      location = "group:LICENSE.EUPL_1_2">
-   </FileRef>
-   <FileRef
-      location = "group:Podfile">
-   </FileRef>
-   <FileRef
-      location = "group:README.md">
-   </FileRef>
-   <FileRef
-      location = "group:scripts/validate-markdown.sh">
-   </FileRef>
-   <FileRef
       location = "group:jmbde.xcodeproj">
    </FileRef>
    <FileRef
