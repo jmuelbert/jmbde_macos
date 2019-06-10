@@ -1,6 +1,6 @@
 language: generic
 matrix:
-  include: 
+  include:
     - os: osx
       osx_image: xcode10.2
       name: Danger
@@ -9,7 +9,7 @@ matrix:
         - SWIFT_VERSION=5.0
         - XCODEGEN_VERSION=2.5.0
 
-        - OSX_SDK=macosx10.14          
+        - OSX_SDK=macosx10.14
         - UPDATE_DOCS=true
         - EXPANDED_CODE_SIGN_IDENTITY="-"
         - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
@@ -28,7 +28,7 @@ matrix:
         - brew outdated xctool || brew upgrade xctool
         - brew outdated carthage || brew upgrade carthage
         - brew install danger/tap/danger-swift
-      
+
       script: DEBUG="*" danger-swift ci
 
     - os: osx
@@ -38,7 +38,7 @@ matrix:
         - CACHE_NAME=SWIFT5_0
         - SWIFT_VERSION=5.0
         - XCODEGEN_VERSION=2.5.0
-        - OSX_SDK=macosx10.14          
+        - OSX_SDK=macosx10.14
         - UPDATE_DOCS=true
         - EXPANDED_CODE_SIGN_IDENTITY="-"
         - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
@@ -55,7 +55,7 @@ matrix:
         - CACHE_NAME=SWIFT4_2
         - SWIFT_VERSION=4.2
         - XCODEGEN_VERSION=2.3.0
-        - OSX_SDK=macosx10.14          
+        - OSX_SDK=macosx10.14
         - UPDATE_DOCS=true
         - EXPANDED_CODE_SIGN_IDENTITY="-"
         - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
@@ -66,7 +66,7 @@ matrix:
         - SDK="$OSX_SDK"
     # - os: linux
     #   sudo: required
-    #   dist: trusty    
+    #   dist: trusty
     #   name: Swift 5.0 compatibility
     #   env:
     #     - CACHE_NAME=LINUX_SWIFT5_0
@@ -113,16 +113,16 @@ before_script:
 script:
   - set -o pipefail
   # Build Framework in Debug and Run Tests if specified
-  - carthage update --no-use-binaries --cache-builds --verbose
+  # carthage update --no-use-binaries --cache-builds --verbose
   - echo "Build without tests"
-  - xcodebuild build 
-    -workspace "$WORKSPACE" 
-    -scheme "$SCHEME" 
-    -sdk "$SDK" 
-    -destination "$DESTINATION" 
-    -configuration Debug 
-    ONLY_ACTIVE_ARCH=NO 
-    ENABLE_TESTABILITY=YES 
+  - xcodebuild build
+    -workspace "$WORKSPACE"
+    -scheme "$SCHEME"
+    -sdk "$SDK"
+    -destination "$DESTINATION"
+    -configuration Debug
+    ONLY_ACTIVE_ARCH=NO
+    ENABLE_TESTABILITY=YES
     CODE_SIGN_IDENTITY=""
     CODE_SIGNING_REQUIRED=NO | xcpretty -c;
 
@@ -134,14 +134,11 @@ after_success:
   - slather
   - pod lib lint
   - bash <(curl -s https://codecov.io/bash) -J jmbde
-  - test $TRAVIS_PULL_REQUEST == "false" &&
-    test $TRAVIS_BRANCH == "master" &&
-    test $UPDATE_DOCS == "true" &&
-    .scripts/update-gh-pages.sh
-    #deploy:
-#  - provider: script
-#    # script: bash .scripts/update-gh-pages.sh
-#    skip_cleanup: true
-#    on:
-#        all_branches: true
-#        condition: '"$TRAVIS_BRANCH" == "master" || "$TRAVIS_TAG" != ""'
+
+deploy:
+  - provider: releases
+    skip_cleanup: true
+    api_key:
+      secure: "k/pfJnhrGN57cL9GACARCsMqQzsEK/oTKaCgNKxC4d7Xu6a6NS3YvThnfHkAHkXzXwQFrDwhQQDmE0/R6O+lBjZZnODR2togQNE4kYRqSyULMQJ6COHLwsjfXah6D0AJXHANForkDu92IlkqwnhClabYAAkxx7qDt+aPyF2RCCE1Vp1wJguiAPSumKk4GKUjcgio9/YZrc80nG58smYOYmxWLCOVlrEtOPVvfIzuBx26yukyjno/NeUS8nFp88smWj25QY1bDuxHu+tPVlz9rwxMM5f267UvVITZRQ8IIqe+e+GKTyDdkIf/HbAoPoeORkTGR3xnnWMIojVp40pA7nRLMG6RBc0aqscuUZpVENAN55uroyjRhZNAeA5ivK1q3oPyrE7to0VxXAgZ0nWZ06HCrVmuIFFYQeYBBzqKq7P8qZEufv4cztblq28ZNf5UCuCq/CMZcOj1Q6DBlM7ltcGMvzd3LfkpnL7k2IMNTk1EdLm5Qod++n6qFiiLOBd9O5NEZ0loaWn7XwbDodsocb8IovCVQsmswgONV8JRezv68kFjSkfqvtOzbzC0EQmaoplZzoOqaubNYH0mDHKHN7HSvKLmnv8Sa8LNBQ/iiItleunDvcLGs925Nac0VLBWGeMM9+TXqPV4IT/HmPWyIDnIXhwkOq+olr2ZtIRSIZ0="
+    file: j*.dmg
+    file_glob: true
