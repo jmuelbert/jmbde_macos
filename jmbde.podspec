@@ -1,7 +1,8 @@
 # frozen_string_literal: true.
+
 Pod::Spec.new do |s|
   s.name             = 'jmbde'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Tool to handle data of a company'
   s.homepage         = 'https://github.com/jmuelbert/jmbde-macos'
   s.license          = 'EUPL-1.2'

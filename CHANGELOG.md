@@ -1,4 +1,9 @@
-# ChangeLog
+# Changelog
+
+## 0.2.0
+
+- Change to Swift 5.
+- Project can now build and run.
 
 ## 0.1.0
 

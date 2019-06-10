@@ -1,9 +1,10 @@
 /**************************************************************************
+**
 **  Outine.swift
 **
-** Copyright (c) 2016-2018 Jürgen Mülbert. All rights reserved.
+** Copyright (c) 2016-2019 Jürgen Mülbert. All rights reserved.
 **
-** This file is part of JMBde
+** This file is part of jmbde
 **
 ** Licensed under the EUPL, Version 1.2 or – as soon they
 ** will be approved by the European Commission - subsequent

@@ -1,9 +1,11 @@
+# frozen_string_literal: true.
+
 require_relative 'rakelib/check_changelog'
 
 # Welcome message
 markdown [
   "Hey 👋 I'm Eve, the friendly bot watching over SwiftGen 🤖",
-  "Thanks a lot for your contribution!",
+  'Thanks a lot for your contribution!',
   '', '---', ''
 ]
 
@@ -28,11 +30,11 @@ if is_release
   stdout, _, status = Open3.capture3('bundle', 'exec', 'rake', 'changelog:check')
   markdown [
     '',
-    "### ChangeLog check",
+    '### ChangeLog check',
     '',
     stdout
   ]
-  need_fixes << fail('Please fix the CHANGELOG errors') unless status.success?
+  need_fixes << raise('Please fix the CHANGELOG errors') unless status.success?
 
   stdout, _, status = Open3.capture3('bundle', 'exec', 'rake', 'release:check_versions')
   markdown [
@@ -41,9 +43,9 @@ if is_release
     '',
     stdout
   ]
-  need_fixes << fail('Please fix the versions inconsistencies') unless status.success?
+  need_fixes << raise('Please fix the versions inconsistencies') unless status.success?
 elsif !to_develop
-  need_fixes << fail("Feature branches should start from and be merged into 'develop', " \
+  need_fixes << raise("Feature branches should start from and be merged into 'develop', " \
     "not #{github.branch_for_base}")
 end
 
@@ -51,9 +53,8 @@ end
 podfile_changed = git.modified_files.include?('Podfile.lock')
 package_changed = git.modified_files.include?('Package.resolved')
 if podfile_changed ^ package_changed
-  need_fixes << warn("You should make sure that `Podfile.lock` and `Package.resolved` are changed in sync")
+  need_fixes << warn('You should make sure that `Podfile.lock` and `Package.resolved` are changed in sync')
 end
-
 
 # Check for a CHANGELOG entry
 declared_trivial = github.pr_title.include? '#trivial'
@@ -68,9 +69,9 @@ unless has_changelog || declared_trivial
   pr_author = github.pr_author
   pr_author_url = "https://github.com/#{pr_author}"
 
-  need_fixes = fail("Please include a CHANGELOG entry to credit your work.  \nYou can find it at [CHANGELOG.md](#{repo_url}/blob/master/CHANGELOG.md).")
+  need_fixes = raise("Please include a CHANGELOG entry to credit your work.  \nYou can find it at [CHANGELOG.md](#{repo_url}/blob/master/CHANGELOG.md).")
 
-  changelog_msg = <<-CHANGELOG_FORMAT.gsub(/^ *\|/,'')
+  changelog_msg = <<-CHANGELOG_FORMAT.gsub(/^ *\|/, '')
   |📝 We use the following format for CHANGELOG entries:
   |```
   | * #{pr_title}
@@ -82,7 +83,7 @@ unless has_changelog || declared_trivial
   # changelog_msg is printed during the "Encouragement message" section, see below
 end
 
-changelog_warnings = check_changelog()
+changelog_warnings = check_changelog
 unless changelog_warnings.empty?
   need_fixes << warn('Found some warnings in CHANGELOG.md')
   changelog_warnings.each do |warning|

@@ -1,9 +1,8 @@
 /**************************************************************************
 **
-**  jmbdeTests.swift
-**  jmbdeTests
+** jmbdeTests.swift
 **
-** Copyright (c) 2016-2018 Jürgen Mülbert. All rights reserved.
+** Copyright (c) 2016-2019 Jürgen Mülbert. All rights reserved.
 **
 ** This file is part of jmbde
 **
@@ -41,20 +40,20 @@
 ** Die sprachspezifischen Genehmigungen und Beschränkungen
 ** unter der Lizenz sind dem Lizenztext zu entnehmen.
 **
+**
 **************************************************************************/
 
 import XCTest
+@testable import jmbde
 
 class jmbdeTests: XCTestCase {
 
     override func setUp() {
-        super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
     }
 
     func testExample() {

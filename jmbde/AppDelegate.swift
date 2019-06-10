@@ -1,10 +1,10 @@
 /**************************************************************************
-**  AppDelegate.swift
-**  JMBde
 **
-** Copyright (c) 2016-2018 Jürgen Mülbert. All rights reserved.
+**  AppDelegate.swiftx
 **
-** This file is part of JMBde
+** Copyright (c) 2016-2019 Jürgen Mülbert. All rights reserved.
+**
+** This file is part of jmbde
 **
 ** Licensed under the EUPL, Version 1.2 or – as soon they
 ** will be approved by the European Commission - subsequent
@@ -63,7 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     /// applicationWillTerminate: Overwrite for the applicationWillTerminate
     /// - Parameter _:
-    /// - Parameter aNotification: The Notificaton befor terminate   
+    /// - Parameter aNotification: The Notificaton befor terminate
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }

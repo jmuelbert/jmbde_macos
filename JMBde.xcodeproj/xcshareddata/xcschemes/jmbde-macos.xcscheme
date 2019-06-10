@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1010"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3838F5BB21B04DB6001474B1"
+               BlueprintIdentifier = "3811C94A22AE6826002E27C9"
                BuildableName = "jmbde.app"
                BlueprintName = "jmbde"
                ReferencedContainer = "container:jmbde.xcodeproj">
@@ -26,24 +26,23 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3838F5D021B04DB8001474B1"
+               BlueprintIdentifier = "3811C95F22AE682A002E27C9"
                BuildableName = "jmbdeTests.xctest"
                BlueprintName = "jmbdeTests"
                ReferencedContainer = "container:jmbde.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3838F5DB21B04DB8001474B1"
+               BlueprintIdentifier = "3811C96A22AE682A002E27C9"
                BuildableName = "jmbdeUITests.xctest"
                BlueprintName = "jmbdeUITests"
                ReferencedContainer = "container:jmbde.xcodeproj">
@@ -53,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3838F5BB21B04DB6001474B1"
+            BlueprintIdentifier = "3811C94A22AE6826002E27C9"
             BuildableName = "jmbde.app"
             BlueprintName = "jmbde"
             ReferencedContainer = "container:jmbde.xcodeproj">
@@ -76,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3838F5BB21B04DB6001474B1"
+            BlueprintIdentifier = "3811C94A22AE6826002E27C9"
             BuildableName = "jmbde.app"
             BlueprintName = "jmbde"
             ReferencedContainer = "container:jmbde.xcodeproj">
@@ -95,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3838F5BB21B04DB6001474B1"
+            BlueprintIdentifier = "3811C94A22AE6826002E27C9"
             BuildableName = "jmbde.app"
             BlueprintName = "jmbde"
             ReferencedContainer = "container:jmbde.xcodeproj">

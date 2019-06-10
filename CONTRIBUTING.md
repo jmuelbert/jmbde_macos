@@ -1,4 +1,5 @@
 # Contributing to jmbde-macos
+
 First time contributing to jmbde-aspnet ? Read our [Code of Conduct](https://github.com/jmuelbert/jmbde-macos/blob/master/CODE_OF_CONDUCT.md#code-of-conduct).
 
 ### Report a bug

@@ -21,14 +21,14 @@ The master branch represents the latest pre-release code.
 
 ## Requests and Bug reports
 
--   [GitHub issues (preferred)](https://github.com/jmuelbert/jmbde-macos/issues)
+- [GitHub issues (preferred)](https://github.com/jmuelbert/jmbde-macos/issues)
 
 ## Questions or Comments
 
 ## Wiki
 
--   [Main Page](https://github.com/jmuelbert/jmbde-macos/wiki)
--   [User Manual](http://jmuelbert.github.io/jmbde-macos/)
+- [Main Page](https://github.com/jmuelbert/jmbde-macos/wiki)
+- [User Manual](http://jmuelbert.github.io/jmbde-macos/)
 
 ## Contribute
 
