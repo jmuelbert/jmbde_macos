@@ -18,8 +18,6 @@ target 'jmbde' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for jmbde
-
   target 'jmbdeTests' do
     inherit! :search_paths
     # Pods for testing
@@ -30,3 +28,6 @@ target 'jmbde' do
     # Pods for testing
   end
 end
+
+
+

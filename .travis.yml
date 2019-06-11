@@ -20,7 +20,7 @@ matrix:
         - SDK="$OSX_SDK"
 
       xcode_workspace: jmbde.xcworkspace
-      xcode_scheme: jmbde-macos
+      xcode_scheme: jmbde
 
       before_install:
         - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
@@ -29,7 +29,9 @@ matrix:
         - brew outdated carthage || brew upgrade carthage
         - brew install danger/tap/danger-swift
 
-      script: DEBUG="*" danger-swift ci
+      script:
+        DEBUG="*" danger-swift ci
+        awesome_bot --allow-dupe --allow-redirect *.md
 
     - os: osx
       osx_image: xcode10.2
@@ -88,7 +90,7 @@ env:
     - LANG=en_US.UTF-8
     - WORKSPACE=jmbde.xcworkspace
     - PROJECT=jmbde.xcodeproj
-    - OSX_FRAMEWORK_SCHEME=jmbde-macos
+    - OSX_FRAMEWORK_SCHEME=jmbde
 
 
 before_install:
@@ -142,3 +144,7 @@ deploy:
       secure: "k/pfJnhrGN57cL9GACARCsMqQzsEK/oTKaCgNKxC4d7Xu6a6NS3YvThnfHkAHkXzXwQFrDwhQQDmE0/R6O+lBjZZnODR2togQNE4kYRqSyULMQJ6COHLwsjfXah6D0AJXHANForkDu92IlkqwnhClabYAAkxx7qDt+aPyF2RCCE1Vp1wJguiAPSumKk4GKUjcgio9/YZrc80nG58smYOYmxWLCOVlrEtOPVvfIzuBx26yukyjno/NeUS8nFp88smWj25QY1bDuxHu+tPVlz9rwxMM5f267UvVITZRQ8IIqe+e+GKTyDdkIf/HbAoPoeORkTGR3xnnWMIojVp40pA7nRLMG6RBc0aqscuUZpVENAN55uroyjRhZNAeA5ivK1q3oPyrE7to0VxXAgZ0nWZ06HCrVmuIFFYQeYBBzqKq7P8qZEufv4cztblq28ZNf5UCuCq/CMZcOj1Q6DBlM7ltcGMvzd3LfkpnL7k2IMNTk1EdLm5Qod++n6qFiiLOBd9O5NEZ0loaWn7XwbDodsocb8IovCVQsmswgONV8JRezv68kFjSkfqvtOzbzC0EQmaoplZzoOqaubNYH0mDHKHN7HSvKLmnv8Sa8LNBQ/iiItleunDvcLGs925Nac0VLBWGeMM9+TXqPV4IT/HmPWyIDnIXhwkOq+olr2ZtIRSIZ0="
     file: j*.dmg
     file_glob: true
+
+    on:
+      repo: jmuelbert/jmbde-macos
+      tags: true
