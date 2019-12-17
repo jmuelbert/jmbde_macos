@@ -5,6 +5,6 @@ coverage:
         threshold: null
         paths: "jmbde/"  # only include coverage in "TaylorFramework/" folder
     project:
-      framework: 
+      framework:
         target: 90%  # we always want 90% coverage here
         paths: "jmbde/"

@@ -1,3 +1,5 @@
+#!/bin/zsh -eux
+
 set -o pipefail
 echo "Set the env"
 export FRAMEWORK_NAME="jmbde"
@@ -22,7 +24,7 @@ xcodebuild -version
 xcodebuild -showsdks
 echo "build the app"
 xcodebuild -workspace "$FRAMEWORK_NAME.xcworkspace" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug clean build test ONLY_ACTIVE_ARCH=YES SWIFT_VERSION=$SWIFT_VERSION -verbose | xcpretty -c;
-echo "steps after the build"  
+echo "steps after the build"
 danger
 jazzy
 rubocop
@@ -30,4 +32,3 @@ Pods/SwiftLint/swiftlint lint
 slather
 pod lib lint
 scripts/validate-markdown.sh
-

@@ -228,4 +228,3 @@ extension MasterViewController: NSOutlineViewDelegate {
 protocol MasterViewControllerDelegate: class {
     func didChangeOutlineSelection(masterViewController: MasterViewController, selection: OutlineItem?)
 }
-

@@ -28,6 +28,3 @@ target 'jmbde' do
     # Pods for testing
   end
 end
-
-
-
