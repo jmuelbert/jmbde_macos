@@ -2,12 +2,12 @@ language: generic
 matrix:
   include:
     - os: osx
-      osx_image: xcode10.2
+      osx_image: xcode11.2
       name: Danger
       env:
         - CACHE_NAME=SWIFT5_0
-        - SWIFT_VERSION=5.0
-        - XCODEGEN_VERSION=2.5.0
+        - SWIFT_VERSION=5.1
+        - XCODEGEN_VERSION=2.11.0
 
         - OSX_SDK=macosx10.14
         - UPDATE_DOCS=true
@@ -23,14 +23,13 @@ matrix:
       xcode_scheme: jmbde
 
       before_install:
-        - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+        - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
         - brew update
         - brew outdated xctool || brew upgrade xctool
         - brew outdated carthage || brew upgrade carthage
         - brew install danger/tap/danger-swift
 
-      script:
-        DEBUG="*" danger-swift ci
+      script: DEBUG="*" danger-swift ci
         awesome_bot --allow-dupe --allow-redirect *.md
 
     - os: osx
@@ -39,7 +38,7 @@ matrix:
       env:
         - CACHE_NAME=SWIFT5_0
         - SWIFT_VERSION=5.0
-        - XCODEGEN_VERSION=2.5.0
+        - XCODEGEN_VERSION=2.11.0
         - OSX_SDK=macosx10.14
         - UPDATE_DOCS=true
         - EXPANDED_CODE_SIGN_IDENTITY="-"
@@ -50,22 +49,22 @@ matrix:
         - SCHEME="$OSX_FRAMEWORK_SCHEME"
         - SDK="$OSX_SDK"
 
-    - os: osx
-      osx_image: xcode10.1
-      name: Swift 4.2 compatibility
-      env:
-        - CACHE_NAME=SWIFT4_2
-        - SWIFT_VERSION=4.2
-        - XCODEGEN_VERSION=2.3.0
-        - OSX_SDK=macosx10.14
-        - UPDATE_DOCS=true
-        - EXPANDED_CODE_SIGN_IDENTITY="-"
-        - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
-        - CODE_SIGN_IDENTITY=""
-        - CODE_SIGNING_REQUIRED=NO
-        - DESTINATION="arch=x86_64"
-        - SCHEME="$OSX_FRAMEWORK_SCHEME"
-        - SDK="$OSX_SDK"
+    # - os: osx
+    #  osx_image: xcode10.1
+    #  name: Swift 4.2 compatibility
+    #  env:
+    #    - CACHE_NAME=SWIFT4_2
+    #    - SWIFT_VERSION=4.2
+    #    - XCODEGEN_VERSION=2.3.0
+    #    - OSX_SDK=macosx10.14
+    #    - UPDATE_DOCS=true
+    #    - EXPANDED_CODE_SIGN_IDENTITY="-"
+    #    - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
+    #    - CODE_SIGN_IDENTITY=""
+    #    - CODE_SIGNING_REQUIRED=NO
+    #    - DESTINATION="arch=x86_64"
+    #    - SCHEME="$OSX_FRAMEWORK_SCHEME"
+    #    - SDK="$OSX_SDK"
     # - os: linux
     #   sudo: required
     #   dist: trusty
@@ -79,10 +78,10 @@ matrix:
     #     - swift test
 
 cache:
-    edge: true
-    directories:
-      - Carthage
-      - .build
+  edge: true
+  directories:
+    - Carthage
+    - .build
 
 env:
   global:
@@ -92,11 +91,10 @@ env:
     - PROJECT=jmbde.xcodeproj
     - OSX_FRAMEWORK_SCHEME=jmbde
 
-
 before_install:
   - gem install bundler --no-document
   - bundle install
-  - gem install cocoapods -v 1.7.1
+  - gem install cocoapods
   - gem install xcpretty
   - git clone https://github.com/yonaskolb/XcodeGen.git && cd XcodeGen && git checkout $XCODEGEN_VERSION && make && cd ../
 
