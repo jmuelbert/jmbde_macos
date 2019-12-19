@@ -5,10 +5,9 @@ matrix:
       osx_image: xcode11.2
       name: Danger
       env:
-        - CACHE_NAME=SWIFT5_0
+        - CACHE_NAME=SWIFT5_1
         - SWIFT_VERSION=5.1
-        - XCODEGEN_VERSION=2.11.0
-
+        - XCODEGEN_VERSION=2.5.0
         - OSX_SDK=macosx10.14
         - UPDATE_DOCS=true
         - EXPANDED_CODE_SIGN_IDENTITY="-"
@@ -18,27 +17,18 @@ matrix:
         - DESTINATION="arch=x86_64"
         - SCHEME="$OSX_FRAMEWORK_SCHEME"
         - SDK="$OSX_SDK"
-
-      xcode_workspace: jmbde.xcworkspace
-      xcode_scheme: jmbde
-
       before_install:
-        - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
-        - brew update
-        - brew outdated xctool || brew upgrade xctool
-        - brew outdated carthage || brew upgrade carthage
         - brew install danger/tap/danger-swift
-
       script: DEBUG="*" danger-swift ci
         awesome_bot --allow-dupe --allow-redirect *.md
 
     - os: osx
       osx_image: xcode11.2
-      name: Swift 5.0 compatibility
+      name: Swift 5.1 compatibility
       env:
-        - CACHE_NAME=SWIFT5_0
-        - SWIFT_VERSION=5.1
-        - XCODEGEN_VERSION=2.11.0
+        - CACHE_NAME=SWIFT5_1
+        - SWIFT_VERSION=5.0
+        - XCODEGEN_VERSION=2.5.0
         - OSX_SDK=macosx10.14
         - UPDATE_DOCS=true
         - EXPANDED_CODE_SIGN_IDENTITY="-"
@@ -49,33 +39,52 @@ matrix:
         - SCHEME="$OSX_FRAMEWORK_SCHEME"
         - SDK="$OSX_SDK"
 
-    # - os: osx
-    #  osx_image: xcode10.1
-    #  name: Swift 4.2 compatibility
-    #  env:
-    #    - CACHE_NAME=SWIFT4_2
-    #    - SWIFT_VERSION=4.2
-    #    - XCODEGEN_VERSION=2.3.0
-    #    - OSX_SDK=macosx10.14
-    #    - UPDATE_DOCS=true
-    #    - EXPANDED_CODE_SIGN_IDENTITY="-"
-    #    - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
-    #    - CODE_SIGN_IDENTITY=""
-    #    - CODE_SIGNING_REQUIRED=NO
-    #    - DESTINATION="arch=x86_64"
-    #    - SCHEME="$OSX_FRAMEWORK_SCHEME"
-    #    - SDK="$OSX_SDK"
+    - os: osx
+      osx_image: xcode10.2
+      name: Swift 5.0 compatibility
+      env:
+        - CACHE_NAME=SWIFT5_0
+        - SWIFT_VERSION=5.0
+        - XCODEGEN_VERSION=2.5.0
+        - OSX_SDK=macosx10.13
+        - UPDATE_DOCS=true
+        - EXPANDED_CODE_SIGN_IDENTITY="-"
+        - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
+        - CODE_SIGN_IDENTITY=""
+        - CODE_SIGNING_REQUIRED=NO
+        - DESTINATION="arch=x86_64"
+        - SCHEME="$OSX_FRAMEWORK_SCHEME"
+        - SDK="$OSX_SDK"
+    - os: osx
+      osx_image: xcode10.1
+      name: Swift 4.2 compatibility
+      env:
+        - CACHE_NAME=SWIFT4_2
+        - SWIFT_VERSION=4.2
+        - XCODEGEN_VERSION=2.3.0
+        - OSX_SDK=macosx10.12
+        - UPDATE_DOCS=true
+        - EXPANDED_CODE_SIGN_IDENTITY="-"
+        - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
+        - CODE_SIGN_IDENTITY=""
+        - CODE_SIGNING_REQUIRED=NO
+        - DESTINATION="arch=x86_64"
+        - SCHEME="$OSX_FRAMEWORK_SCHEME"
+        - SDK="$OSX_SDK"
     # - os: linux
     #   sudo: required
     #   dist: trusty
-    #   name: Swift 5.0 compatibility
+    #   name: Swift 4.2 compatibility
     #   env:
-    #     - CACHE_NAME=LINUX_SWIFT5_0
-    #     - SWIFT_VERSION=5.0-dev
+    #     - CACHE_NAME=LINUX_SWIFT4_2
+    #     - SWIFT_VERSION=4.2
     #   before_install:
     #     - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
     #   script:
     #     - swift test
+
+notification:
+  email: false
 
 cache:
   edge: true
@@ -96,10 +105,10 @@ before_install:
   - bundle install
   - gem install cocoapods
   - gem install xcpretty
-  # - git clone https://github.com/yonaskolb/XcodeGen.git && cd XcodeGen && git checkout $XCODEGEN_VERSION && make && cd ../
+  - git clone https://github.com/yonaskolb/XcodeGen.git && cd XcodeGen && git checkout $XCODEGEN_VERSION && make && cd ../
 
 install:
-  - pod install || pod install --repo-update
+  - pod install
   - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/jmuelbert/jmbde-macos.git"
 
 before_script:

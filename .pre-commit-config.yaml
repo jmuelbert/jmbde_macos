@@ -88,4 +88,9 @@ repos:
       # - id: clang-tidy
       #  args: [-checks=*, -warnings-as-errors=*]
       - id: oclint
-        args: [-enable-clang-static-analyzer, -enable-global-analysis]
+        args: [-xenable-clang-static-analyzer, -enable-global-analysis]
+
+  - repo: https://github.com/psf/black
+    rev: 19.3b0
+    hooks:
+    -   id: black

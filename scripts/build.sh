@@ -19,7 +19,7 @@ bundle install
 brew update
 brew outdated xctool || brew upgrade xctool
 brew outdated carthage || brew upgrade carthage
-pod install --repo-update
+pod install
 xcodebuild -version
 xcodebuild -showsdks
 echo "build the app"
