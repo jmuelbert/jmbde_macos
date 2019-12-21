@@ -110,7 +110,7 @@ before_install:
   - gem install cocoapods
   - git clone https://github.com/yonaskolb/XcodeGen.git && cd XcodeGen && git checkout $XCODEGEN_VERSION && make && cd ../
   - brew update
-  - brew outdatet xctool || brew upgrade xctool
+  - brew outdated xctool || brew upgrade xctool
 
 install:
   - pod install
