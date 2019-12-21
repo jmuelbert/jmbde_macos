@@ -18,7 +18,7 @@ matrix:
         - SCHEME="$OSX_FRAMEWORK_SCHEME"
         - SDK="$OSX_SDK"
       before_install:
-        - rvm use 2.6
+        - rvm install "ruby-2.6.3"'
         - gem install bundler --no-document
         - bundle install
         - gem install cocoapods
@@ -106,7 +106,7 @@ env:
     - OSX_FRAMEWORK_SCHEME=jmbde
 
 before_install:
-  - rvm use 2.6
+  - rvm install "ruby-2.6.3"'
   - gem install bundler --no-document
   - bundle install
   - gem install cocoapods
