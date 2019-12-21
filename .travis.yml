@@ -27,11 +27,15 @@ matrix:
         - DESTINATION="arch=x86_64"
         - SCHEME="$OSX_FRAMEWORK_SCHEME"
         - SDK="$OSX_SDK"
+
+      xcode_workspace: jmbde.xcworkspace
+      xcode_scheme: jmbde
+
       before_install:
-        - gem install bundler --no-document
-        - bundle install
-        - gem install cocoapods
-      script:
+        - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+        - brew install danger/tap/danger-swift
+
+      sript:
         - DEBUG="*"
         - danger-swift
         - awesome_bot --allow-dupe --allow-redirect *.md
@@ -118,13 +122,15 @@ before_install:
   - gem install bundler --no-document
   - bundle install
   - gem install cocoapods
+  - gem install xcpretty
+  - git clone https://github.com/yonaskolb/XcodeGen.git && cd XcodeGen && git checkout $XCODEGEN_VERSION && make && cd ../
 
 install:
-  - pod install
+  - pod install || pod install --repo-update
   - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/jmuelbert/jmbde-macos.git"
 
+
 before_script:
-  - pod install
   - xcodebuild -version
   - xcodebuild -showsdks
   - swift --version
