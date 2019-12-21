@@ -30,7 +30,7 @@ matrix:
       before_install:
         - gem install bundler --no-document
         - bundle install
-        - brew install danger/tap/danger-swift
+        - gem install cocoapods
       script:
         - DEBUG="*"
         - danger-swift
@@ -117,6 +117,7 @@ env:
 before_install:
   - gem install bundler --no-document
   - bundle install
+  - gem install cocoapods
 
 install:
   - pod install
