@@ -10,7 +10,7 @@
 #---------------------------------#
 
 # version format
-version: 1.0.{build}
+version: 0.1.{build}
 
 # you can use {branch} name in version format too
 # version: 1.0.{build}-{branch}
@@ -35,7 +35,13 @@ skip_non_tags: true
 # Skipping commits with particular message or from specific user
 skip_commits:
   message: /Created.*\.(png|jpg|jpeg|bmp|gif)/      # Regex for matching commit message
-
+  files:
+    - "**/*.md"
+    - docs/*
+    - LICENSE
+    - README
+    - CHANGELOG
+    - COPYING
 # Do not build feature branch with open Pull Requests
 skip_branch_with_pr: true
 
@@ -97,8 +103,7 @@ configuration: Release
 
 # Build settings, not to be confused with "before_build" and "after_build".
 # "project" is relative to the original build directory and not influenced by directory changes in "before_build".
-build:
-  - echo "Building..."
+build: off
 
 # scripts to run before build
 before_build:
