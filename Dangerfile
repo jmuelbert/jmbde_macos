@@ -113,3 +113,24 @@ if tests_added_or_modified && !xc_manifest_updated
   # This is a temporary warning to remove the entry for the failed test until we solve the issue in Linux
   warn("If you ran the command `swift test --generate-linuxmain` in your terminal, please remove the line `testCase(IOSafetyTests.__allTests__IOSafetyTests),` from `public func __allTests() -> [XCTestCaseEntry]` in the bottom of the file. For more reference see [#366](https://github.com/httpswift/swifter/issues/366).")
 end
+
+# Xcode summary
+def summary(platform:)
+    xcode_summary.report "xcodebuild-#{platform}.json"
+end
+
+def label_tests_summary(label:, platform:)
+    file_name = "xcodebuild-#{platform}.json"
+    json = File.read(file_name)
+    data = JSON.parse(json)
+    data["tests_summary_messages"].each { |message|
+        if !message.empty?
+            message.insert(1, " " + label + ":")
+        end
+    }
+    File.open(file_name,"w") do |f|
+        f.puts JSON.pretty_generate(data)
+    end
+end
+
+summary(platform: "macos")

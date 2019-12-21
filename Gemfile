@@ -2,12 +2,14 @@
 
 source 'https://rubygems.org'
 
-gem 'cocoapods', '~>1.7.0'
+gem 'cocoapods'
 
 # Danger
 gem 'danger'
 gem 'danger-junit'
 gem 'danger-the_coding_love'
+gem 'danger-swiftlint'
+gem 'danger-xcode_summary'
 
 # misc
 gem 'activesupport'
@@ -22,3 +24,4 @@ gem 'slather'
 gem 'synx'
 gem 'xcodebuild-rb'
 gem 'xcpretty'
+gem 'xcpretty-json-formatter'

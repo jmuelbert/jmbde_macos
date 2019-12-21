@@ -1,7 +1,11 @@
 # jmbde Application
 
-[![Swift](https://img.shields.io/badge/swift-5.0-yellow.svg?style=flat)](https://developer.apple.com/swift)
-[![Platforms OSX](https://img.shields.io/badge/Platforms-OS%20X-lightgray.svg?style=flat)](http://www.apple.com)
+[![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat)](#cocoapods)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
+
+![Swift version](https://img.shields.io/badge/swift-4.2-orange.svg)
+![Swift version](https://img.shields.io/badge/swift-5.0-orange.svg)
+![Swift version](https://img.shields.io/badge/swift-5.1-orange.svg)
 [![Build Status](https://travis-ci.org/jmuelbert/jmbde-macos.svg?branch=master)](https://travis-ci.org/jmuelbert/jmbde-macos)
 [![GitHub license](https://img.shields.io/badge/license-EUPL-blue.svg)](https://joinup.ec.europa.eu/page/eupl-text-11-12)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)

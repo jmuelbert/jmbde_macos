@@ -2,7 +2,7 @@ language: generic
 matrix:
   include:
     - os: osx
-      osx_image: xcode11.2
+      osx_image: xcode11
       name: Danger
       env:
         - CACHE_NAME=SWIFT5_1
@@ -18,20 +18,21 @@ matrix:
         - SCHEME="$OSX_FRAMEWORK_SCHEME"
         - SDK="$OSX_SDK"
       before_install:
+        - rvm use system
         - gem install bundler --no-document
         - bundle install
         - gem install cocoapods
         - gem install xcpretty
         - brew install danger/tap/danger-swift
-      script: DEBUG="*" danger-swift ci
+      script: DEBUG="*" danger-swift
         awesome_bot --allow-dupe --allow-redirect *.md
 
     - os: osx
-      osx_image: xcode11.2
+      osx_image: xcode11
       name: Swift 5.1 compatibility
       env:
         - CACHE_NAME=SWIFT5_1
-        - SWIFT_VERSION=5.0
+        - SWIFT_VERSION=5.1
         - XCODEGEN_VERSION=2.5.0
         - OSX_SDK=macosx10.15
         - UPDATE_DOCS=true
@@ -105,18 +106,20 @@ env:
     - OSX_FRAMEWORK_SCHEME=jmbde
 
 before_install:
+  - rvm use system
   - gem install bundler --no-document
   - bundle install
   - gem install cocoapods
-  - gem install xcpretty
   - git clone https://github.com/yonaskolb/XcodeGen.git && cd XcodeGen && git checkout $XCODEGEN_VERSION && make && cd ../
+  - brew update
+  - brew outdatet xctool || brew upgrade xctool
 
 install:
   - pod install
   - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/jmuelbert/jmbde-macos.git"
 
 before_script:
-  - pod install --repo-update
+  - pod install
   - xcodebuild -version
   - xcodebuild -showsdks
   - swift --version
