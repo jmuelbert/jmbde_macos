@@ -73,22 +73,7 @@ matrix:
         - DESTINATION="arch=x86_64"
         - SCHEME="$OSX_FRAMEWORK_SCHEME"
         - SDK="$OSX_SDK"
-    - os: osx
-      osx_image: xcode10.1
-      name: Swift 4.2 compatibility
-      env:
-        - CACHE_NAME=SWIFT4_2
-        - SWIFT_VERSION=4.2
-        - XCODEGEN_VERSION=2.3.0
-        - OSX_SDK=macosx10.14
-        - UPDATE_DOCS=true
-        - EXPANDED_CODE_SIGN_IDENTITY="-"
-        - EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
-        - CODE_SIGN_IDENTITY=""
-        - CODE_SIGNING_REQUIRED=NO
-        - DESTINATION="arch=x86_64"
-        - SCHEME="$OSX_FRAMEWORK_SCHEME"
-        - SDK="$OSX_SDK"
+
     # - os: linux
     #   sudo: required
     #   dist: trusty
