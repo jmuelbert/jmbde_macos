@@ -1,4 +1,13 @@
 language: generic
+
+addons:
+  homebrew:
+    update: true
+    packages:
+      - xctool
+      - carthage
+      - tailor
+
 matrix:
   include:
     - os: osx
@@ -20,11 +29,11 @@ matrix:
       before_install:
         - gem install bundler --no-document
         - bundle install
-        - gem install cocoapods
-        - gem install xcpretty
         - brew install danger/tap/danger-swift
-      script: DEBUG="*" danger-swift
-        awesome_bot --allow-dupe --allow-redirect *.md
+      script:
+        - DEBUG="*"
+        - danger-swift
+        - awesome_bot --allow-dupe --allow-redirect *.md
 
     - os: osx
       osx_image: xcode11
@@ -107,10 +116,7 @@ env:
 before_install:
   - gem install bundler --no-document
   - bundle install
-  - gem install cocoapods
   - git clone https://github.com/yonaskolb/XcodeGen.git && cd XcodeGen && git checkout $XCODEGEN_VERSION && make && cd ../
-  - brew update
-  - brew outdated xctool || brew upgrade xctool
 
 install:
   - pod install
