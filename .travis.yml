@@ -5,6 +5,7 @@ addons:
     update: true
     packages:
       - xctool
+      - xcodegen
       - carthage
       - tailor
 
@@ -27,7 +28,6 @@ matrix:
         - SCHEME="$OSX_FRAMEWORK_SCHEME"
         - SDK="$OSX_SDK"
       before_install:
-        - rvm --default use 2.6.3
         - gem install bundler --no-document
         - bundle install
         - brew install danger/tap/danger-swift
@@ -115,10 +115,8 @@ env:
     - OSX_FRAMEWORK_SCHEME=jmbde
 
 before_install:
-  - rvm --default use 2.6.3
   - gem install bundler --no-document
   - bundle install
-  - git clone https://github.com/yonaskolb/XcodeGen.git && cd XcodeGen && git checkout $XCODEGEN_VERSION && make && cd ../
 
 install:
   - pod install
