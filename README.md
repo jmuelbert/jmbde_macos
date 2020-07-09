@@ -1,5 +1,6 @@
 # jmbde Application
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e18104f69b04453c993b1924a731aabd)](https://app.codacy.com/manual/jmuelbert/jmbde-macos?utm_source=github.com&utm_medium=referral&utm_content=jmuelbert/jmbde-macos&utm_campaign=Badge_Grade_Dashboard)
 [![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat)](#cocoapods)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
 
