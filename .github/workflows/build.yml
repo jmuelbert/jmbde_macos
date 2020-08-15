@@ -1,0 +1,32 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]  
+     
+jobs:
+
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Git fetch tags
+      run: git fetch --tags
+
+    - name: Check tags
+      run: git tag -l -n     
+     
+    - name: Publish the release notes
+      uses: release-drafter/release-drafter@v5.11.0
+      with:
+        publish: "${{ steps.check-version.outputs.tag != '' }}"
+        tag: "${{ steps.check-version.outputs.tag }}"
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
