@@ -1,4 +1,4 @@
-#!/bin/zsh -eux
+#!/bin/bash -eux
 
 set -o pipefail
 echo "Set the env"
@@ -23,7 +23,7 @@ pod install
 xcodebuild -version
 xcodebuild -showsdks
 echo "build the app"
-xcodebuild -workspace "$FRAMEWORK_NAME.xcworkspace" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug clean build test ONLY_ACTIVE_ARCH=YES SWIFT_VERSION=$SWIFT_VERSION -verbose | xcpretty -c;
+xcodebuild -workspace "$FRAMEWORK_NAME.xcworkspace" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug clean build test ONLY_ACTIVE_ARCH=YES SWIFT_VERSION=$SWIFT_VERSION -verbose | xcpretty -c
 echo "steps after the build"
 danger
 jazzy

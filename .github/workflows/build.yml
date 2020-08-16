@@ -4,8 +4,8 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]  
-     
+    branches: [ master ]
+
 jobs:
 
   build:
@@ -21,8 +21,8 @@ jobs:
       run: git fetch --tags
 
     - name: Check tags
-      run: git tag -l -n     
-     
+      run: git tag -l -n
+
     - name: Publish the release notes
       uses: release-drafter/release-drafter@v5.11.0
       with:

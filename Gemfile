@@ -2,13 +2,13 @@
 
 source 'https://rubygems.org'
 
-gem 'cocoapods', ['~>1.7', '<1.8']
+gem 'cocoapods'
 
 # Danger
 gem 'danger'
 gem 'danger-junit'
-gem 'danger-the_coding_love'
 gem 'danger-swiftlint'
+gem 'danger-the_coding_love'
 gem 'danger-xcode_summary'
 
 # misc
@@ -17,9 +17,9 @@ gem 'awesome_bot'
 gem 'guard-rspec'
 gem 'hashie'
 gem 'jazzy'
-gem 'plist', '~> 3.5'
+gem 'plist'
 gem 'rspec'
-gem 'rubocop', '~> 0.63'
+gem 'rubocop'
 gem 'slather'
 gem 'synx'
 gem 'xcodebuild-rb'
