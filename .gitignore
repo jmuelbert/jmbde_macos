@@ -6,7 +6,6 @@
 ## Build generated
 build/
 DerivedData/
-docs/
 ab-results-*
 
 ## Various settings
