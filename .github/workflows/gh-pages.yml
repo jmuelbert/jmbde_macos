@@ -27,7 +27,7 @@ jobs:
                 brew install graphviz doxygen
                 brew ls | grep -wq freetype | brew install freetype
                 brew ls | grep -wq python | brew install python
-                pip install -r docs/requirements.txt
+                pip3 install -r docs/requirements.txt
 
             - name: configure
               run: |
