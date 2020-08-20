@@ -8,9 +8,9 @@
 ![Swift version](https://img.shields.io/badge/swift-5.0-orange.svg)
 ![Swift version](https://img.shields.io/badge/swift-5.1-orange.svg)
 [![Build Status](https://travis-ci.org/jmuelbert/jmbde-macos.svg?branch=master)](https://travis-ci.org/jmuelbert/jmbde-macos)
-[![GitHub license](https://img.shields.io/badge/license-EUPL-blue.svg)](https://joinup.ec.europa.eu/page/eupl-text-11-12)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/jmuelbert/jmbde-macos/branch/master/graph/badge.svg)](https://codecov.io/gh/jmuelbert/jmbde-macos)
+[![GitHub license](https://img.shields.io/badge/license-EUPL-blue.svg)](https://joinup.ec.europa.eu/page/eupl-text-11-12)
 
 jmbde is a program to collect data for the IT. The database contains employees, departments, functions, phones, mobiles, computers, printers, faxes and accounts.
 
@@ -65,6 +65,6 @@ Build the Release Version...
 
 ## License
 
-EUPL-1.2 © [Jürgen Mülbert](https:/github.com/jmuelbert/jmbde-macos)
+EUPL-1.2 © [Jürgen Mülbert](https:/github.com/jmuelbert/jmbde-macos)
 
 [Return to top](#top)
