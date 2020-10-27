@@ -15,11 +15,11 @@
 
 [Features](https://github.com/jmuelbert/jmbde-macos) | [Documentation](https://jmuelbert.github.io/jmbde-macos/) | [Changelog](CHANGELOG.md) | [Contributing](CONTRIBUTING.md) | [FAQ](https://github.com/jmuelbert/jmbde-macos/wiki/FAQ) | [deutsch](README_de-DE.md)
 
-jmbde is a program to collect data for the IT. The database contains employees, departments, functions, phones, mobiles, computers, printers, faxes and accounts.
+jmbde ist ein Programm zum Sammeln von Daten für die IT. Die Datenbank enthält Mitarbeiter, Abteilungen, Funktionen, Telefone, Handys, Computer, Drucker, Faxgeräte und Konten.
 
-jmbde is free software; you can redistribute ot and/or modify ir under the terms
-of the [European Public License Version 1.2](https://joinup.ec.europa.eu/page/eupl-text-11-12).
-Please read the [LICENSE](https://github.com/jmuelbert/jmbde-macos/blob/master/LICENSE) for additional information.
+jmbde ist freie Software; Sie können ir unter den folgenden Bedingungen weiterverbreiten und/oder modifizieren
+der [Europäischen öffentlichen Lizenz Version 1.2](https://joinup.ec.europa.eu/page/eupl-text-11-12).
+Bitte lesen Sie die [LIZENZ](https://github.com/jmuelbert/jmbde-macos/blob/master/LICENSE) für weitere Informationen.
 
 |  type  |                             branch                             |                                                                                                           build                                                                                                            |                                                                        downloads                                                                         |
 | :----: | :------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -27,40 +27,40 @@ Please read the [LICENSE](https://github.com/jmuelbert/jmbde-macos/blob/master/L
 |  beta  |   [v0.1](https://github.com/jmuelbert/jmbde-macos/tree/v0.1)   |  [![GitHub Workflow Status](https://github.com/jmuelbert/jmbde-macos/workflows/CI:%20Build%20Test/badge.svg?branch=v0.5.2&event=push)](https://github.com/jmuelbert/jmbde-macos/actions?query=event%3Apush+branch%3Av0.1)  |   [![Downloads](https://img.shields.io/github/downloads/jmuelbert/jmbde-macos/v0.1/total)](https://github.com/jmuelbert/jmbde-macos/releases/tag/v0.1)   |
 | stable | [v0.1.0](https://github.com/jmuelbert/jmbde-macos/tree/v0.1.0) | [![GitHub Workflow Status](https://github.com/jmuelbert/jmbde-macos/workflows/CI:%20Build%20Test/badge.svg?branch=v0.5.0&event=push)](https://github.com/jmuelbert/jmbde-macos/actions?query=event%3Apush+branch%3v0.1.0)  | [![Downloads](https://img.shields.io/github/downloads/jmuelbert/jmbde-macos/v0.1.0/total)](https://github.com/jmuelbert/jmbde-macos/releases/tag/v0.1.0) |
 
-## Setup
+## Einrichtung
 
-This Program run only on macos. Is fully swift with gui.
+Dieses Programm läuft nur auf Makros. Ist gänzlich in swift geschrieben und mit Gui.
 
-## Supported platform
+## Unterstützte Plattform
 
--   macOS from 10.14
+-   macOS ab 10.14
 
-## Execute
+## Ausführen
 
-Start the app with a click on the icon.
+Starten Sie die Anwendung mit einem Klick auf das Symbol.
 
-## Requirements and bug reports
+## Anforderungen und Fehlerberichte
 
 -   [GitHub issues (preferred)](https://github.com/jmuelbert/jmbde-macos/issues)
 
-## Questions or Comments
+## Fragen oder Kommentare
 
 ## Wiki
 
 -   [Main Page](https://github.com/jmuelbert/jmbde-macos/wiki)
 -   [User Manual](http://jmuelbert.github.io/jmbde-macos/)
 
-## Code Sources
+## Code-Quellen
 
-The master branch represents the latest pre-release code.
+Der Hauptzweig stellt den neuesten Vorabcode dar.
 
 -   [Releases](https://github.com/jmuelbert/jmbde-macos/releases)
 
 -   [Milestones](https://github.com/jmuelbert/jmbde-macos/milestones)
 
-## Create program
+## Programm erstellen
 
-Compile the source code with [Xcode](https://itunes.apple.com/de/app/xcode/id497799835?mt=12)
+Kompilieren Sie den Quellcode mit [Xcode](https://itunes.apple.com/de/app/xcode/id497799835?mt=12)
 
 ## Resources
 
