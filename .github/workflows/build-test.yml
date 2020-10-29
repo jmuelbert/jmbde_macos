@@ -4,17 +4,17 @@ on: [push, pull_request]
 
 env:
     CACHE_NAME: SWIFT5_1
+    FRAMEWORK_NAME: jmbde
+    SCHEME: jmbde
+    SDK: macosx10.15
+    DESTINATION: "arch=x86_64"
     SWIFT_VERSION: 5.1
-    XCODEGEN_VERSION: 2.5.0
-    OSX_SDK: macosx10.15
+    LC_CTYPE: en_US.UTF-8
+    LANG: en_US.UTF-8
     UPDATE_DOCS: true
     EXPANDED_CODE_SIGN_IDENTITY: "-"
     EXPANDED_CODE_SIGN_IDENTITY_NAME: "-"
-    CODE_SIGN_IDENTITY: ""
-    CODE_SIGNING_REQUIRED: NO
-    DESTINATION: "arch=x86_64"
-    SCHEME: "$OSX_FRAMEWORK_SCHEME"
-    SDK: "$OSX_SDK"
+    XCODEGEN_VERSION: 2.5.0
 
 jobs:
     build:
@@ -40,16 +40,23 @@ jobs:
             - name: Build
               shell: bash
               run: |
-                  xcodebuild build
-                    -workspace "$WORKSPACE"
-                    -scheme "$SCHEME"
-                    -sdk "$SDK"
-                    -destination "$DESTINATION"
-                    -configuration Debug
-                    ONLY_ACTIVE_ARCH=NO
-                    ENABLE_TESTABILITY=YES
-                    CODE_SIGN_IDENTITY=""
-                    CODE_SIGNING_REQUIRED=NO | xcpretty -c;
+                  mkdir -p build
+                  gem install bundler
+                  bundle install
+                  brew update
+                  brew outdated xctool || brew upgrade xctool
+                  brew outdated carthage || brew upgrade carthage
+                  pod install
+                  xcodebuild -version
+                  xcodebuild -showsdks
+                  xcodebuild -workspace "$FRAMEWORK_NAME.xcworkspace" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug clean build test ONLY_ACTIVE_ARCH=YES SWIFT_VERSION=$SWIFT_VERSION -verbose | xcpretty -c
+                  danger
+                  jazzy
+                  rubocop
+                  Pods/SwiftLint/swiftlint lint
+                  slather
+                  pod lib lint
+                  scripts/validate-markdown.sh
 
             - name: Upload Artifact
               uses: actions/upload-artifact@v2.2.0
