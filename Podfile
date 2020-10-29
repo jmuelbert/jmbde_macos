@@ -22,9 +22,4 @@ target 'jmbde' do
     inherit! :search_paths
     # Pods for testing
   end
-
-  target 'jmbdeUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
 end

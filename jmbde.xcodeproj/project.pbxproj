@@ -24,7 +24,6 @@
 		3880F54222AF0909003EE69A /* EmployeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880F53F22AF0908003EE69A /* EmployeeTableViewController.swift */; };
 		3880F56322AF0D9B003EE69A /* EmployeeTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3880F56522AF0D9B003EE69A /* EmployeeTableViewController.storyboard */; };
 		E462B06C963174CFA25F6304 /* Pods_jmbde.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3582F5818B304F209D64C06A /* Pods_jmbde.framework */; };
-		F557342964A8213CC63EDD6A /* Pods_jmbdeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D1E12EAD3C03CB0D802633 /* Pods_jmbdeUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		23D1E12EAD3C03CB0D802633 /* Pods_jmbdeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jmbdeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FE50222F087F5C934F098C4 /* Pods-jmbdeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jmbdeTests.release.xcconfig"; path = "Target Support Files/Pods-jmbdeTests/Pods-jmbdeTests.release.xcconfig"; sourceTree = "<group>"; };
 		3582F5818B304F209D64C06A /* Pods_jmbde.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jmbde.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3880F50122AF05BA003EE69A /* jmbde.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jmbde.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,9 +74,7 @@
 		3EE7453DD73BD4CD780313E7 /* Pods_jmbdeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jmbdeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		477825F224F4C5C4EE380F5C /* Pods-jmbdeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jmbdeTests.debug.xcconfig"; path = "Target Support Files/Pods-jmbdeTests/Pods-jmbdeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A58CCB85BA99932D2B893E1 /* Pods-jmbde.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jmbde.debug.xcconfig"; path = "Target Support Files/Pods-jmbde/Pods-jmbde.debug.xcconfig"; sourceTree = "<group>"; };
-		6616DF96D9ADEBAF01EFB6B8 /* Pods-jmbdeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jmbdeUITests.release.xcconfig"; path = "Target Support Files/Pods-jmbdeUITests/Pods-jmbdeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		75F83B5C4C5F295C14828168 /* Pods-jmbde.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jmbde.release.xcconfig"; path = "Target Support Files/Pods-jmbde/Pods-jmbde.release.xcconfig"; sourceTree = "<group>"; };
-		FCE74F09A0B3604D534AC2B2 /* Pods-jmbdeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jmbdeUITests.debug.xcconfig"; path = "Target Support Files/Pods-jmbdeUITests/Pods-jmbdeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F557342964A8213CC63EDD6A /* Pods_jmbdeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +179,6 @@
 			children = (
 				3582F5818B304F209D64C06A /* Pods_jmbde.framework */,
 				3EE7453DD73BD4CD780313E7 /* Pods_jmbdeTests.framework */,
-				23D1E12EAD3C03CB0D802633 /* Pods_jmbdeUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -196,8 +190,6 @@
 				75F83B5C4C5F295C14828168 /* Pods-jmbde.release.xcconfig */,
 				477825F224F4C5C4EE380F5C /* Pods-jmbdeTests.debug.xcconfig */,
 				2FE50222F087F5C934F098C4 /* Pods-jmbdeTests.release.xcconfig */,
-				FCE74F09A0B3604D534AC2B2 /* Pods-jmbdeUITests.debug.xcconfig */,
-				6616DF96D9ADEBAF01EFB6B8 /* Pods-jmbdeUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -247,7 +239,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3880F53022AF05BF003EE69A /* Build configuration list for PBXNativeTarget "jmbdeUITests" */;
 			buildPhases = (
-				90CE983F327308261B1634BF /* [CP] Check Pods Manifest.lock */,
 				3880F51D22AF05BF003EE69A /* Sources */,
 				3880F51E22AF05BF003EE69A /* Frameworks */,
 				3880F51F22AF05BF003EE69A /* Resources */,
@@ -269,7 +260,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "Jürgen Mülbert";
 				TargetAttributes = {
 					3880F50022AF05BA003EE69A = {
@@ -335,28 +326,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		90CE983F327308261B1634BF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-jmbdeUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		93DAB32C91D38BFDA329F8C5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -518,6 +487,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -580,6 +550,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -614,6 +585,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = jmbde/jmbde.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = jmbde/Info.plist;
@@ -633,6 +605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = jmbde/jmbde.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = jmbde/Info.plist;
@@ -690,7 +663,6 @@
 		};
 		3880F53122AF05BF003EE69A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCE74F09A0B3604D534AC2B2 /* Pods-jmbdeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -710,7 +682,6 @@
 		};
 		3880F53222AF05BF003EE69A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6616DF96D9ADEBAF01EFB6B8 /* Pods-jmbdeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
