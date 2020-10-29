@@ -1,0 +1,96 @@
+name: "Release"
+
+on:
+    push:
+        tags:
+            - "*"
+
+env: CACHE_NAME=SWIFT5_1
+    SWIFT_VERSION=5.1
+    XCODEGEN_VERSION=2.5.0
+    OSX_SDK=macosx10.15
+    UPDATE_DOCS=true
+    EXPANDED_CODE_SIGN_IDENTITY="-"
+    EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
+    CODE_SIGN_IDENTITY=""
+    CODE_SIGNING_REQUIRED=NO
+    DESTINATION="arch=x86_64"
+    SCHEME="$OSX_FRAMEWORK_SCHEME"
+    SDK="$OSX_SDK"
+
+jobs:
+    check_commit_msg:
+        outputs:
+            commit_message: ${{ steps.get_message.outputs.message }}
+        name: Check if the workflow has been disabled.
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Get commit message
+              id: get_message
+              run: |
+                  echo "::set-output name=message::$(git log --format=%B -n 1 ${{ github.event.after }})"
+                  echo "::set-env name=message::$(git log --format=%B -n 1 ${{ github.event.after }})"
+    release:
+        needs: check_commit_msg
+        if: ${{ !contains( needs.check_commit_msg.outputs.commit_message, 'NO_MAIN') }}
+        name: "release on ${{ matrix.config.os }} with portable ${{ matrix.config.portable-option }}"
+        runs-on: "${{ matrix.config.os }}"
+
+        strategy:
+            fail-fast: false
+            matrix:
+                config:
+                    - { os: "macos-latest", portable-option: "Off" }
+
+        steps:
+            - name: Checking out sources
+              uses: actions/checkout@v2
+              with:
+                  submodules: recursive
+
+            - name: Build
+              run: |
+                  xcodebuild build
+                  -workspace "$WORKSPACE"
+                  -scheme "$SCHEME"
+                  -sdk "$SDK"
+                  -destination "$DESTINATION"
+                  -configuration Debug
+                  ONLY_ACTIVE_ARCH=NO
+                  ENABLE_TESTABILITY=YES
+                  CODE_SIGN_IDENTITY=""
+                  CODE_SIGNING_REQUIRED=NO | xcpretty -c;
+
+            - name: Get the version
+              id: get_version
+              shell: bash
+              run: |
+                  VERSION=${GITHUB_REF/refs\/tags\//}
+                  echo ::set-output name=VERSION::$VERSION
+                  read STABLE_VERSION < .ci/STABLE_VERSION
+                  if [ "${VERSION:0:${#STABLE_VERSION}}" == "$STABLE_VERSION" ]; then
+                      echo ::set-output name=ISBETA::false
+                  else
+                      echo ::set-output name=ISBETA::true
+                  fi
+
+            - name: Release full source
+              if: startsWith(matrix.config.os, 'ubuntu')
+              uses: softprops/action-gh-release@v1
+              with:
+                  draft: true
+                  prerelease: ${{ steps.get_version.outputs.ISBETA }}
+                  files: jmbde-${{ steps.get_version.outputs.VERSION }}-full-source.tar.gz
+                  name: jmbde ${{ steps.get_version.outputs.VERSION }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Release on Mac
+              if: startsWith(matrix.config.os, 'macos')
+              uses: softprops/action-gh-release@v1
+              with:
+                  draft: true
+                  prerelease: ${{ steps.get_version.outputs.ISBETA }}
+                  files: build/jmbde-${{ steps.get_version.outputs.VERSION }}-macos-x64.dmg
+                  name: jmbde ${{ steps.get_version.outputs.VERSION }}

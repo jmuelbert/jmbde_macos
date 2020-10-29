@@ -1,4 +1,4 @@
-name: Misspell fixer
+nname: Misspell fixer
 
 on: [push, pull_request]
 

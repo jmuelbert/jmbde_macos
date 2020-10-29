@@ -1,0 +1,57 @@
+name: "CI: Build Test"
+
+on: [push, pull_request]
+
+env: CACHE_NAME=SWIFT5_1
+    SWIFT_VERSION=5.1
+    XCODEGEN_VERSION=2.5.0
+    OSX_SDK=macosx10.15
+    UPDATE_DOCS=true
+    EXPANDED_CODE_SIGN_IDENTITY="-"
+    EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
+    CODE_SIGN_IDENTITY=""
+    CODE_SIGNING_REQUIRED=NO
+    DESTINATION="arch=x86_64"
+    SCHEME="$OSX_FRAMEWORK_SCHEME"
+    SDK="$OSX_SDK"
+
+jobs:
+    build:
+        name: "${{ matrix.config.os }}"
+        runs-on: ${{ matrix.config.os }}
+        strategy:
+            fail-fast: false
+            matrix:
+                config:
+                    - {
+                          os: macos-latest,
+                          cc: "clang",
+                          cxx: "clang++",
+                          binary: "jmbde.app/Contents/MacOS/jmbde",
+                      }
+
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  submodules: recursive
+                  fetch-depth: 0
+
+            - name: Build
+              shell: bash
+              run: |
+                  xcodebuild build
+                    -workspace "$WORKSPACE"
+                    -scheme "$SCHEME"
+                    -sdk "$SDK"
+                    -destination "$DESTINATION"
+                    -configuration Debug
+                    ONLY_ACTIVE_ARCH=NO
+                    ENABLE_TESTABILITY=YES
+                    CODE_SIGN_IDENTITY=""
+                    CODE_SIGNING_REQUIRED=NO | xcpretty -c;
+
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v2.2.0
+              with:
+                  name: "jmbde-${{ matrix.config.os }}-${{ github.sha }}"
+                  path: build/bin/${{ matrix.config.binary }}
