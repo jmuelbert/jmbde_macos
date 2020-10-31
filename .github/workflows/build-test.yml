@@ -4,6 +4,7 @@ on: [push, pull_request]
 
 env:
     CACHE_NAME: SWIFT5_1
+    PROJECT: jmbde.xcworkspace
     FRAMEWORK_NAME: jmbde
     SCHEME: jmbde
     SDK: macosx10.15
@@ -47,15 +48,53 @@ jobs:
             - name: Bundle install
               if: steps.bundler-cache.outputs.cache-hit != 'true'
               run: bundle install --jobs 4 --retry 3
-
+            - name: Brew Upgrade
+              run: |
+                brew update-reset
+                brew bundle --no-upgrade
+    
             - name: Run tests
               env:
                   DESTINATION: platform=${{ matrix.destination }}
                   SWIFT_VERSION: ${{ matrix.swift-version }}
-              run: bundle exec fastlane test_ci
+              run: |
+                 xcodebuild  -workspace "$FRAMEWORK_NAME.xcworkspace" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug clean build test ONLY_ACTIVE_ARCH=YES SWIFT_VERSION=$SWIFT_VERSION -verbose | xcpretty -c
+
+            - name: Danger Swift
+            # Hack to by pass the key invalidation mechanism
+            # See for more info: https://github.community/t5/GitHub-Actions/Make-secrets-available-to-builds-of-forks/td-p/30678
+              run: |
+                export DANGER_GITHUB_API_TOKEN=$(echo   W>-wNw:Sfs?sr;CdnÜO@X*öNDu8TIz>2 | rev)
+                bundle exec danger --verbose
 
             - name: Upload Artifact
               uses: actions/upload-artifact@v2.2.0
               with:
                   name: "jmbde-${{ matrix.config.os }}-${{ github.sha }}"
                   path: build/bin/${{ matrix.config.binary }}
+
+  Swiftlint:
+    runs-on: macos-latest
+    name: SwiftLint
+    steps: 
+      - uses: actions/checkout@v1
+      - name: SwiftLint
+        run: |
+          brew update-reset
+          brew bundle --no-upgrade
+          swiftlint
+  CocoaPods:
+    name: CocoaPods
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        platform: ['ios', 'macos', 'tvos', 'watchos']
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_11.7.app/Contents/Developer
+    steps:
+    - uses: actions/checkout@v1
+    - name: Bundle Install
+      run: bundle install
+    - name: CocoaPods ${{ matrix.platform }}
+      run: bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=${{ matrix.platform }} 
+      
