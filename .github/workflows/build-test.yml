@@ -72,29 +72,3 @@ jobs:
               with:
                   name: "jmbde-${{ matrix.config.os }}-${{ github.sha }}"
                   path: build/bin/${{ matrix.config.binary }}
-
-  Swiftlint:
-    runs-on: macos-latest
-    name: SwiftLint
-    steps: 
-      - uses: actions/checkout@v1
-      - name: SwiftLint
-        run: |
-          brew update-reset
-          brew bundle --no-upgrade
-          swiftlint
-  CocoaPods:
-    name: CocoaPods
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        platform: ['ios', 'macos', 'tvos', 'watchos']
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_11.7.app/Contents/Developer
-    steps:
-    - uses: actions/checkout@v1
-    - name: Bundle Install
-      run: bundle install
-    - name: CocoaPods ${{ matrix.platform }}
-      run: bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=${{ matrix.platform }} 
-      
