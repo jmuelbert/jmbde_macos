@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 # Dangerfile
-# To test locally, use the following
-# `export DANGER_GITHUB_API_TOKEN=...YourToken...`
-# `bundle exec danger pr https://github.com/HeroTransitions/Hero/pull/1618` Or some other pull #
-
-# import remote Dangerfile; example, https://github.com/loadsmart/dangerfile/blob/master/Dangerfile
-# danger.import_dangerfile(github: 'loadsmart/dangerfile', :path => 'Dangerfile')
 
 require 'git_diff_parser'
 
