@@ -1,36 +1,34 @@
+# file options
 
---exclude .build, Carthage, DerivedData, .git, Tests/LinuxMain.swift, Tests/CryptoSwiftTests/XCTestManifests.swift, Tests/TestsPerformance/XCTestManifests.swift
+--symlinks ignore
+--exclude Tests/XCTestManifests.swift
 
---swiftversion 5.0
+# format options
+
 --allman false
+--binarygrouping 4,8
 --commas always
 --comments indent
+--decimalgrouping 3,6
 --elseposition same-line
 --empty void
 --exponentcase lowercase
 --exponentgrouping disabled
 --fractiongrouping disabled
 --header ignore
---octalgrouping 4,8
---decimalgrouping 3,6
---binarygrouping 4,8
---hexgrouping ignore
---hexliteralcase lowercase
+--hexgrouping 4,8
+--hexliteralcase uppercase
 --ifdef indent
---indent 2
---indentcase true
+--indent 4
+--indentcase false
 --importgrouping testable-bottom
 --linebreaks lf
+--octalgrouping 4,8
 --operatorfunc spaced
---patternlet inline
---ranges no-space
---self insert
+--patternlet hoist
+--ranges spaced
+--self remove
 --semicolons inline
---stripunusedargs closure-only
+--stripunusedargs always
 --trimwhitespace always
 --wraparguments preserve
---wrapcollections before-first
-
-# rules
-
---rules indent, braces, isEmpty, redundantBreak, blankLinesAroundMark, blankLinesAtEndOfScope, blankLinesBetweenScopes, consecutiveBlankLines, consecutiveSpaces, duplicateImports, elseOnSameLine, leadingDelimiters, redundantBreak, redundantExtensionACL, redundantFileprivate, redundantGet, redundantInit, redundantLet, redundantNilInit, redundantObjc, redundantParens, redundantPattern, redundantRawValues, redundantReturn, redundantSelf, redundantVoidReturnType, semicolons, sortedImports, spaceAroundBraces, spaceAroundBrackets, spaceAroundComments, spaceAroundGenerics, spaceAroundOperators, spaceAroundParens, spaceInsideBraces, spaceInsideBrackets, specifiers, strongOutlets, strongifiedSelf, todos, void, wrapArguments, yodaConditions, trailingSpace

@@ -1,22 +1,22 @@
 #inherit_from: .rubocop_todo.yml
 
 AllCops:
-  TargetRubyVersion: 2.4
+    TargetRubyVersion: 2.4
 
 # On an 11-inch screen this works perfectly fine.
 Metrics/LineLength:
-  Max: 130
+    Max: 130
 
 # The trailing comma prevents brain cells from dying on copy-paste errors
 Style/TrailingCommaInArrayLiteral:
-  Enabled: false
+    Enabled: false
 
 # Top-level class documentation is nice, but it's too early in the project to activate this
 Style/Documentation:
-  Enabled: false
+    Enabled: false
 
 # This comes from the rubocop-rspec gem
 Metrics/BlockLength:
-  Exclude:
-    - Rakefile
-    - spec/**/*.rb
+    Exclude:
+        - Rakefile
+        - spec/**/*.rb

@@ -33,14 +33,14 @@ indent_size = 4
 indent_style = space
 indent_size = 2
 
+[*.{swift}]
+indent_size = 4
+
 [*.rst]
 indent_size = 3
 # Indentation override for all JS under lib directory
 
 # Tab indentation (no size specified)
-[Makefile]
-indent_style = tab
-
 [Makefile]
 indent_style = tab
 
@@ -58,3 +58,6 @@ indent_size = 2
 
 [*.{md,markdown}]
 trim_trailing_whitespace = false
+
+[*.{yaml|yml}]
+indent_size = 2

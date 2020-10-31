@@ -1,123 +1,142 @@
-# frozen_string_literal: true.
+# frozen_string_literal: true
 
-require_relative 'rakelib/check_changelog'
+# Dangerfile
+# To test locally, use the following
+# `export DANGER_GITHUB_API_TOKEN=...YourToken...`
+# `bundle exec danger pr https://github.com/HeroTransitions/Hero/pull/1618` Or some other pull #
 
-# Welcome message
-markdown [
-  "Hey 👋 I'm Eve, the friendly bot watching over jmbde 🤖",
-  'Thanks a lot for your contribution!',
-  '', '---', ''
-]
+# import remote Dangerfile; example, https://github.com/loadsmart/dangerfile/blob/master/Dangerfile
+# danger.import_dangerfile(github: 'loadsmart/dangerfile', :path => 'Dangerfile')
 
-# Make it more obvious that a PR is a work in progress and shouldn't be merged yet
-warn('PR is classed as Work in Progress') if github.pr_title.include? '[WIP]'
+require 'git_diff_parser'
+
+# ------------------------------------------------------------------------------
+# Additional pull request data
+# ------------------------------------------------------------------------------
+pr_number = github.pr_json['number']
+pr_url = github.pr_json['_links']['html']['href']
+
+# Sometimes it's a README fix, or something like that - which isn't relevant for
+# including in a project's CHANGELOG for example
+declared_trivial = github.pr_title.include? '#trivial'
+
+has_changelog_changes = git.modified_files.include?('CHANGELOG.md')
+has_ruby_changes = !git.modified_files.include?('Gemfile')
+has_podfile_changes = !git.modified_files.include?('Podfile')
+has_library_changes = !git.modified_files.grep(%r{Sources/*/*.swift}).empty?
+has_app_changes = !git.modified_files.grep(%r{Examples/*/*.swift}).empty?
+has_test_changes = !git.modified_files.grep(%r{Tests/*/*.swift}).empty?
+has_danger_changes = !git.modified_files.grep(%r{Dangerfile|script/oss-check}).empty?
+has_pod_lock_changes = !git.modified_files.grep(/Podfile.lock|Manifest.lock/).empty?
+modified_xcode_project = !git.modified_files.grep(/.*\.xcodeproj/).empty?
+added_swift_library_files = !git.added_files.grep(/Sources.*\.swift/).empty?
+deleted_swift_library_files = !git.deleted_files.grep(/Sources.*\.swift/).empty?
+
+## Warnings
 
 # Warn when there is a big PR
 warn('Big PR') if git.lines_of_code > 500
 
-need_fixes = []
+# Warn when Danger changes
+warn('Dangerfile changes') if has_danger_changes
 
-# Check for correct base branch
-is_release = github.branch_for_head.start_with?('release/')
-to_develop = github.branch_for_base == 'develop'
-to_master = github.branch_for_base == 'master'
-if is_release
-  message('This is a Release PR')
-  need_fixes << warn("Release branches should be merged into 'master'") unless to_master
+# Warn when Ruby changes
+warn('Ruby Gem changes') if has_ruby_changes
 
-  require 'open3'
+# Warn when Pod changes
+warn('Cocoapods Changes') if has_podfile_changes
 
-  stdout, _, status = Open3.capture3('bundle', 'exec', 'rake', 'changelog:check')
-  markdown [
-    '',
-    '### ChangeLog check',
-    '',
-    stdout
-  ]
-  need_fixes << raise('Please fix the CHANGELOG errors') unless status.success?
+# Warn when Podfile changes but no lockfile
+warn('Podfile changes but lockfile unchanged. Did you forget to run `pod install`?') if has_podfile_changes && !has_pod_lock_changes
 
-  stdout, _, status = Open3.capture3('bundle', 'exec', 'rake', 'release:check_versions')
-  markdown [
-    '',
-    '### Release version check',
-    '',
-    stdout
-  ]
-  need_fixes << raise('Please fix the versions inconsistencies') unless status.success?
-elsif !to_develop
-  need_fixes << raise("Feature branches should start from and be merged into 'develop', " \
-    "not #{github.branch_for_base}")
+warn 'PR is classed as Work in Progress' if github.pr_title.include? 'WIP'
+warn 'PR is classed as Hold' if github.pr_labels.include? 'ON HOLD'
+
+# NOTE WHEN A PR CANNOT BE MANUALLY MERGED, WHICH GOES AWAY WHEN YOU CAN
+can_merge = github.pr_json['mergeable']
+warn('This PR cannot be merged yet.', sticky: false) unless can_merge
+
+requires_proj_update = added_swift_library_files || deleted_swift_library_files
+failure 'Added or removed library files require the Xcode project to be updated.' if requires_proj_update && !modified_xcode_project
+
+# ------------------------------------------------------------------------------
+# Have you updated CHANGELOG.md?
+# ------------------------------------------------------------------------------
+if !has_changelog_changes && has_library_changes
+  markdown <<-MARKDOWN
+  Here's an example of a CHANGELOG.md entry (place it immediately under the `* Your contribution here!` line):
+  ```markdown
+  * [##{pr_number}](#{pr_url}): #{github.pr_title} - [@#{github.pr_author}](https://github.com/#{github.pr_author})
+  ```
+  MARKDOWN
+  warn('Please update CHANGELOG.md with a description of your changes. '\
+       'If this PR is not a user-facing change (e.g. just refactoring), '\
+       'you can disregard this.', sticky: false)
 end
 
-# Check `lock` files
-podfile_changed = git.modified_files.include?('Podfile.lock')
-package_changed = git.modified_files.include?('Package.resolved')
-if podfile_changed ^ package_changed
-  need_fixes << warn('You should make sure that `Podfile.lock` and `Package.resolved` are changed in sync')
-end
+## Messages
 
-# Check for a CHANGELOG entry
-declared_trivial = github.pr_title.include? '#trivial'
-has_changelog = git.modified_files.include?('CHANGELOG.md')
-changelog_msg = ''
-unless has_changelog || declared_trivial
-  repo_url = github.pr_json['head']['repo']['html_url']
-  pr_title = github.pr_title
-  pr_title += '.' unless pr_title.end_with?('.')
-  pr_number = github.pr_json['number']
-  pr_url = github.pr_json['html_url']
-  pr_author = github.pr_author
-  pr_author_url = "https://github.com/#{pr_author}"
+# - > +
+message('Good job on cleaning the code!') if git.deletions > git.insertions
 
-  need_fixes = raise("Please include a CHANGELOG entry to credit your work.  \nYou can find it at [CHANGELOG.md](#{repo_url}/blob/master/CHANGELOG.md).")
+## Failures
 
-  changelog_msg = <<-CHANGELOG_FORMAT.gsub(/^ *\|/, '')
-  |📝 We use the following format for CHANGELOG entries:
-  |```
-  | * #{pr_title}
-  |   [##{pr_number}](#{pr_url})
-  |   [@#{pr_author}](#{pr_author_url})
-  |```
-  |:bulb: Don't forget to end the line describing your changes by a period and two spaces.
-  CHANGELOG_FORMAT
-  # changelog_msg is printed during the "Encouragement message" section, see below
-end
+# Mainly to encourage writing up some reasoning about the PR, rather than
+# just leaving a title
+failure 'Please provide a summary in the Pull Request description' if github.pr_body.length < 5
 
-changelog_warnings = check_changelog
-unless changelog_warnings.empty?
-  need_fixes << warn('Found some warnings in CHANGELOG.md')
-  changelog_warnings.each do |warning|
-    warn(warning[:message], file: 'CHANGELOG.md', line: warning[:line])
-  end
-end
+# ONLY ACCEPT PRS TO THE DEVELOP BRANCH
+failure 'Please re-submit this PR to develop, we may have already fixed your issue.' if github.branch_for_base != 'develop'
 
-# Encouragement message
-if need_fixes.empty?
-  markdown('Seems like everything is in order 👍 You did a good job here! 🤝')
+# Ensure a clean commits history
+failure 'Please rebase to get rid of the merge commits in this PR' if git.commits.any? { |c| c.message =~ /^Merge branch '#{github.branch_for_base}'/ }
+
+# Adds labels
+
+# Hold
+on_hold_label = 'On Hold'
+if github.pr_title.include? 'HOLD'
+  auto_label.set(github.pr_json['number'], on_hold_label, 'ff8a04')
 else
-  markdown('Once you fix those tiny nitpickings above, we should be good to go! 🙌')
-  markdown(changelog_msg) unless changelog_msg.empty?
-  markdown('ℹ️ _I will update this comment as you add new commits_')
+  auto_label.remove(on_hold_label)
 end
 
-# Run SwiftLint
+# Check if PR is mergeable
+merge_conflict_label = 'Merge Conflicts'
+
+if github.pr_json['mergeable']
+  auto_label.remove(merge_conflict_label)
+else
+  auto_label.set(github.pr_json['number'], merge_conflict_label, 'e0f76f')
+end
+
+### Everything here only happens if has code changes to Hero library/app code or this file.
+return unless has_library_changes || has_danger_changes || has_app_changes
+
+# Non-trivial amounts of app changes without tests
+if git.lines_of_code > 50 && has_library_changes && !has_test_changes
+  warn 'This PR may need tests.'
+end
+
+if git.lines_of_code > 50 && has_library_changes && !has_app_changes
+  warn 'This PR may need example app additions.'
+end
+
+# Run SwiftLint and comment on lines with violations
 swiftlint.config_file = '.swiftlint.yml'
-swiftlint.lint_files
+swiftlint.binary_path = 'Pods/SwiftLint/swiftlint'
 
-# Warn when new tests are added but the XCTestManifests wasn't updated to run on Linux
-tests_added_or_modified = git.modified_files.grep(/XCode\/Tests/).empty? || git.added_files.grep(/XCode\/Tests/).empty?
-xc_manifest_updated = !git.modified_files.grep(/XCode\/Tests\/XCTestManifests.swift/).empty?
-if tests_added_or_modified && !xc_manifest_updated
-  warn("It seems like you've added new tests to the library. If that's the case, please update the [XCTestManifests.swift](https://github.com/httpswift/swifter/blob/stable/XCode/Tests/XCTestManifests.swift) file running in your terminal the command `swift test --generate-linuxmain`.")
-
-  # This is a temporary warning to remove the entry for the failed test until we solve the issue in Linux
-  warn("If you ran the command `swift test --generate-linuxmain` in your terminal, please remove the line `testCase(IOSafetyTests.__allTests__IOSafetyTests),` from `public func __allTests() -> [XCTestCaseEntry]` in the bottom of the file. For more reference see [#366](https://github.com/httpswift/swifter/issues/366).")
+# Only lint files from this PR
+diff = GitDiffParser::Patches.parse(github.pr_diff)
+dir = "#{Dir.pwd}/"
+swiftlint.lint_files(inline_mode: true) do |violation|
+  diff_filename = violation['file'].gsub(dir, '')
+  file_patch = diff.find_patch_by_file(diff_filename)
+  !file_patch.nil? && file_patch.changed_lines.any? { |line| line.number == violation['line'] }
 end
 
-# Xcode summary
-def summary(platform:)
-    xcode_summary.report "xcodebuild-#{platform}.json"
-end
+# Codecov
+xcov.report()
 
 def label_tests_summary(label:, platform:)
     file_name = "xcodebuild-#{platform}.json"
@@ -133,4 +152,10 @@ def label_tests_summary(label:, platform:)
     end
 end
 
+label_tests_summary(label: "iOS", platform: "ios")
+label_tests_summary(label: "tvOS", platform: "tvos")
+label_tests_summary(label: "macOS", platform: "macos")
+
+summary(platform: "ios")
+summary(platform: "tvos")
 summary(platform: "macos")

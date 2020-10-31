@@ -166,10 +166,10 @@ repos:
           - id: forbid-autopkg-overrides
           - id: forbid-autopkg-trust-info
 
-    - repo: https://github.com/prettier/prettier
-      rev: 2.0.5
-      hooks:
-          - id: prettier
+    # - repo: https://github.com/prettier/prettier
+    #   rev: 2.0.5
+    #   hooks:
+    #       - id: prettier
 
     - repo: https://gitlab.com/smop/pre-commit-hooks
       rev: master

@@ -32,7 +32,7 @@ matrix:
       xcode_scheme: jmbde
 
       before_install:
-        - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+        - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
         - brew install danger/tap/danger-swift
 
       sript:
@@ -113,7 +113,6 @@ before_install:
 install:
   - pod install || pod install --repo-update
   - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/jmuelbert/jmbde-macos.git"
-
 
 before_script:
   - xcodebuild -version

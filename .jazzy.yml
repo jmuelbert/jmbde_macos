@@ -1,8 +1,25 @@
+--- # ---- About ----
 author: Jürgen Mülbert
+module: jmbde
+readme: README.md
+copyright: "See [license](https://github.com/jmuelbert/jmbde-macos/blob/develop/LICENSE) for more details."
+
+# ---- URLs ----
 author_url: http://jmuelbert.github.io/jmbde-macos/
 github_url: https://github.com/jmuelbert/jmbde-macos
+github_file_prefix: https://github.com/jmuelbert/jmbde-macos/0.2.0
 root_url: http://jmuelbert.github.io/jmbde-macos/
-module: jmbde
-output: docs
+
+# ---- Sources ----
+podspec: jmbde.podspec
+
+# ---- Generation ----
+clean: true
+output: jazzy_docs
+min_acl: public
+hide_documentation_coverage: false
+skip_undocumented: false
+objc: false
+
+# ---- Formatting ----
 theme: fullwidth
-xcodebuild_arguments: [-workspace, 'jmbde.xcworkspace', -scheme, 'jmbde']

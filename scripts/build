@@ -6,7 +6,7 @@ export FRAMEWORK_NAME="jmbde"
 export SCHEME="jmbde"
 export SDK="macosx10.15"
 export DESTINATION="arch=x86_64"
-export SWIFT_VERSION="5.0.1"
+export SWIFT_VERSION="5.1"
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export UPDATE_DOCS="true"
@@ -25,7 +25,7 @@ xcodebuild -showsdks
 echo "build the app"
 xcodebuild -workspace "$FRAMEWORK_NAME.xcworkspace" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug clean build test ONLY_ACTIVE_ARCH=YES SWIFT_VERSION=$SWIFT_VERSION -verbose | xcpretty -c
 echo "steps after the build"
-danger
+# danger
 jazzy
 rubocop
 Pods/SwiftLint/swiftlint lint

@@ -3,5 +3,5 @@ xcodeproj: jmbde.xcodeproj
 scheme: jmbde-macos
 source_directory: jmbde
 ignore:
-  - Tests/*
-  - Supporting Files/**
+    - Tests/*
+    - Supporting Files/**

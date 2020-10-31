@@ -1,8 +1,8 @@
 include:
-  - jmbde
+    - jmbde
 except:
-  - leading-whitespace
-  - trailing-whitespace
-  - comment-whitespace
-  - lower-camel-case
-  - forced-type-cast
+    - leading-whitespace
+    - trailing-whitespace
+    - comment-whitespace
+    - lower-camel-case
+    - forced-type-cast
