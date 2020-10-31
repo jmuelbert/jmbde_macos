@@ -1,5 +1,8 @@
 ---
 engines:
+  swiftlint:
+   exclude_paths:
+     - '**/*Tests.swift'    
  duplication:
    exclude_paths:
      - '**/*Tests.swift'
