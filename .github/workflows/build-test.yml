@@ -46,7 +46,7 @@ jobs:
                   brew bundle --no-upgrade
 
             - name: macOS (5.1)
-              run: set -o pipefail && xcodebuild -workspace "jmbde.workspace" -scheme "jmbde" -destination "platform=macOS" clean build | xcpretty
+              run: set -o pipefail && xcodebuild -workspace "jmbde.xcworkspace" -scheme "jmbde" -destination "platform=macOS" clean build | xcpretty
 
     macOS_5_2:
         name: "Build macOS (5.2)"
@@ -103,7 +103,7 @@ jobs:
                   brew bundle --no-upgrade
 
             - name: macOS (5.3)
-              run: set -o pipefail && xcodebuild -workspace "jmbde.workspace" -scheme "jmbde" -destination "platform=macOS" clean build | xcpretty
+              run: set -o pipefail && xcodebuild -workspace "jmbde.xcworkspace" -scheme "jmbde" -destination "platform=macOS" clean build | xcpretty
 
             - name: Upload Artifact
               uses: actions/upload-artifact@v2.2.0
@@ -142,7 +142,7 @@ jobs:
                   brew bundle --no-upgrade
 
             - name: Build_iOS
-              run: set -o pipefail && xcodebuild -workspace "jmbde.workspace" -scheme "jmbde iOS" -destination "${{ matrix.destination }}" clean test | xcpretty
+              run: set -o pipefail && xcodebuild -workspace "jmbde.xcworkspace" -scheme "jmbde iOS" -destination "${{ matrix.destination }}" clean test | xcpretty
 
     tvOS:
         name: "Test tvOS"
@@ -175,7 +175,7 @@ jobs:
                   brew bundle --no-upgrade
 
             - name: tvOS - ${{ matrix.destination }}
-              run: set -o pipefail && xcodebuild -workspace "jmbde.workspace" -scheme "jmbde tvOS" -destination "${{ matrix.destination }}" clean test | xcpretty
+              run: set -o pipefail && xcodebuild -workspace "jmbde.xcworkspace" -scheme "jmbde tvOS" -destination "${{ matrix.destination }}" clean test | xcpretty
 
     watchOS:
         name: "Test watchOS"
@@ -208,4 +208,4 @@ jobs:
                   brew bundle --no-upgrade
 
             - name: tvOS - ${{ matrix.destination }}
-              run: set -o pipefail && xcodebuild -workspace "jmbde.workspace" -scheme "jmbde watchOS" -destination "${{ matrix.destination }}" clean test | xcpretty
+              run: set -o pipefail && xcodebuild -workspace "jmbde.xcworkspace" -scheme "jmbde watchOS" -destination "${{ matrix.destination }}" clean test | xcpretty
