@@ -1,0 +1,77 @@
+{
+  "entries": {
+    "brew": {
+      "swiftformat": {
+        "version": "0.47.2",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/swiftformat-0.47.2.catalina.bottle.tar.gz",
+              "sha256": "c60ef5fb21b0130c1a1d85c21d3138f4558d3488d6217eb2bc0f272f951ab59a"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/swiftformat-0.47.2.mojave.bottle.tar.gz",
+              "sha256": "bcb75d07c1cb2edcd6ae3556b120e76f592c5d1a45b44ff058056b27f9347781"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/swiftformat-0.47.2.high_sierra.bottle.tar.gz",
+              "sha256": "2dfddc61bfe3491a677794119d43992b7b2709d63e540a28ac4ab59d19b0a98e"
+            }
+          }
+        }
+      },
+      "swiftlint": {
+        "version": "0.40.3",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/swiftlint-0.40.3.catalina.bottle.tar.gz",
+              "sha256": "84368120d02e9a22515d4fdfe852dcdddcfa47f8f688e5d0aa6eba837d52d890"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/swiftlint-0.40.3.mojave.bottle.tar.gz",
+              "sha256": "42de59d77fdd150558306b024d1cceb757da3d83aa3c03fd985636e24ef8ab9b"
+            }
+          }
+        }
+      },
+      "xctool": {
+        "version": "0.3.7",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/xctool-0.3.7.catalina.bottle.tar.gz",
+              "sha256": "0cf8c734d095ab97b2d5537b67d3f13e6ff8f38c46503ea02b9eba98ff35942c"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/xctool-0.3.7.mojave.bottle.tar.gz",
+              "sha256": "8b116346555e2616619e577d3ce3c69a24d66cb505ee048ba316ab2880736043"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/xctool-0.3.7.high_sierra.bottle.tar.gz",
+              "sha256": "055172ba606bf94416513e418007f849a08ff24a3b3484fb67c1b4f854123bb9"
+            }
+          }
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "catalina": {
+        "HOMEBREW_VERSION": "2.5.8",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "2284eac59b3b6f52e5755384b29ea848c2bcdd73",
+        "CLT": "1103.0.32.59",
+        "Xcode": "12.1",
+        "macOS": "10.15.7"
+      }
+    }
+  }
+}

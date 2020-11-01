@@ -14,12 +14,9 @@ export EXPANDED_CODE_SIGN_IDENTITY="-"
 export EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
 mkdir -p build
 echo "Install dependencies"
-gem install bundler
 bundle install
-brew update
-brew outdated xctool || brew upgrade xctool
-brew outdated carthage || brew upgrade carthage
-pod install
+brew update-reset
+brew bundle --no-upgrade
 xcodebuild -version
 xcodebuild -showsdks
 echo "build the app"

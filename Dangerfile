@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 # Dangerfile
+# To test locally, use the following
+# `export DANGER_GITHUB_API_TOKEN=...YourToken...`
+# `bundle exec danger pr https://github.com/jmuelbert/jmbde-macos/pull/1618` Or some other pull #
+
+# import remote Dangerfile; example, https://github.com/loadsmart/dangerfile/blob/master/Dangerfile
+# danger.import_dangerfile(github: 'loadsmart/dangerfile', :path => 'Dangerfile')
 
 require 'git_diff_parser'
 
@@ -131,25 +137,3 @@ end
 
 # Codecov
 xcov.report()
-
-def label_tests_summary(label:, platform:)
-    file_name = "xcodebuild-#{platform}.json"
-    json = File.read(file_name)
-    data = JSON.parse(json)
-    data["tests_summary_messages"].each { |message|
-        if !message.empty?
-            message.insert(1, " " + label + ":")
-        end
-    }
-    File.open(file_name,"w") do |f|
-        f.puts JSON.pretty_generate(data)
-    end
-end
-
-label_tests_summary(label: "iOS", platform: "ios")
-label_tests_summary(label: "tvOS", platform: "tvos")
-label_tests_summary(label: "macOS", platform: "macos")
-
-summary(platform: "ios")
-summary(platform: "tvos")
-summary(platform: "macos")

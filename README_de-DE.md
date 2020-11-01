@@ -9,7 +9,6 @@
 ![Swift version](https://img.shields.io/badge/swift-4.2-orange.svg)
 ![Swift version](https://img.shields.io/badge/swift-5.0-orange.svg)
 ![Swift version](https://img.shields.io/badge/swift-5.1-orange.svg)
-[![Build Status](https://travis-ci.org/jmuelbert/jmbde-macos.svg?branch=master)](https://travis-ci.org/jmuelbert/jmbde-macos)
 [![codecov](https://codecov.io/gh/jmuelbert/jmbde-macos/branch/master/graph/badge.svg)](https://codecov.io/gh/jmuelbert/jmbde-macos)
 [![GitHub license](https://img.shields.io/badge/license-EUPL-blue.svg)](https://joinup.ec.europa.eu/page/eupl-text-11-12)
 
@@ -33,7 +32,7 @@ Dieses Programm läuft nur auf Makros. Ist gänzlich in swift geschrieben und mi
 
 ## Unterstützte Plattform
 
--   macOS ab 10.14
+- macOS ab 10.14
 
 ## Ausführen
 
@@ -41,22 +40,23 @@ Starten Sie die Anwendung mit einem Klick auf das Symbol.
 
 ## Anforderungen und Fehlerberichte
 
--   [GitHub issues (preferred)](https://github.com/jmuelbert/jmbde-macos/issues)
+- [GitHub issues (preferred)](https://github.com/jmuelbert/jmbde-macos/issues)
 
 ## Fragen oder Kommentare
 
 ## Wiki
 
--   [Main Page](https://github.com/jmuelbert/jmbde-macos/wiki)
--   [User Manual](http://jmuelbert.github.io/jmbde-macos/)
+- [Main Page](https://github.com/jmuelbert/jmbde-macos/wiki)
+
+- [User Manual](http://jmuelbert.github.io/jmbde-macos/)
 
 ## Code-Quellen
 
 Der Hauptzweig stellt den neuesten Vorabcode dar.
 
--   [Releases](https://github.com/jmuelbert/jmbde-macos/releases)
+- [Releases](https://github.com/jmuelbert/jmbde-macos/releases)
 
--   [Milestones](https://github.com/jmuelbert/jmbde-macos/milestones)
+- [Milestones](https://github.com/jmuelbert/jmbde-macos/milestones)
 
 ## Programm erstellen
 
@@ -64,7 +64,7 @@ Kompilieren Sie den Quellcode mit [Xcode](https://itunes.apple.com/de/app/xcode/
 
 ## Resources
 
--   [Jazzy](https://github.com/realm/jazzy)
+- [Jazzy](https://github.com/realm/jazzy)
 
 ## License
 

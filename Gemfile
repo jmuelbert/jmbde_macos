@@ -19,7 +19,7 @@ gem 'fastlane'
 gem 'xcode-install'
 
 group :documentation do
-# gem 'jazzy', '~> 0.11'
+    gem 'jazzy', '~> 0.11'
 end
 
 group :test do
