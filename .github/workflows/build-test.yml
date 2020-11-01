@@ -36,7 +36,7 @@ jobs:
               with:
                   submodules: recursive
                   fetch-depth: 0
-            - uses: actions/cache@v1
+            - uses: actions/cache@v2.1.2
               id: bundler-cache
               with:
                   path: vendor/bundle
