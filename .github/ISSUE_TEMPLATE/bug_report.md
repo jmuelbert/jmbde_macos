@@ -1,9 +1,10 @@
 ---
 name: Bug report
 about: Report that something doesn't work as expected
-title: ""
-labels: bug
-assignees: ""
+title: ''
+labels: ''
+assignees: ''
+
 ---
 
 **Describe the bug**
