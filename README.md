@@ -9,8 +9,12 @@
 ![Swift version](https://img.shields.io/badge/swift-4.2-orange.svg)
 ![Swift version](https://img.shields.io/badge/swift-5.0-orange.svg)
 ![Swift version](https://img.shields.io/badge/swift-5.1-orange.svg)
+[![GitHub All Releases](https://img.shields.io/github/downloads/jmuelbert/jmbde-macos/total?label=downloads%40all)](https://github.com/jmuelbert/jmbde-macos/releases)
 [![codecov](https://codecov.io/gh/jmuelbert/jmbde-macos/branch/master/graph/badge.svg)](https://codecov.io/gh/jmuelbert/jmbde-macos)
 [![GitHub license](https://img.shields.io/badge/license-EUPL-blue.svg)](https://joinup.ec.europa.eu/page/eupl-text-11-12)
+![Misspell fixer](https://github.com/jmuelbert/jmbde-QT/workflows/Misspell%20fixer/badge.svg)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Help wanted issues](https://img.shields.io/github/issues/jmuelbert/jmbde-macos/help%20wanted)](https://github.com/jmuelbert/jmbde-macos/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
 [Features](https://github.com/jmuelbert/jmbde-macos) | [Documentation](https://jmuelbert.github.io/jmbde-macos/) | [Changelog](CHANGELOG.md) | [Contributing](CONTRIBUTING.md) | [FAQ](https://github.com/jmuelbert/jmbde-macos/wiki/FAQ) | [deutsch](README_de-DE.md)
 
