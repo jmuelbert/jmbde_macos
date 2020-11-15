@@ -50,7 +50,7 @@ repos:
             stages:
                 - commit
                 - manual
-                
+
     - repo: https://github.com/pre-commit/pygrep-hooks
       rev: v1.7.0 # Use the ref you want to point at
       hooks:
@@ -110,13 +110,13 @@ repos:
                 ]
             additional_dependencies: [shellcheck]
           - id: shfmt
-          
+
     - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
       rev: 0.1.0 # or specific tag
       hooks:
           - id: yamlfmt
             args: [--preserve-quotes]
-            
+
     - repo: https://github.com/Lucas-C/pre-commit-hooks-go
       rev: v1.0.1
       hooks:
@@ -156,13 +156,13 @@ repos:
       hooks:
           - id: yamllint
             args: [--format, parsable, --strict]
-            
+
     - repo: https://github.com/noahsark769/xcodeproj-sort-pre-commit-hook
       rev: v1.1.0
       hooks:
           - id: xcodeproj-sort
             args: [--groups-position=above]
-         
+
     - repo: https://github.com/jorisroovers/gitlint
       rev: v0.14.0
       hooks:
@@ -190,7 +190,7 @@ repos:
       hooks:
           - id: mypy
             exclude: ^docs/conf.py
-            
+
     # - repo: https://github.com/prettier/prettier
     #  rev: 2.1.2
     #  hooks:
@@ -261,3 +261,8 @@ repos:
       hooks:
           - id: cmake-format
           - id: cmake-lint
+
+    - repo: https://github.com/nicklockwood/SwiftFormat
+      rev: v0.0.0
+      hooks:
+          - id: swiftformat

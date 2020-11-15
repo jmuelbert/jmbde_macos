@@ -56,10 +56,9 @@ class OutlineItem: NSObject {
     /// param dictionary
     ///
     init(dictionary: NSDictionary) {
-        self.title = (dictionary.object(forKey: "title") as? String)!
-        self.image = (dictionary.object(forKey: "image") as? String)!
-        self.desc = (dictionary.object(forKey: "description") as? String)!
-        self.viewControllerIdentifier = (dictionary.object(forKey: "viewControllerIdentifier") as? String)!
-
+        title = (dictionary.object(forKey: "title") as? String)!
+        image = (dictionary.object(forKey: "image") as? String)!
+        desc = (dictionary.object(forKey: "description") as? String)!
+        viewControllerIdentifier = (dictionary.object(forKey: "viewControllerIdentifier") as? String)!
     }
 }

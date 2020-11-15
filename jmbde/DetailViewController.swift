@@ -1,66 +1,65 @@
 /**************************************************************************
-**
-** DetailViewController.swift
-**
-** Copyright (c) 2016-2019 Jürgen Mülbert. All rights reserved.
-**
-** This file is part of jmbde
-**
-** Licensed under the EUPL, Version 1.2 or – as soon they
-** will be approved by the European Commission - subsequent
-** versions of the EUPL (the "Licence");
-** You may not use this work except in compliance with the
-** Licence.
-** You may obtain a copy of the Licence at:
-**
-** https://joinup.ec.europa.eu/page/eupl-text-11-12
-**
-** Unless required by applicable law or agreed to in
-** writing, software distributed under the Licence is
-** distributed on an "AS IS" basis,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
-** express or implied.
-** See the Licence for the specific language governing
-** permissions and limitations under the Licence.
-**
-** Lizenziert unter der EUPL, Version 1.2 oder - sobald
-**  diese von der Europäischen Kommission genehmigt wurden -
-** Folgeversionen der EUPL ("Lizenz");
-** Sie dürfen dieses Werk ausschließlich gemäß
-** dieser Lizenz nutzen.
-** Eine Kopie der Lizenz finden Sie hier:
-**
-** https://joinup.ec.europa.eu/page/eupl-text-11-12
-**
-** Sofern nicht durch anwendbare Rechtsvorschriften
-** gefordert oder in schriftlicher Form vereinbart, wird
-** die unter der Lizenz verbreitete Software "so wie sie
-** ist", OHNE JEGLICHE GEWÄHRLEISTUNG ODER BEDINGUNGEN -
-** ausdrücklich oder stillschweigend - verbreitet.
-** Die sprachspezifischen Genehmigungen und Beschränkungen
-** unter der Lizenz sind dem Lizenztext zu entnehmen.
-**
-**************************************************************************/
+ **
+ ** DetailViewController.swift
+ **
+ ** Copyright (c) 2016-2019 Jürgen Mülbert. All rights reserved.
+ **
+ ** This file is part of jmbde
+ **
+ ** Licensed under the EUPL, Version 1.2 or – as soon they
+ ** will be approved by the European Commission - subsequent
+ ** versions of the EUPL (the "Licence");
+ ** You may not use this work except in compliance with the
+ ** Licence.
+ ** You may obtain a copy of the Licence at:
+ **
+ ** https://joinup.ec.europa.eu/page/eupl-text-11-12
+ **
+ ** Unless required by applicable law or agreed to in
+ ** writing, software distributed under the Licence is
+ ** distributed on an "AS IS" basis,
+ ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ ** express or implied.
+ ** See the Licence for the specific language governing
+ ** permissions and limitations under the Licence.
+ **
+ ** Lizenziert unter der EUPL, Version 1.2 oder - sobald
+ **  diese von der Europäischen Kommission genehmigt wurden -
+ ** Folgeversionen der EUPL ("Lizenz");
+ ** Sie dürfen dieses Werk ausschließlich gemäß
+ ** dieser Lizenz nutzen.
+ ** Eine Kopie der Lizenz finden Sie hier:
+ **
+ ** https://joinup.ec.europa.eu/page/eupl-text-11-12
+ **
+ ** Sofern nicht durch anwendbare Rechtsvorschriften
+ ** gefordert oder in schriftlicher Form vereinbart, wird
+ ** die unter der Lizenz verbreitete Software "so wie sie
+ ** ist", OHNE JEGLICHE GEWÄHRLEISTUNG ODER BEDINGUNGEN -
+ ** ausdrücklich oder stillschweigend - verbreitet.
+ ** Die sprachspezifischen Genehmigungen und Beschränkungen
+ ** unter der Lizenz sind dem Lizenztext zu entnehmen.
+ **
+ **************************************************************************/
 
 import Cocoa
 
 class DetailViewController: NSViewController {
+    /**
+       The Description in Top of the actual view
+     */
+    @IBOutlet private var descriptionField: NSTextField!
+    /**
+       The view Area for the Data Views
+     */
+    @IBOutlet private var viewArea: NSView!
 
     /**
-      The Description in Top of the actual view
-    */
-    @IBOutlet weak private var descriptionField: NSTextField!
-    /**
-      The view Area for the Data Views
-    */
-    @IBOutlet weak private var viewArea: NSView!
-
-    /**
-      The detailItemRecord
-        - hold the data from the outline.plist
-        - is use for the description header
-        - change the seque
-    */
+       The detailItemRecord
+         - hold the data from the outline.plist
+         - is use for the description header
+         - change the seque
+     */
     var detailItemRecord: OutlineItem! {
         didSet {
             // Remove the old child view controller
@@ -84,14 +83,14 @@ class DetailViewController: NSViewController {
             }
 
             // Load the area storyboard and embed.
-            let storyboard: NSStoryboard =
-            NSStoryboard(name: NSStoryboard.Name(detailItemRecord.viewControllerIdentifier), bundle: nil)
+            let storyboard =
+                NSStoryboard(name: NSStoryboard.Name(detailItemRecord.viewControllerIdentifier), bundle: nil)
             _ = NSStoryboard.SceneIdentifier(detailItemRecord.viewControllerIdentifier)
             guard let buttonViewController =
                 storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(
                     detailItemRecord.viewControllerIdentifier)) as? NSViewController else { return }
 
-           insertChild(buttonViewController, at: 0)
+            insertChild(buttonViewController, at: 0)
 
             buttonViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
@@ -135,5 +134,4 @@ class DetailViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
     }
-
 }

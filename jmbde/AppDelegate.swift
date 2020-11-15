@@ -1,46 +1,46 @@
 /**************************************************************************
-**
-**  AppDelegate.swiftx
-**
-** Copyright (c) 2016-2019 Jürgen Mülbert. All rights reserved.
-**
-** This file is part of jmbde
-**
-** Licensed under the EUPL, Version 1.2 or – as soon they
-** will be approved by the European Commission - subsequent
-** versions of the EUPL (the "Licence");
-** You may not use this work except in compliance with the
-** Licence.
-** You may obtain a copy of the Licence at:
-**
-**  https://joinup.ec.europa.eu/page/eupl-text-11-12
-**
-** Unless required by applicable law or agreed to in
-** writing, software distributed under the Licence is
-** distributed on an "AS IS" basis,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
-** express or implied.
-** See the Licence for the specific language governing
-** permissions and limitations under the Licence.
-**
-** Lizenziert unter der EUPL, Version 1.2 oder - sobald
-**  diese von der Europäischen Kommission genehmigt wurden -
-** Folgeversionen der EUPL ("Lizenz");
-** Sie dürfen dieses Werk ausschließlich gemäß
-** dieser Lizenz nutzen.
-** Eine Kopie der Lizenz finden Sie hier:
-**
-** https://joinup.ec.europa.eu/page/eupl-text-11-12
-**
-** Sofern nicht durch anwendbare Rechtsvorschriften
-** gefordert oder in schriftlicher Form vereinbart, wird
-** die unter der Lizenz verbreitete Software "so wie sie
-** ist", OHNE JEGLICHE GEWÄHRLEISTUNG ODER BEDINGUNGEN -
-** ausdrücklich oder stillschweigend - verbreitet.
-** Die sprachspezifischen Genehmigungen und Beschränkungen
-** unter der Lizenz sind dem Lizenztext zu entnehmen.
-**
-**************************************************************************/
+ **
+ **  AppDelegate.swiftx
+ **
+ ** Copyright (c) 2016-2019 Jürgen Mülbert. All rights reserved.
+ **
+ ** This file is part of jmbde
+ **
+ ** Licensed under the EUPL, Version 1.2 or – as soon they
+ ** will be approved by the European Commission - subsequent
+ ** versions of the EUPL (the "Licence");
+ ** You may not use this work except in compliance with the
+ ** Licence.
+ ** You may obtain a copy of the Licence at:
+ **
+ **  https://joinup.ec.europa.eu/page/eupl-text-11-12
+ **
+ ** Unless required by applicable law or agreed to in
+ ** writing, software distributed under the Licence is
+ ** distributed on an "AS IS" basis,
+ ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ ** express or implied.
+ ** See the Licence for the specific language governing
+ ** permissions and limitations under the Licence.
+ **
+ ** Lizenziert unter der EUPL, Version 1.2 oder - sobald
+ **  diese von der Europäischen Kommission genehmigt wurden -
+ ** Folgeversionen der EUPL ("Lizenz");
+ ** Sie dürfen dieses Werk ausschließlich gemäß
+ ** dieser Lizenz nutzen.
+ ** Eine Kopie der Lizenz finden Sie hier:
+ **
+ ** https://joinup.ec.europa.eu/page/eupl-text-11-12
+ **
+ ** Sofern nicht durch anwendbare Rechtsvorschriften
+ ** gefordert oder in schriftlicher Form vereinbart, wird
+ ** die unter der Lizenz verbreitete Software "so wie sie
+ ** ist", OHNE JEGLICHE GEWÄHRLEISTUNG ODER BEDINGUNGEN -
+ ** ausdrücklich oder stillschweigend - verbreitet.
+ ** Die sprachspezifischen Genehmigungen und Beschränkungen
+ ** unter der Lizenz sind dem Lizenztext zu entnehmen.
+ **
+ **************************************************************************/
 
 import AppCenter
 import AppCenterAnalytics
@@ -50,7 +50,6 @@ import Cocoa
 /// The AppDelegate
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
     /// The Reference to the MasterViewController
     var masterViewController: MasterViewController?
 
@@ -73,28 +72,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// - Parameter sender: The sender that will the application terminate
     /// - Returns: Bool
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return true
+        true
     }
+
     // MARK: - Core Data stack
+
     ///
     /// Init the persistentContainer for CoreData
     ///
     ///    - returns: The container
     lazy var persistentContainer: NSPersistentContainer = {
         /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
+          The persistent container for the application. This implementation
+          creates and returns a container, having loaded the store for the
+          application to it. This property is optional since there are legitimate
+          error conditions that could cause the creation of the store to fail.
+         */
         let container = NSPersistentContainer(name: "jmbde")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { storeDescription, error in
             if let error = error {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate.
                 // You should not use this function in a shipping application,
                 // although it may be useful during development.
-
 
                 /*
                  Typical reasons for an error here include:
@@ -138,7 +138,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func windowWillReturnUndoManager(window: NSWindow) -> UndoManager? {
         // Returns the NSUndoManager for the application. In this case,
         // the manager returned is that of the managed object context for the application.
-        return persistentContainer.viewContext.undoManager
+        persistentContainer.viewContext.undoManager
     }
 
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
@@ -161,12 +161,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             // Customize this code block to include application-specific recovery steps.
             let result = sender.presentError(nserror)
-            if (result) {
+            if result {
                 return .terminateCancel
             }
 
             let question = NSLocalizedString("Could not save changes while quitting. Quit anyway?", comment: "Quit without saves error question message")
-            let info = NSLocalizedString("Quitting now will lose any changes you have made since the last successful save", comment: "Quit without saves error question info");
+            let info = NSLocalizedString("Quitting now will lose any changes you have made since the last successful save", comment: "Quit without saves error question info")
             let quitButton = NSLocalizedString("Quit anyway", comment: "Quit anyway button title")
             let cancelButton = NSLocalizedString("Cancel", comment: "Cancel button title")
             let alert = NSAlert()
@@ -183,5 +183,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // If we got here, it is time to quit.
         return .terminateNow
     }
-
 }

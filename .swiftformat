@@ -26,4 +26,4 @@
 --stripunusedargs closure-only
 --wraparguments after-first
 --wrapcollections after-first
---wrapparameters after-firs
+--wrapparameters after-first

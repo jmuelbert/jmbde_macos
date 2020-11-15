@@ -46,12 +46,11 @@ import Cocoa
 import CoreData
 
 class EmployeeAddViewController: NSViewController {
-
     var employeesArray = [EmployeeMO]()
 
-    @IBOutlet weak private var firstNameTextField: NSTextField!
+    @IBOutlet private var firstNameTextField: NSTextField!
 
-    @IBOutlet weak private var lastNameTextField: NSTextField!
+    @IBOutlet private var lastNameTextField: NSTextField!
 
     @IBAction private func saveAction(_ sender: Any) {
         let lastName = lastNameTextField.stringValue
@@ -63,7 +62,7 @@ class EmployeeAddViewController: NSViewController {
             alert.alertStyle = NSAlert.Style.critical
             alert.addButton(withTitle: "Cancel")
             alert.runModal()
-            self.dismiss(self)
+            dismiss(self)
         } else {
             let appdelegate = NSApplication.shared.delegate as? AppDelegate
             let context = appdelegate?.persistentContainer.viewContext
@@ -74,16 +73,15 @@ class EmployeeAddViewController: NSViewController {
                 try context?.save()
             } catch {}
         }
-        self.dismiss(self)
+        dismiss(self)
     }
 
     @IBAction private func cancelAction(_ sender: Any) {
-        self.dismiss(self)
+        dismiss(self)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
-
 }

@@ -50,13 +50,13 @@ import Cocoa
  * :extends: NSViewController
  */
 class MasterViewController: NSViewController {
-
     // MARK: - Properties
+
     var outlineItem: OutlineItem!
     var recentItensObserver: NSObjectProtocol!
 
     // The OutlineView
-    @IBOutlet weak private var outlineView: NSOutlineView!
+    @IBOutlet private var outlineView: NSOutlineView!
 
     // Dummy data used for row titles
     // var outlines = ["First item", "Second item", "Third item", "Next Item"]
@@ -103,10 +103,8 @@ class MasterViewController: NSViewController {
         super.viewDidLoad()
 
         // Setup notification for window losing and gaining focus
-        recentItensObserver = NotificationCenter.default.addObserver(
-            forName: Notification.Name(rawValue: "de.juergen-muelbert.jmbde.openView"),
-            object: nil, queue: nil, using: openView)
-
+        recentItensObserver = NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: "de.juergen-muelbert.jmbde.openView"),
+                                                                     object: nil, queue: nil, using: openView)
     }
 
     override var representedObject: Any? {
@@ -116,21 +114,20 @@ class MasterViewController: NSViewController {
     }
 
     func openView(_ notification: Notification) {
-        self.outlineView.reloadData()
+        outlineView.reloadData()
     }
-
 }
 
 // MARK: Datasource
-extension MasterViewController: NSOutlineViewDataSource {
 
+extension MasterViewController: NSOutlineViewDataSource {
     // Number of items in the sidebar
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if let outline = item as? Outline {
             NSLog("Count of Children \(outline.children.count)")
             return outline.children.count
         }
-        print ("Count ouf Entries \(outlines.count)")
+        print("Count ouf Entries \(outlines.count)")
         return outlines.count
     }
 
@@ -142,19 +139,18 @@ extension MasterViewController: NSOutlineViewDataSource {
         return outlines[index]
     }
 
-  // Whether rows are expandable by an arrow
+    // Whether rows are expandable by an arrow
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         if let outline = item as? Outline {
             return !outline.children.isEmpty
         }
         return false
     }
-
 }
 
 // MARK: - Delegate
-extension MasterViewController: NSOutlineViewDelegate {
 
+extension MasterViewController: NSOutlineViewDelegate {
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         var view: NSTableCellView?
 
@@ -169,16 +165,15 @@ extension MasterViewController: NSOutlineViewDelegate {
             }
         } else if let outlineItem = item as? OutlineItem {
             if (tableColumn?.identifier)!.rawValue == "OutlineColItem" {
-                view = outlineView.makeView(
-                    withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ItemCell"),
-                    owner: self) as? NSTableCellView
+                view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ItemCell"),
+                                            owner: self) as? NSTableCellView
                 if let textField = view?.textField {
                     textField.stringValue = outlineItem.title
                     textField.sizeToFit()
                 }
             } else if (tableColumn?.identifier)!.rawValue == "OutlineColItem" {
                 view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(
-                        rawValue: "ImageCell"), owner: self) as? NSTableCellView
+                    rawValue: "ImageCell"), owner: self) as? NSTableCellView
                 if let image = view?.imageView {
                     image.image = NSImage(named: NSImage.Name(outlineItem.image))
                     image.sizeToFit()
@@ -189,7 +184,7 @@ extension MasterViewController: NSOutlineViewDelegate {
     }
 
     func outlineView(_ outlineView: NSOutlineView, shouldEdit tableColumn: NSTableColumn?, item: Any) -> Bool {
-        return false
+        false
     }
 
     func outlineViewSelectionDidChange(_ notification: Notification) {
@@ -205,26 +200,27 @@ extension MasterViewController: NSOutlineViewDelegate {
             self.outlineItem = outlineItem
 
             NSLog("ViewSelectionDidChange (outlineitem) \(outlineItem)")
-            NotificationCenter.default.post(Notification.init(name: Notification.Name(
+            NotificationCenter.default.post(Notification(name: Notification.Name(
                 rawValue: "de.juergen-muelbert.jmbde.changeView"), object: self))
         }
-   }
+    }
 
     func outlineViewSelectionIsChanging(_ notification: Notification) {
         NSLog("Selection changed")
     }
 
     // MARK: KVO
+
     // override func observeValue(forKeyPath keyPath: String?, of object: Any?,
     //  change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     //  super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
     // }
-
 }
 
 // MARK: - Protocol
+
 ///
 /// The Protocol - Interface for the Message to the Controller
-protocol MasterViewControllerDelegate: class {
+protocol MasterViewControllerDelegate: AnyObject {
     func didChangeOutlineSelection(masterViewController: MasterViewController, selection: OutlineItem?)
 }

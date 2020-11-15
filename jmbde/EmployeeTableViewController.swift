@@ -46,19 +46,17 @@ import Cocoa
 import CoreData
 
 class EmployeeTableViewController: NSViewController {
-
-    @IBOutlet weak private var tableView: NSTableView!
+    @IBOutlet private var tableView: NSTableView!
 
     var employees: [EmployeeMO] = []
 
     @IBAction private func addEmployeeAction(_ sender: Any) {
         let empS = NSStoryboardSegue.Identifier("EmployeeAddSeque")
         performSegue(withIdentifier: empS, sender: sender)
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 
-    @IBAction private func removeEmployee(_ sender: Any) {
-    }
+    @IBAction private func removeEmployee(_ sender: Any) {}
 
     func requestData() {
         let appdelegate = NSApplication.shared.delegate as? AppDelegate
@@ -83,8 +81,8 @@ class EmployeeTableViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView?.dataSource = self
-        self.tableView?.delegate = self
+        tableView?.dataSource = self
+        tableView?.delegate = self
 
         requestData()
     }
@@ -92,24 +90,21 @@ class EmployeeTableViewController: NSViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         _ = NSStoryboardSegue.Identifier("EmployeeAddSeque")
         switch segue.identifier {
-            case _:
-                let destinationAddEmployee = segue.destinationController as? EmployeeAddViewController
-                destinationAddEmployee?.employeesArray = employees
-            default:
-                break
+        case _:
+            let destinationAddEmployee = segue.destinationController as? EmployeeAddViewController
+            destinationAddEmployee?.employeesArray = employees
+        default:
+            break
         }
     }
-
 }
 
 extension EmployeeTableViewController: NSTableViewDataSource {
-
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return employees.count
+        employees.count
     }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-
         if (tableColumn?.identifier)!.rawValue == "lastName" {
             if let cell =
                 tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "lastName"),
@@ -120,16 +115,13 @@ extension EmployeeTableViewController: NSTableViewDataSource {
         } else if (tableColumn?.identifier)!.rawValue == "firstName" {
             if let cell = tableView.makeView(withIdentifier:
                 NSUserInterfaceItemIdentifier(rawValue: "firstName"),
-                                             owner: nil) as? NSTableCellView {
-                    cell.textField?.stringValue = employees[row].firstName!
-                    return cell
+                owner: nil) as? NSTableCellView {
+                cell.textField?.stringValue = employees[row].firstName!
+                return cell
             }
         }
         return nil
     }
-
 }
 
-extension EmployeeTableViewController: NSTableViewDelegate {
-
-}
+extension EmployeeTableViewController: NSTableViewDelegate {}
