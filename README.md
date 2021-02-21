@@ -2,6 +2,7 @@
 
 ---
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/933a7b8c63ca443fbed403fab2abd2d0)](https://app.codacy.com/gh/jmuelbert/jmbde-macos?utm_source=github.com&utm_medium=referral&utm_content=jmuelbert/jmbde-macos&utm_campaign=Badge_Grade)
 [![Gitpod Ready Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/jmuelbert/jmbde-macos)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e18104f69b04453c993b1924a731aabd)](https://app.codacy.com/manual/jmuelbert/jmbde-macos?utm_source=github.com&utm_medium=referral&utm_content=jmuelbert/jmbde-macos&utm_campaign=Badge_Grade_Dashboard)
 [![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat)](#cocoapods)
