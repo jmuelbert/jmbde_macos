@@ -28,7 +28,7 @@ jobs:
               with:
                   submodules: recursive
                   fetch-depth: 0
-            - uses: actions/cache@v2.1.5
+            - uses: actions/cache@v2.1.6
               id: bundler-cache
               with:
                   path: vendor/bundle
@@ -60,7 +60,7 @@ jobs:
               with:
                   submodules: recursive
                   fetch-depth: 0
-            - uses: actions/cache@v2.1.5
+            - uses: actions/cache@v2.1.6
               id: bundler-cache
               with:
                   path: vendor/bundle
@@ -91,7 +91,7 @@ jobs:
               with:
                   submodules: recursive
                   fetch-depth: 0
-            - uses: actions/cache@v2.1.5
+            - uses: actions/cache@v2.1.6
               id: bundler-cache
               with:
                   path: vendor/bundle
@@ -132,7 +132,7 @@ jobs:
     #           with:
     #               submodules: recursive
     #               fetch-depth: 0
-    #         - uses: actions/cache@v2.1.5
+    #         - uses: actions/cache@v2.1.6
     #           id: bundler-cache
     #           with:
     #               path: vendor/bundle
@@ -167,7 +167,7 @@ jobs:
     #           with:
     #               submodules: recursive
     #               fetch-depth: 0
-    #         - uses: actions/cache@v2.1.5
+    #         - uses: actions/cache@v2.1.6
     #           id: bundler-cache
     #           with:
     #               path: vendor/bundle
@@ -202,7 +202,7 @@ jobs:
     #           with:
     #               submodules: recursive
     #               fetch-depth: 0
-    #         - uses: actions/cache@v2.1.5
+    #         - uses: actions/cache@v2.1.6
     #           id: bundler-cache
     #           with:
     #               path: vendor/bundle
