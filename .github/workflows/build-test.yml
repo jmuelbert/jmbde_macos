@@ -114,7 +114,7 @@ jobs:
                   set -o pipefail && xcodebuild -workspace "jmbde.xcworkspace" -scheme "jmbde" -destination "platform=macOS" clean build | xcpretty
 
             - name: Upload Artifact
-              uses: actions/upload-artifact@v2.2.3
+              uses: actions/upload-artifact@v2.2.4
               with:
                   name: "jmbde-macOS_swift_5_3_${{ matrix.config.os }}-${{ github.sha }}"
                   path: build/bin/${{ matrix.config.binary }}
